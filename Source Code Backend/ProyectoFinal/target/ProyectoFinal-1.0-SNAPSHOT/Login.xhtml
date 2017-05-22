@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+    
+    <body >
+        
+      <ui:composition template="./Template.xhtml">
+      <title>Aprende Facil- Empieza tu estudio</title>
+            <ui:define name="top">
+                
+            </ui:define>
+            
+            
+            <ui:define name="content">    
+            <h:form class="background-login"  >
+                <b:container fluid="true">
+                    <b:row>
+                        <b:column col-xs="12" col-md="4" offset="4">
+                            <h3 style="text-align: center">Empieza tu estudio!</h3>
+                            <p style="text-align: center">Cualquier persona puede aprender online de una manera facil y didactica</p>
+                            <hr></hr>
+                        </b:column>
+                    </b:row>    
+                    <b:row>
+                        <b:column col-xs="6" col-md="1" offset-md="4">
+                            <h:outputText value="Nombre de usuario:"/> 
+                        </b:column>
+                        <b:column col-xs="12" col-md="3">
+                           <b:inputText id="usernameDiv" fieldId="j_username" name="j_username"
+                                        placeholder="Ingrese su nombre de usuario">
+                                <f:facet name="prepend">
+                                   <b:icon name="user" />
+                               </f:facet>
+                           </b:inputText>
+                        </b:column>
+                        <b:column medium-screen="6" style-class="message">
+                             <b:message for="usernameDiv" />
+                        </b:column>
+                    </b:row>
+                    <b:row>
+                            <b:column col-xs="6" col-md="1" offset-md="4">
+                            <h:outputText value="Contraseña:"/> 
+                        </b:column>
+                          <b:column col-xs="12" col-md="3">
+                           <b:inputText id="passwordDiv" fieldId="j_password" name="j_password"
+                                        placeholder="Ingrese su Contraseña">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="key" />
+                               </f:facet>
+                           </b:inputText>
+                            <p style="text-align: left">Te olvdidaste tu <a href="Reset.xhtml">contraseña?</a></p>
+                        </b:column>
+                    </b:row>
+                    <b:row>
+                        <b:column span="2" offset="5">
+                            <b:commandButton value="Iniciar Session" onclick="ajax:loginBean.login()" update="@form" look="primary"
+                                style="width:100%" />
+                        </b:column>
+                    </b:row>
+                </b:container>
+            </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

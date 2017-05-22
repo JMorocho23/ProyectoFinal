@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <body>
+
+        <ui:composition template="./Template.xhtml">
+        <title>Aprende Facil- Crea una cuenta</title>
+            <ui:define name="content">
+             <h:form class="background-signup">
+                <b:container fluid="true">
+                    <b:row>
+                        <b:column col-xs="12" col-md="4" offset="6">
+                                <h3 style="text-align: center">Crea tu cuenta en Aprende Facil!</h3>
+                                <p style="text-align: center">Ya tienes cuenta? <a href="Login.xhtml">ingresa aquí</a></p>
+                            <hr></hr>
+                        </b:column>
+                    </b:row>
+                    <b:row>
+                        <b:column col-xs="6" col-md="1" offset-md="6">
+                            <h:outputText value="Nombre y Apellido:"/>
+                        </b:column>
+                        <b:column col-xs="12" col-md="3">
+                           <b:inputText id="nameDiv" fieldId="j_name" name="j_name"
+                                value="#{loginBean.name}" placeholder="Ingrese su nombre y apellido">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="male" />
+                               </f:facet>
+                           </b:inputText>
+                        </b:column>
+                    </b:row>
+                    <b:row>
+                            <b:column col-xs="6" col-md="1" offset-md="6">
+                            <h:outputText value="Correo electronico:"/>
+                        </b:column>
+                          <b:column col-xs="12" col-md="3">
+                           <b:inputText id="CorreoDiv" fieldId="j_correoelec" name="j_correoelec"
+                                value="#{loginBean.correo}" placeholder="Ingrese su correo electronico">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="envelope" />
+                               </f:facet>
+                           </b:inputText>
+                        </b:column>
+                    </b:row>
+                    <b:row>
+                        <b:column col-xs="6" col-md="1" offset-md="6">
+                            <h:outputText value="Teléfono:"/>
+                        </b:column>
+                        <b:column col-xs="12" col-md="3">
+                            <b:inputText id="PhoneDiv" field-id="j_phone" name="j_phone"
+                                value="#{loginBean.phone}" placeholder="Ingrese su numero de telefono">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="mobile" />
+                               </f:facet>
+                           </b:inputText>
+                        </b:column>
+                    </b:row>
+                    <b:row>
+                        <b:column col-xs="6" col-md="1" offset-md="6">
+                            <h:outputText value="Nombre de usuario:"/>
+                        </b:column>
+                        <b:column col-xs="12" col-md="3">
+                           <b:inputText id="usernameDiv" fieldId="j_username" name="j_username"
+                                value="#{loginBean.username}" placeholder="Ingrese su nombre de usuario">
+                                <f:facet name="prepend">
+                                   <b:icon name="user" />
+                               </f:facet>
+                           </b:inputText>
+                           <b:message for="usernameDiv" />
+                        </b:column>
+                    </b:row>
+                    <b:row>
+                        <b:column col-xs="6" col-md="1" offset-md="6">
+                            <h:outputText value="Contraseña:"/>
+                        </b:column>
+                          <b:column col-xs="12" col-md="3">
+                             <b:inputSecret id="passwordDiv" fieldId="j_password" name="j_password" required="true"
+                                  value="#{loginBean.password}" placeholder="Ingrese su contraseña">
+                                  <f:facet name="prepend">
+                                     <b:iconAwesome name="key" />
+                                 </f:facet>
+                             </b:inputSecret>
+                        </b:column>
+                    </b:row>
+                    <b:row>
+                            <b:column col-xs="6" col-md="1" offset-md="6">
+                            <h:outputText value="Confirma tu contraseña:"/>
+                        </b:column>
+                          <b:column col-xs="12" col-md="3">
+                           <b:inputSecret id="confpasswordDiv" fieldId="j_confpassword" name="j_confpassword" required="true"
+                                value="#{loginBean.password}" placeholder="Ingrese su contraseña de nuevo">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="check" />
+                               </f:facet>
+                           </b:inputSecret>
+                        </b:column>
+                    </b:row>
+                    <b:row>
+                        <b:column col-xs="6" col-md="1" offset-md="6">
+                            <h:outputText value="Actualmente soy un:"/>
+                        </b:column>
+                        <b:column col-xs="12" col-md="4">
+                        <p:selectOneButton value="#{selectOneView.option}">
+                            <f:selectItem itemLabel="Estudiante" itemValue="Estudiante" />
+                            <f:selectItem itemLabel="Egresado" itemValue="Egresado" />
+                            <f:selectItem itemLabel="Profesor" itemValue="Profesor" />
+                        </p:selectOneButton>
+                        </b:column>
+                    </b:row>
+                    <br></br>
+                    <b:row>
+                        <b:column span="2" offset="7">
+                            <b:commandButton value="Crear cuenta" onclick="ajax:loginBean.login()" update="@form" look="primary"
+                                style="width:100%" />
+                        </b:column>
+                    </b:row>
+                </b:container>
+            </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

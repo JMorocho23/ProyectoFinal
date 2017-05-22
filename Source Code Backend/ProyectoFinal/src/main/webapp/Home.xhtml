@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <body>
+
+        <ui:composition template="./Template.xhtml">
+        <title>Aprende Facil-Facilita tu estudio</title>
+            <ui:define name="content">
+            <h:form class="background-home">
+                <b:container class="cont-pos" fluid="true">
+                    <b:row>
+                        <b:column col-xs="12" col-md="8" offset="2">
+                                <h1 id="text-head">Facilita tu estudio</h1>                                         
+                        </b:column>
+                    </b:row>
+                    <b:row>
+                        <b:column col-xs="12"    col-md="8" offset="2">
+                            <h:form>
+                            <b:inputText class="buscadaDiv" fieldId="j_buscar" name="j_buscar"
+                                value="#{loginBean.buscar}" placeholder="Encuentra recursos de estudio específicos a la materia como apuntes, materiales de preparación para pruebas y mucho mas"/>
+                            <b:button class="btn-busq" value="" iconAwesome="search" look="info"/>  
+                            </h:form>
+                        </b:column>
+                    </b:row>
+                   </b:container>
+            </h:form>
+                
+                
+                
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
