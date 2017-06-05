@@ -1,0 +1,9 @@
+com\uda\controller\util\JsfUtil.class
+com\uda\controller\UsuarioController.class
+com\uda\proyectofinal\testServelet.class
+com\uda\controller\util\JsfUtil$PersistAction.class
+com\uda\model\Usuario.class
+com\uda\model\Usuario_.class
+com\uda\controller\UsuarioFacade.class
+com\uda\controller\AbstractFacade.class
+com\uda\controller\UsuarioController$UsuarioControllerConverter.class

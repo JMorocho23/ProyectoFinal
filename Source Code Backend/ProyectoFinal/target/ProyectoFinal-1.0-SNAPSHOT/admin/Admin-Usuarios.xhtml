@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./AdminNav.xhtml">
+
+            <ui:define name="content">
+               <h:form id="header">
+                    <b:container>
+                        <b:row>
+                            <b:column col-md="10">
+                                <h1><b:iconAwesome name="cog"/> Panel de Control<small> Administracion de la pagina</small></h1>       
+                            </b:column>
+
+                        </b:row>
+                    </b:container>             
+                </h:form>
+                <h:form id="bredcrumb">
+                    <b:container>
+                        <ol class="breadcrumb">
+                            <li class="active">Panel de Control</li>
+                        </ol>
+                    </b:container>
+                </h:form>
+                
+                <h:form id="main">
+                    <b:container>
+                        <b:row>
+                            <b:column col-md="3">
+                                <b:panel class="resumen-panel" look="primary" title="Menu de Administracion" collapsible="false">
+                                   <b:listLinks>
+                                       <b:navCommandLink class="cmd-link" href="Admin.xhtml" active="" icon-awesome="cog"
+                                                         value="Panel de Control"/>
+                                       <b:navCommandLink class="cmd-link" icon-awesome="user"
+                                            value="Usuarios">
+                                           <b:badge class="badge-align" value="115" />
+                                       </b:navCommandLink>
+                                       <b:navCommandLink class="cmd-link" icon-awesome="university"
+                                       value="Universidades">
+                                            <b:badge class="badge-align" value="4" />
+                                       </b:navCommandLink>
+                                       <b:navCommandLink class="cmd-link" icon-awesome="users"
+                                       value="Facultades">
+                                            <b:badge class="badge-align" value="35" />
+                                       </b:navCommandLink>                        
+                                       <b:navCommandLink class="cmd-link" icon-awesome="graduation-cap"
+                                       value="Carreras">
+                                            <b:badge class="badge-align" value="75" />
+                                       </b:navCommandLink>
+                                       <b:navCommandLink></b:navCommandLink>
+                                       <b:navCommandLink  header="Materia"/>
+                                       <b:navCommandLink class="cmd-link"  icon-awesome="book"
+                                       value="Materias">
+                                           <b:badge class="badge-align" value="200" />
+                                       </b:navCommandLink>                                           
+                                       <b:navCommandLink class="cmd-link" icon-awesome="file"
+                                       value="Documentos">
+                                           <b:badge class="badge-align" value="64" />
+                                       </b:navCommandLink>                                           
+                                       <b:navCommandLink class="cmd-link" icon-awesome="comments"
+                                       value="Commentarios">
+                                           <b:badge class="badge-align" value="30" />
+                                       </b:navCommandLink>                                           
+                                   </b:listLinks>
+                                 </b:panel> 
+                                <b:well>
+                                    <h4>Espacio en disco utilizado</h4>
+                                    <b:progressBar class="barras" value="20" look="info" striped="true" />
+                                    <h4>Ancho de banda utilizado</h4>
+                                        <b:progressBar class="barras" value="45" look="warning" striped="true" />
+                                </b:well>                                                               
+                            </b:column>
+                             <b:column col-md="9">
+                                 <h:form>
+                                    <b:panel class="resumen-panel" look="primary" title="Listado Usuarios" collapsible="false">
+                                        <b:dataTable   
+                                                     value="#{usuarioController.items}" 
+                                                     onselect="#{usuarioController.selected}"
+                                                     select="true"
+                                                     selectionMode="single"
+                                                     var="item"
+                                                     
+                                                    fixedHeader="true"
+                                                    scroll-size="400px"
+                                                    scroll-x="false"
+                                                    lang="es"
+                                                    searching="true" >
+
+
+                                           <b:dataTableColumn label="Nombre de Usuario" value="#{item.nombre_usuario}" />
+                                           <b:dataTableColumn label="Contraseña" value="#{item.password}" />
+                                           <b:dataTableColumn label="Nombre y Apellido" value="#{item.nombre_ape}" />
+                                           <b:dataTableColumn label="Correo Electronico" value="#{item.email}" />
+                                           <b:dataTableColumn label="Telefono" value="#{item.telefono}" />
+                                           <b:dataTableColumn label="Tipo Usuario" value="#{item.tipo_usuario}" />                                          
+                                       </b:dataTable> 
+                                        <b:commandButton id="editButton" 
+                                                         look="warning" 
+                                                         icon-awesome="pencil"  
+                                                         value="#{bundle.Edit}" />
+                                        <b:commandButton id="deleteButton" 
+                                                        look="danger" 
+                                                        icon-awesome="trash"  
+                                                        value="#{bundle.Delete}" 
+                                                        style="margin-left: 10px;"/>                                        
+                                     </b:panel>
+                                </h:form>
+                            </b:column>
+                        </b:row>
+                    </b:container>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

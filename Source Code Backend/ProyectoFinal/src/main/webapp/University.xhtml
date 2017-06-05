@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./Navbar.xhtml">
+
+            <ui:define name="content">
+                <div id="background-search-uni">
+                    <h:form>
+                        <b:container fluid="true">
+                            <b:row >
+                                <b:column class="background-about" col-xs="12" col-md="10" offset="1">
+                                    <h2 style="text-align: center">Encuentra tu Universidad</h2>
+                                    <p style="text-align: center">Elije de nuestra lista de universidades para encontrar los recursos de estudio que necesitas.</p> 
+                                    <hr class="hr-short-uni"></hr>
+                                    <br></br>            
+                                    <b:dataTable value="#" 
+                                        var="universidad"
+                                        lang="es"> 
+                                        <b:dataTableColumn order-by="dom-text" data-type="text" searchable="#{dataTableSettingsBean.searchable}">
+                                            <f:facet name="header">
+                                              <h:outputText value="Nombre"/>
+                                            </f:facet>
+                                            <b:button look="link" value="Universidad del Azuay" href="Home.xhtml"/>
+                                        </b:dataTableColumn>  
+                                        <b:dataTableColumn label="Provincia" value="Azuay" />
+                                             
+                                    </b:dataTable>                                                                                             
+                                </b:column>
+                            </b:row>
+                        </b:container>
+                    </h:form>                    
+                </div>
+            </ui:define>
+            
+        </ui:composition>
+
+    </body>
+</html>

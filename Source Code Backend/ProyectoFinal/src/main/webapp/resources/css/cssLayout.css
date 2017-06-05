@@ -9,8 +9,6 @@ top {
 #bottom {
     position: relative;
     background-color: #c2dfef;
-    padding: 5px;
-    margin: 10px 0px 0px 0px;
 }
 
 #left {
@@ -70,9 +68,20 @@ top {
     background-position: center;
     background-image: url(https://imgh.us/0ot00-7unlx_1.svg);
 }
+#background-search-uni{
+     position: relative;
+    width: 100%;
+    min-height: inherit;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+    background-image: url(https://imgh.us/69u5m-o6mem.svg);
+}
 .center_content {
     position: relative;
-    background-color: #dddddd;
+    background-color:#fff; 
     min-height: 92.3vh;
 }
 

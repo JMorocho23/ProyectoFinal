@@ -1,0 +1,140 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 3, 2017, 10:22:45 AM
+    Author     : Anticlutch
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    width: 100%;
+    min-height: 100%;
+}
+body {
+    background-color: #ffffff;
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE", Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;
+    width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+}
+
+   #custom-navbar {
+        background-color: #1f3a93;
+        border-color: #1e3378;
+        border-radius: 0 !important;
+        position: relative;
+        min-height: 33px;
+        margin-bottom: 0px;
+    }
+    .navbar-brand img {
+        height: 72px;
+        width: 222px;
+        position: relative;
+        top: -27px;
+    }
+
+    #af-navar-text1 a,#af-navar-text2 a,#af-navar-text3 a,#af-navar-text4 a{
+        color: #ecf0f1
+  
+    }
+    #af-navar-text1 a:hover, #af-navar-text2 a:hover,#af-navar-text4 a:hover,
+    #af-navar-text1 a:focus, #af-navar-text2 a:focus,#af-navar-text4 a:focus{
+       color: #f9690e;
+        background-color: #1e3378 !important;
+    }  
+    
+    #af-navar-text5 a{
+        color: #f9690e;
+    }
+    #af-navar-text5 a:hover{
+        color:#ecf0f1;
+    } 
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+        color: #f9690e !important;
+      background-color: #1e3378 !important;
+    }
+    .navbar-nav > li > .dropdown-menu {
+    background-color: #1f3a93;
+    }
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+    color: #f9690e !important;
+    background-color: #1e3378 !important;
+    }
+    
+    .dropdown-menu > li > a {
+        color: #ecf0f1;   
+    } 
+    .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+     background-color: #1e3378 !important;
+    }
+    
+    .main-color-bg{
+      background-color: #1f3a93 !important;
+      
+      color:#ecf0f1 !important;
+    }
+#footer{
+  background:#333333;
+  color:#ffffff;
+  text-align:center;
+  padding:30px;
+}    
+#footer .ui-widget-content {
+    border: none;
+    background: #333333;
+    color: #ffffff;
+}
+
+
+#header{
+    background: #333333;
+    color:#ffffff;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+#header .crear{
+    padding-top: 20px
+}
+
+.breadcrumb{
+    background: #cccccc !important;   
+}
+.breadcrumb > .active {
+    color:#333333 !important; 
+}
+.breadcrumb .a{
+   color:#333333;  
+}
+.cmd-link > a{
+   color:#333333 !important;  
+}
+
+.cmd-link > a:hover{
+   color:#1e3378 !important;  
+}
+
+.badge-align{
+    float:right;
+}
+
+.barras{
+    background-color: #f96264 !important;
+}
+
+.resumen-panel > .panel-heading{
+    color: #ecf0f1 !important;
+    background-color: #1f3a93 !important;
+    border-color: #1e3378 !important;
+}
+
+ 

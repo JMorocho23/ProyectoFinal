@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./AdminNav.xhtml">
+
+            <ui:define name="content">
+                <h:form id="header">
+                    <b:container>
+                        <b:row>
+                            <b:column col-md="10">
+                                <h1><b:iconAwesome name="cog"/> Panel de Control<small> Administracion de la pagina</small></h1>       
+                            </b:column>
+                        </b:row>
+                    </b:container>             
+                </h:form>
+                <h:form id="bredcrumb">
+                    <b:container>
+                        <ol class="breadcrumb">
+                            <li class="active">Panel de Control</li>
+                        </ol>
+                    </b:container>
+                </h:form>
+                
+                <h:form id="main">
+                    <b:container>
+                        <b:row>
+                            <b:column col-md="3">
+                                <b:panel class="resumen-panel" look="primary" title="Menu de Administracion" collapsible="false">
+                                   <b:listLinks>
+                                       <b:navCommandLink class="cmd-link" href="Admin.xhtml" active="" icon-awesome="cog"
+                                                         value="Panel de Control"/>
+                                       <b:navCommandLink class="cmd-link" icon-awesome="user"
+                                            value="Usuarios">
+                                           <b:badge class="badge-align" value="115" />
+                                       </b:navCommandLink>
+                                       <b:navCommandLink class="cmd-link" icon-awesome="university"
+                                       value="Universidades">
+                                            <b:badge class="badge-align" value="4" />
+                                       </b:navCommandLink>
+                                       <b:navCommandLink class="cmd-link" icon-awesome="users"
+                                       value="Facultades">
+                                            <b:badge class="badge-align" value="35" />
+                                       </b:navCommandLink>                        
+                                       <b:navCommandLink class="cmd-link" icon-awesome="graduation-cap"
+                                       value="Carreras">
+                                            <b:badge class="badge-align" value="75" />
+                                       </b:navCommandLink>
+                                       <b:navCommandLink></b:navCommandLink>
+                                       <b:navCommandLink  header="Materia"/>
+                                       <b:navCommandLink class="cmd-link"  icon-awesome="book"
+                                       value="Materias">
+                                           <b:badge class="badge-align" value="200" />
+                                       </b:navCommandLink>                                           
+                                       <b:navCommandLink class="cmd-link" icon-awesome="file"
+                                       value="Documentos">
+                                           <b:badge class="badge-align" value="64" />
+                                       </b:navCommandLink>                                           
+                                       <b:navCommandLink class="cmd-link" icon-awesome="comments"
+                                       value="Commentarios">
+                                           <b:badge class="badge-align" value="30" />
+                                       </b:navCommandLink>                                           
+                                   </b:listLinks>
+                                 </b:panel> 
+                                <b:well>
+                                    <h4>Espacio en disco utilizado</h4>
+                                    <b:progressBar class="barras" value="20" look="info" striped="true" />
+                                    <h4>Ancho de banda utilizado</h4>
+                                    <b:progressBar class="barras" value="45" look="warning" striped="true" />
+                                </b:well>                                                               
+                            </b:column>
+                             <b:column col-md="9">
+                                 <b:panel class="resumen-panel text-align-center" look="primary" title="Resumen de la Página" collapsible="false">
+                                     <b:column col-md="3">
+                                         <b:well>
+                                             <h2><b:iconAwesome name="user"/> 115</h2>
+                                             <h4>Usuarios</h4>
+                                         </b:well>
+                                     </b:column>
+                                     <b:column col-md="3">
+                                         <b:well>
+                                             <h2><b:iconAwesome name="graduation-cap"/> 75</h2>
+                                             <h4>Carreras</h4>
+                                         </b:well>
+                                     </b:column>
+                                     <b:column col-md="3">
+                                         <b:well>
+                                             <h2><b:iconAwesome name="book"/> 200</h2>
+                                             <h4>Materias</h4>
+                                         </b:well>
+                                     </b:column>
+                                     <b:column col-md="3">
+                                         <b:well>
+                                             <h2><b:iconAwesome name="bar-chart"/> 3,200</h2>
+                                             <h4>Visitantes</h4>
+                                         </b:well>
+                                     </b:column>                                     
+                                </b:panel>
+                                 <b:panel class="resumen-panel" look="primary" title="Últimos usuarios" collapsible="false">
+                                    <b:dataTable value="Usuarios"
+                                                  var="car"
+                                                 id="bcarPool2"
+                                                 fixedHeader="true"
+                                                 scroll-size="400px"
+                                                 scroll-x="false"
+                                                 responsive="true"
+                                                 lang="es"
+                                                 searching="false">
+                                        <b:dataTableColumn label="Nombre" value="Carlos" />
+                                        <b:dataTableColumn label="Correo Electronico" value="Medina" />
+                                        <b:dataTableColumn label="Se Unio" value="Junio 3, 2017" />
+                                    </b:dataTable> 
+                                </b:panel>
+                            </b:column>
+                        </b:row>
+                    </b:container>
+                </h:form>
+                
+                
+                
+                
+                
+                
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

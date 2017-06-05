@@ -18,77 +18,17 @@ body {
 
 h1 {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    border-bottom: 1px solid #AFAFAF; 
     font-size:  16px;
     font-weight: bold;
     margin: 0px;
     padding: 0px;
     color: #D20005;
 }
-/* 
- a:link, a:visited {
-  color: #ecf0f1;
-  font-weight : bold;
-  text-decoration: none;
-}
-
-a:link:hover, a:visited:hover  {
-  color: #045491;
-  font-weight : bold;
-  text-decoration : underline;
-}
-.ui-menubar {
-    width: auto;
-    background-color: #1F3A93 !important;
-}
-.head-ini{
-    
-}
-.head-reg{
-    color: #F4D03F !important;
-}
-.ui-menu {
-    position: relative;
-    border: 0 none;
-}
-.ui-helper-reset {
-    line-height: 1.1 !important;
-}
-
-
-.ui-menu .ui-menuitem-text {
-    float: left;
-    font-size: 22px;
-}
-
-.ui-menubar .ui-menuitem {
-    width: auto;
-    clear: none;
-    position: relative;
-    top: 18px;
-    font-size: 1.3em;
-}
-
-.img-logo{
-    height: 72px;
-    width: 222px;
-    position: relative;
-    top: -20px;
-    right: 8px;
-}
-
-.ui-menu, .ui-menu .ui-menu-child {
-    background: #1F3A93 !important;
-}
-.ui-menu .ui-menuitem-link  {
-    font-weight: 400 !important;
-    line-height: 22px !important;
-    cursor: pointer !important;
-}*/
 
     #custom-navbar {
         background-color: #1f3a93;
         border-color: transparent;
+        border-radius: 0 !important;
         position: relative;
         min-height: 50px;
         padding-top: 10px;
@@ -96,7 +36,6 @@ a:link:hover, a:visited:hover  {
         border: 1px solid transparent;
         margin-bottom: 0px;
     }
-
     .navbar-brand img {
         height: 72px;
         width: 222px;
@@ -104,6 +43,14 @@ a:link:hover, a:visited:hover  {
         top: -27px;
     }
 
+    #af-navar-text11 a{
+        color: #f9690e;
+    }
+    #af-navar-text11 a:hover{
+        color:#ecf0f1;
+    }    
+    
+    
     #af-navar-text1 a,#af-navar-text2 a,#af-navar-text3 a,#af-navar-text4 a{
         color: #ecf0f1
   
@@ -167,6 +114,12 @@ a:link:hover, a:visited:hover  {
     border: 0;
     border-top: 2px solid rgba(249, 105, 14, 0.7)   
 }
+.hr-long{
+    display: block;
+    margin: 15px auto;
+    border: 0;
+    border-top: 2px solid rgba(249, 105, 14, 0.7)   
+}
 
 .background-about{
     padding-top: 15px;
@@ -186,4 +139,15 @@ a:link:hover, a:visited:hover  {
      background-color: rgba(31, 58, 147, 0.7);
      color: #ecf0f1;
      
+}
+.panel-default {
+    border-color: transparent !important;
+    background-color: transparent !important;
+}
+.hr-short-uni{
+    display: block;
+    margin: 15px auto;
+    width: 45em;
+    border: 0;
+    border-top: 2px solid rgba(249, 105, 14, 0.7)   
 }

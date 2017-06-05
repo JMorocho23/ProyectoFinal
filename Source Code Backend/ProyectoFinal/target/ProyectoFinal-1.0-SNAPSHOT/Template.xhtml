@@ -1,43 +1,42 @@
-<?xml version='1.0' encoding='UTF-8' ?> 
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="/css/default.css"/>
-        <h:outputStylesheet name="/css/cssLayout.css"/>
-        <title>Aprende Facil</title>
-        
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <h:outputScript library="js" name="jsfcrud.js"/>
     </h:head>
 
-    <h:body>    
-        <b:navBar id="custom-navbar" brand-href="Home.xhtml" brand-img="http://imgh.us/logov1.svg">
-            <b:navbarLinks>
-               <b:navLink id="af-navar-text1" value="Inicio" href="Home.xhtml"></b:navLink>
-               <b:navLink id="af-navar-text2" value="Nosotros" href="About.xhtml"></b:navLink>
-               <b:navLink id="af-navar-text3" value="Contactanos" href="#"></b:navLink>      
-               <b:dropMenu id="af-navar-text6" value="Busca "  style="color: #ecf0f1">
-                   <b:navLink value="Por Universidad" href="#"></b:navLink>
-                   <b:navLink value="Por Facultad" href="#"></b:navLink>
-                   <b:navLink value="Por Carrera" href="#"></b:navLink>
-               </b:dropMenu>
-            </b:navbarLinks>
-            <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
-                <b:navbarLinks pull="right" styleClass="hidden-xs">
-                <b:navLink id="af-navar-text4" value="Iniciar Session" href="Login.xhtml"></b:navLink>
-                <b:navLink id="af-navar-text5" value="Registrate" href="Signup.xhtml"></b:navLink>
+    <h:body>
+
+        <p:growl id="growl" life="3000" />
+
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="65" header="#{bundle.AppName}">
+                <h:form id="menuForm">
+                    <p:menubar>
+                        <p:menuitem value="#{bundle.Home}" outcome="/index.html" icon="ui-icon-home"/>
+                        <p:submenu label="#{bundle.Maintenance}">
+                            <p:menuitem value="Usuario" outcome="/usuario/List.xhtml" />
+                        </p:submenu>
+                    </p:menubar>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="60">
                 
-                </b:navbarLinks>
-        </b:navBar>
-        
-        <div id="content" class="center_content">
-            <ui:insert name="content">Content</ui:insert>
-        </div>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <ui:insert name="body"/>
+            </p:layoutUnit>
+
+        </p:layout>
+
     </h:body>
 
 </html>

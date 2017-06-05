@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./Navbar.xhtml">
+
+            <ui:define name="content">
+                <div id="background-content">
+                    <h:form>
+                        <b:container fluid="true">
+                            <b:row style="text-align: center"> 
+                                <b:column class="background-about" col-xs="12" col-md="6" offset="3">
+                                    <h2>Contáctanos</h2>
+                                    <hr class="hr-short"></hr>
+                                    <p>¿Tienes alguna duda o sugerencia? No dudes en hacér nos lo saber.</p>
+                                    <b:button value="Nuestra Ubicacion" iconAwesome="map-marker" look="warning" />
+                                </b:column>
+                            </b:row>
+                        </b:container>
+                    </h:form>
+                    <h:form>
+                        <b:container fluid="true">
+                            <b:row>
+                                <b:column class="background-about2" col-xs="12" col-md="6" offset-md="3">
+                                    <b:panel>
+                                       <b:inputText id="nameDiv" fieldId="j_name" name="j_name" label="Nombre y Apellido:"
+                                            value="#{loginBean.name}" placeholder="Ingrese su nombre y apellido">
+                                            <f:facet name="prepend">
+                                               <b:iconAwesome name="male" />
+                                           </f:facet>
+                                       </b:inputText>
+                                        <b:inputText id="CorreoDiv" fieldId="j_correoelec" name="j_correoelec" label="Correo electronico:"
+                                            value="#{loginBean.correo}" placeholder="Ingrese su correo electronico">
+                                            <f:facet name="prepend">
+                                                <b:iconAwesome name="envelope" />
+                                            </f:facet>
+                                        </b:inputText> 
+                                        <b:inputText id="PhoneDiv" field-id="j_phone" name="j_phone" label="Teléfono:"
+                                            value="#{loginBean.phone}" placeholder="Ingrese su numero de telefono">
+                                            <f:facet name="prepend">
+                                               <b:iconAwesome name="mobile" />
+                                           </f:facet>
+                                        </b:inputText>
+                                        <b:inputTextarea rows="3" label="Mensaje:" placeholder="Escriba su mensaje">
+                                            <f:facet name="prepend">
+                                                 <b:iconAwesome name="comments" size="2x"/>
+                                            </f:facet>
+                                        </b:inputTextarea>
+                                        <b:button value="Enviar" iconAwesome="paper-plane" look="warning" />
+                                    </b:panel>
+                                </b:column>
+                            </b:row>
+                        </b:container>
+                    </h:form>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

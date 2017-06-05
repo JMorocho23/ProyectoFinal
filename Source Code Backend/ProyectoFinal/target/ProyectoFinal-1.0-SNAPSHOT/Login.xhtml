@@ -9,23 +9,28 @@
     
     <body >
         
-      <ui:composition template="./Template.xhtml">
+      <ui:composition template="./Navbar.xhtml">
       <title>Aprende Facil- Empieza tu estudio</title>
             <ui:define name="top">
                 
             </ui:define>
             
             
-            <ui:define name="content">    
-            <h:form class="background-login"  >
+            <ui:define name="content">
+                <div class="background-login">
+                <h:form  >
                 <b:container fluid="true">
                     <b:row>
                         <b:column col-xs="12" col-md="4" offset="4">
                             <h3 style="text-align: center">Empieza tu estudio!</h3>
                             <p style="text-align: center">Cualquier persona puede aprender online de una manera facil y didactica</p>
-                            <hr></hr>
+                             <hr class="hr-long"></hr>
                         </b:column>
-                    </b:row>    
+                    </b:row>  
+                </b:container>
+                </h:form>
+                <h:form>
+                    <b:container fluid="true">
                     <b:row>
                         <b:column col-xs="6" col-md="1" offset-md="4">
                             <h:outputText value="Nombre de usuario:"/> 
@@ -38,7 +43,7 @@
                                </f:facet>
                            </b:inputText>
                         </b:column>
-                        <b:column medium-screen="6" style-class="message">
+                        <b:column col-md="2" style-class="message">
                              <b:message for="usernameDiv" />
                         </b:column>
                     </b:row>
@@ -64,6 +69,7 @@
                     </b:row>
                 </b:container>
             </h:form>
+                </div>
             </ui:define>
         </ui:composition>
 
