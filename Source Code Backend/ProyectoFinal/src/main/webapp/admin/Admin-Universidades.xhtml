@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="./AdminNav.xhtml">
+
+            <ui:define name="content">
+               <h:form id="header">
+                    <b:container>
+                        <b:row>
+                            <b:column col-md="10">
+                                <h1><b:iconAwesome name="cog"/> Panel de Control<small> Administracion de la pagina</small></h1>       
+                            </b:column>
+
+                        </b:row>
+                    </b:container>             
+                </h:form>
+                <h:form id="bredcrumb">
+                    <b:container>
+                        <ol class="breadcrumb">
+                            <li><a href="Admin.xhtml">Panel de Control</a>
+                                 <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
+                            </li>
+                            <li class="active">Universidades</li>
+                        </ol>
+                    </b:container>
+                </h:form>
+                
+                <h:form id="main">
+                    <b:container>
+                        <b:row>
+                            <b:column col-md="3">
+                                <b:panel class="resumen-panel" look="primary" title="Menu de Administracion" collapsible="false">
+                                   <b:listLinks>
+                                       <b:navCommandLink class="cmd-link" href="Admin.xhtml" active="" icon-awesome="cog"
+                                                         value="Panel de Control"/>
+                                       <b:navCommandLink class="cmd-link" icon-awesome="user"
+                                                         value="Usuarios" href="Admin-Usuarios.xhtml">
+                                           <b:badge class="badge-align" value="115" />
+                                       </b:navCommandLink>
+                                       <b:navCommandLink class="cmd-link" icon-awesome="university"
+                                       value="Universidades" href="Admin-Universidades.xhtml">
+                                            <b:badge class="badge-align" value="4" />
+                                       </b:navCommandLink>
+                                       <b:navCommandLink class="cmd-link" icon-awesome="users"
+                                       value="Facultades">
+                                            <b:badge class="badge-align" value="35" />
+                                       </b:navCommandLink>                        
+                                       <b:navCommandLink class="cmd-link" icon-awesome="graduation-cap"
+                                       value="Carreras">
+                                            <b:badge class="badge-align" value="75" />
+                                       </b:navCommandLink>
+                                       <b:navCommandLink></b:navCommandLink>
+                                       <b:navCommandLink  header="Materia"/>
+                                       <b:navCommandLink class="cmd-link"  icon-awesome="book"
+                                       value="Materias">
+                                           <b:badge class="badge-align" value="200" />
+                                       </b:navCommandLink>                                           
+                                       <b:navCommandLink class="cmd-link" icon-awesome="file"
+                                       value="Documentos">
+                                           <b:badge class="badge-align" value="64" />
+                                       </b:navCommandLink>                                           
+                                       <b:navCommandLink class="cmd-link" icon-awesome="comments"
+                                       value="Commentarios">
+                                           <b:badge class="badge-align" value="30" />
+                                       </b:navCommandLink>                                           
+                                   </b:listLinks>
+                                 </b:panel> 
+                                <b:well>
+                                    <h4>Espacio en disco utilizado</h4>
+                                    <b:progressBar class="barras" value="20" look="info" striped="true" />
+                                    <h4>Ancho de banda utilizado</h4>
+                                        <b:progressBar class="barras" value="45" look="warning" striped="true" />
+                                </b:well>                                                               
+                            </b:column>
+                             <b:column col-md="9">
+                                 <h:form id="UsuarioListForm">
+                                    <b:panel class="resumen-panel" look="primary" title="Listado Usuarios" collapsible="false" >
+                                        <b:dataTable id="datalist" 
+                                                     value="#{usuarioController.items}" 
+                                                     onselect="#{usuarioController.selected}"
+                                                     select="true"
+                                                     selectionMode="single"
+                                                     var="item"
+                                                     
+                                                    fixedHeader="true"
+                                                    scroll-size="400px"
+                                                    scroll-x="false"
+                                                    lang="es"
+                                                    searching="true" >
+
+
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_nombre_usuario}" value="#{item.nombre_usuario}" />
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_password}" value="#{item.password}" />
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_nombre_ape}" value="#{item.nombre_ape}" />
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_email}" value="#{item.email}" />
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_telefono}" value="#{item.telefono}" />
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_tipo_usuario}" value="#{item.tipo_usuario}" />                                          
+                                       </b:dataTable> 
+                                        <b:button id="createButton" 
+                                        look="primary" 
+                                        icon-awesome="user-plus" 
+                                        onclick="$('.modalPseudoClass').modal()"    
+                                        value="#{bundle.Create}" /> 
+                                        
+                                        <b:commandButton id="editButton" 
+                                             look="warning" 
+                                             icon-awesome="pencil"  
+                                             value="#{bundle.Edit}"
+                                             style="margin-left: 10px;"/>
+                                        
+                                        <b:commandButton id="deleteButton" 
+                                            look="danger" 
+                                            icon-awesome="trash"  
+                                            value="#{bundle.Delete}" 
+                                            style="margin-left: 10px;"/>                                        
+                                     </b:panel>
+                                </h:form>                                 
+                            </b:column>
+                        </b:row>              
+                    </b:container>
+                </h:form>
+                <h:form id="myFormID">
+                    <b:modal class="modal-head" id="amodal" title="Crear Usuario" styleClass="modalPseudoClass">
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_id}" for="id" />
+                       <b:inputText id="id" fieldId="j_id" name="j_id" title="#{bundle.CreateUsuarioTitle_id}"
+                                    value="#{usuarioController.selected.id}" placeholder="Ingrese su nombre de usuario">
+                            <f:facet name="prepend">
+                               <b:icon name="user" />
+                           </f:facet>
+                       </b:inputText>
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_nombre_usuario}" for="nombre_usuario" />
+                       <b:inputText id="nombre_usuario" fieldId="j_username" name="j_username" title="#{bundle.CreateUsuarioTitle_nombre_usuario}"
+                                    value="#{usuarioController.selected.nombre_usuario}" placeholder="Ingrese su nombre de usuario">
+                            <f:facet name="prepend">
+                               <b:icon name="user" />
+                           </f:facet>
+                       </b:inputText>
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_password}" for="password" />
+                         <b:inputSecret id="password" fieldId="j_password" name="j_password" required="true"
+                                        value="#{usuarioController.selected.password}" title="#{bundle.CreateUsuarioTitle_password}" placeholder="Ingrese su contraseña">
+                              <f:facet name="prepend">
+                                 <b:iconAwesome name="key" />
+                             </f:facet>
+                         </b:inputSecret>                                                  
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_nombre_ape}" for="nombre_ape" />
+                           <b:inputText id="nombre_ape" fieldId="j_name" name="j_name"
+                                         value="#{usuarioController.selected.nombre_ape}" title="#{bundle.CreateUsuarioTitle_nombre_ape}" placeholder="Ingrese su nombre y apellido">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="male" />
+                               </f:facet>
+                           </b:inputText>
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_email}" for="email" />
+                           <b:inputText id="email" fieldId="j_correoelec" name="j_correoelec"
+                                        value="#{usuarioController.nuevoUsuario.email}" placeholder="Ingrese su correo electronico">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="envelope" />
+                               </f:facet>
+                           </b:inputText>
+                            <p:outputLabel value="#{bundle.CreateUsuarioLabel_telefono}" for="telefono" />
+                            <b:inputText id="telefono" field-id="j_phone" name="j_phone"
+                                         value="#{usuarioController.selected.telefono}" title="#{bundle.CreateUsuarioTitle_telefono}" placeholder="Ingrese su numero de telefono">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="mobile" />
+                               </f:facet>
+                           </b:inputText>
+                             <p:outputLabel value="#{bundle.CreateUsuarioLabel_tipo_usuario}" for="tipo_usuario" />
+                            <br></br>  
+                            <p:selectOneButton id="tipo_usuario" value="#{usuarioController.selected.tipo_usuario}">
+                                <f:selectItem itemLabel="Estudiante" itemValue="Estudiante" />
+                                <f:selectItem itemLabel="Egresado" itemValue="Egresado" />
+                               <f:selectItem itemLabel="Profesor" itemValue="Profesor" />
+                            </p:selectOneButton>                      
+                        <f:facet name="footer">
+                            <b:button value="#{bundle.Cancel}" dismiss="modal" />
+                            <b:button value="#{bundle.Save}" look="primary" dismiss="modal" onclick="#{usuarioController.create()}" />
+                        </f:facet>
+                    </b:modal>
+                </h:form>                         
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

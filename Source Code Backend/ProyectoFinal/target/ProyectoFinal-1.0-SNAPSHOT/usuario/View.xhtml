@@ -12,8 +12,8 @@
             <h:form id="UsuarioViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}">
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_id}"/>
-                        <h:outputText value="#{usuarioController.selected.id}" title="#{bundle.ViewUsuarioTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_usuarioId}"/>
+                        <h:outputText value="#{usuarioController.selected.usuarioId}" title="#{bundle.ViewUsuarioTitle_usuarioId}"/>
                         <h:outputText value="#{bundle.ViewUsuarioLabel_nombre_usuario}"/>
                         <h:outputText value="#{usuarioController.selected.nombre_usuario}" title="#{bundle.ViewUsuarioTitle_nombre_usuario}"/>
                         <h:outputText value="#{bundle.ViewUsuarioLabel_password}"/>
@@ -22,10 +22,10 @@
                         <h:outputText value="#{usuarioController.selected.nombre_ape}" title="#{bundle.ViewUsuarioTitle_nombre_ape}"/>
                         <h:outputText value="#{bundle.ViewUsuarioLabel_email}"/>
                         <h:outputText value="#{usuarioController.selected.email}" title="#{bundle.ViewUsuarioTitle_email}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_telefono}"/>
-                        <h:outputText value="#{usuarioController.selected.telefono}" title="#{bundle.ViewUsuarioTitle_telefono}"/>
                         <h:outputText value="#{bundle.ViewUsuarioLabel_tipo_usuario}"/>
                         <h:outputText value="#{usuarioController.selected.tipo_usuario}" title="#{bundle.ViewUsuarioTitle_tipo_usuario}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_telefono}"/>
+                        <h:outputText value="#{usuarioController.selected.telefono}" title="#{bundle.ViewUsuarioTitle_telefono}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="UsuarioViewDialog.hide()"/>
                 </h:panelGroup>

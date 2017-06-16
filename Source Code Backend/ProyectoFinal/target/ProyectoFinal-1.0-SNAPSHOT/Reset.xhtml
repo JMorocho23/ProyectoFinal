@@ -12,37 +12,33 @@
         <ui:composition template="./Navbar.xhtml">
 
             <ui:define name="content">
-                        <h:form class="background-login">
-                <b:container fluid="true">
-                    <b:row>
-                        <b:column col-xs="12" col-md="4" offset="4">
-                            <h3 style="text-align: center">Recupera tu contraseña</h3>
-                            <p style="text-align: center">Ya tienes cuenta? <a href="Login.xhtml">ingresa aquí</a></p>
-                            <p style="text-align: center">Olvidaste tu contraseña? Escribe el correo electrónico de la cuenta y te mandaremos un correo.</p>
-                            <hr class="hr-long"></hr>
-                        </b:column>
-                    </b:row>    
-                     <b:row>
-                        <b:column col-xs="6" col-md="1" offset-md="4">
-                            <h:outputText value="Correo electronico:"/>
-                        </b:column>
-                          <b:column col-xs="12" col-md="3">
-                           <b:inputText id="CorreoDiv" fieldId="j_correoelec" name="j_correoelec"
-                                value="#{loginBean.correo}" placeholder="Ingrese su correo electronico">
-                                <f:facet name="prepend">
-                                   <b:iconAwesome name="envelope" />
-                               </f:facet>
-                           </b:inputText>
-                        </b:column>
-                    </b:row>
-                    <b:row>
-                        <b:column span="2" offset="5">
-                                <b:commandButton value="Recuperar contraseña" onclick="ajax:loginBean.login()" update="@form" look="primary"
-                                style="width:100%" />
-                        </b:column>
-                    </b:row>
-                </b:container>
-            </h:form>   
+                <h:form class="background-login">
+                    <b:container>
+                        <b:row>
+                            <b:column class="Login-col" col-md="4" offset-md="4">
+                                <b:form id="Reset" onsubmit="Home.html">
+                                    <b:formGroup>
+                                        <h3 style="text-align: center">Recupera tu contraseña</h3>
+                                        <p style="text-align: center">Ya tienes cuenta? <a href="Login.xhtml">ingresa aquí</a></p>
+                                        <p style="text-align: center">Olvidaste tu contraseña? Escribe el correo electrónico de la cuenta y te mandaremos un correo.</p>
+                                        <hr class="hr-long"></hr>                                       
+                                    </b:formGroup>
+                                    <b:formGroup>
+                                    <h:outputText value="Correo electronico:"/>
+                                        <b:inputText id="CorreoDiv" fieldId="j_correoelec" name="j_correoelec"
+                                             value="#{loginBean.correo}" placeholder="Ingrese su correo electronico">
+                                             <f:facet name="prepend">
+                                                <b:iconAwesome name="envelope" />
+                                            </f:facet>
+                                        </b:inputText>
+                                    </b:formGroup> 
+                                        <b:commandButton value="Recuperar contraseña" onclick="ajax:loginBean.login()" update="@form" look="primary"
+                                        style="width:100%" />
+                                </b:form>
+                            </b:column>
+                        </b:row>
+                    </b:container>                
+                </h:form>   
             </ui:define>
         </ui:composition>
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ArchivoCreateDlg" widgetVar="ArchivoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateArchivoTitle}">
+            <h:form id="ArchivoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{archivoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateArchivoLabel_archivoId}" for="archivoId" />
+                        <p:inputText id="archivoId" value="#{archivoController.selected.archivoId}" title="#{bundle.CreateArchivoTitle_archivoId}" />
+                        <p:outputLabel value="#{bundle.CreateArchivoLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{archivoController.selected.descripcion}" title="#{bundle.CreateArchivoTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.CreateArchivoLabel_path}" for="path" />
+                        <p:inputText id="path" value="#{archivoController.selected.path}" title="#{bundle.CreateArchivoTitle_path}" />
+                        <p:outputLabel value="#{bundle.CreateArchivoLabel_fecha}" for="fecha" />
+                        <p:inputText id="fecha" value="#{archivoController.selected.fecha}" title="#{bundle.CreateArchivoTitle_fecha}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{archivoController.create}" value="#{bundle.Save}" update="display,:ArchivoListForm:datalist,:growl" oncomplete="handleSubmit(args,'ArchivoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ArchivoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

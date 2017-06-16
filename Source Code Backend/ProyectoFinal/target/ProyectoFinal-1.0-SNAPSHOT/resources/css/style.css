@@ -13,10 +13,19 @@ and open the template in the editor.
     margin: 0;
     padding: 0;
 }
+
+
+.custom-center{
+    position: relative;
+    min-height: 78.1vh !important;
+   background-color: #f4f4f4 !important;
+}
+
 html {
     width: 100%;
     min-height: 100%;
 }
+
 body {
     background-color: #ffffff;
     font-size: 12px;
@@ -35,11 +44,22 @@ body {
         min-height: 33px;
         margin-bottom: 0px;
     }
+    
+    .navbar-nav {
+    margin: 7.5px -15px !important;
+    }
+    
+    .container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse {
+        margin-right: -15px !important;
+        margin-left: -15px !important;
+    }
+    
     .navbar-brand img {
-        height: 72px;
-        width: 222px;
+        height: 30px;
+        width: 175px;
         position: relative;
-        top: -27px;
+        top: 0px;
+        right: 17px;
     }
 
     #af-navar-text1 a,#af-navar-text2 a,#af-navar-text3 a,#af-navar-text4 a{
@@ -71,7 +91,7 @@ body {
     }
     
     .dropdown-menu > li > a {
-        color: #ecf0f1;   
+        color: #ecf0f1 !important;;   
     } 
     .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
      background-color: #1e3378 !important;
@@ -106,14 +126,47 @@ body {
     padding-top: 20px
 }
 
+#header-uni{
+    background: #333333;
+    color:#ecf0f1;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+    margin-top: 10px;
+}
+#header-uni .crear{
+    padding-top: 20px
+}
+
 .breadcrumb{
     background: #cccccc !important;   
 }
 .breadcrumb > .active {
-    color:#333333 !important; 
+    color:#777 !important; 
 }
-.breadcrumb .a{
+.breadcrumb a{
    color:#333333;  
+}
+.breadcrumb a:hover{
+   color:#333333;  
+}
+
+#breadcrumb-main a{
+   color:#337ab7;  
+}
+#breadcrumb-main a:hover{
+   color:#f19940;  
+}
+
+ol,#info-uni > li {
+    display:inline;
+}
+ol,#info-uni2 > li {
+    display:inline;
+}
+.custom-chev{
+    padding-left: 15px;
+    color: #777777;
 }
 .cmd-link > a{
    color:#333333 !important;  
@@ -136,5 +189,50 @@ body {
     background-color: #1f3a93 !important;
     border-color: #1e3378 !important;
 }
+.modal-header{
+    color: #ecf0f1 !important;
+    background-color: #1f3a93 !important;
+    border-color: #1e3378 !important;
+}
+
+.close{
+    color: #fff !important;
+}
+
+.close:hover, .close:focus {
+    color: #c4c4c4 !important;
+
+}
+.uni-logo{
+    max-height: 125px;
+    max-width: 125px;
+}
+
+.uni-links{
+     color: #f9690e;
+    text-decoration: none;  
+}
+a:hover, a:focus .uni-links {
+    color: #d25c12 !important;
+    text-decoration: underline !important;
+}
+
+form, #breadcrumb {
+    padding-top: 0.8em;
+}
+
+ol #breadcrumb-main {
+    background-color: #ffffff !important;
+}
+ol#breadcrumb-main > li {
+    display: inline;
+}
+
+.uni-info{
+    padding-right: 15px;
+    font-size: 16px; 
+}
+
+
 
  

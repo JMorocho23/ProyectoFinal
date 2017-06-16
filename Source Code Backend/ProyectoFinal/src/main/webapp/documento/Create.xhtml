@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DocumentoCreateDlg" widgetVar="DocumentoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateDocumentoTitle}">
+            <h:form id="DocumentoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{documentoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateDocumentoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{documentoController.selected.id}" title="#{bundle.CreateDocumentoTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateDocumentoLabel_id_usuario}" for="id_usuario" />
+                        <p:inputText id="id_usuario" value="#{documentoController.selected.id_usuario}" title="#{bundle.CreateDocumentoTitle_id_usuario}" />
+                        <p:outputLabel value="#{bundle.CreateDocumentoLabel_id_materia}" for="id_materia" />
+                        <p:inputText id="id_materia" value="#{documentoController.selected.id_materia}" title="#{bundle.CreateDocumentoTitle_id_materia}" />
+                        <p:outputLabel value="#{bundle.CreateDocumentoLabel_nombre_doc}" for="nombre_doc" />
+                        <p:inputText id="nombre_doc" value="#{documentoController.selected.nombre_doc}" title="#{bundle.CreateDocumentoTitle_nombre_doc}" />
+                        <p:outputLabel value="#{bundle.CreateDocumentoLabel_tipo_doc}" for="tipo_doc" />
+                        <p:inputText id="tipo_doc" value="#{documentoController.selected.tipo_doc}" title="#{bundle.CreateDocumentoTitle_tipo_doc}" />
+                        <p:outputLabel value="#{bundle.CreateDocumentoLabel_numero_pagina}" for="numero_pagina" />
+                        <p:inputText id="numero_pagina" value="#{documentoController.selected.numero_pagina}" title="#{bundle.CreateDocumentoTitle_numero_pagina}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{documentoController.create}" value="#{bundle.Save}" update="display,:DocumentoListForm:datalist,:growl" oncomplete="handleSubmit(args,'DocumentoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DocumentoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

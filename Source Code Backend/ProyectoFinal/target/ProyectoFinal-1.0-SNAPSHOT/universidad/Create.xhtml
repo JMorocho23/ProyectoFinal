@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UniversidadCreateDlg" widgetVar="UniversidadCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUniversidadTitle}">
+            <h:form id="UniversidadCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{universidadController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_universidadId}" for="universidadId" />
+                        <p:inputText id="universidadId" value="#{universidadController.selected.universidadId}" title="#{bundle.CreateUniversidadTitle_universidadId}" />
+                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_nombre_universidad}" for="nombre_universidad" />
+                        <p:inputText id="nombre_universidad" value="#{universidadController.selected.nombre_universidad}" title="#{bundle.CreateUniversidadTitle_nombre_universidad}" />
+                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_descripccion_universidad}" for="descripccion_universidad" />
+                        <p:inputText id="descripccion_universidad" value="#{universidadController.selected.descripccion_universidad}" title="#{bundle.CreateUniversidadTitle_descripccion_universidad}" />
+                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_direccion_universidad}" for="direccion_universidad" />
+                        <p:inputText id="direccion_universidad" value="#{universidadController.selected.direccion_universidad}" title="#{bundle.CreateUniversidadTitle_direccion_universidad}" />
+                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_telefono_universidad}" for="telefono_universidad" />
+                        <p:inputText id="telefono_universidad" value="#{universidadController.selected.telefono_universidad}" title="#{bundle.CreateUniversidadTitle_telefono_universidad}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{universidadController.create}" value="#{bundle.Save}" update="display,:UniversidadListForm:datalist,:growl" oncomplete="handleSubmit(args,'UniversidadCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UniversidadCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

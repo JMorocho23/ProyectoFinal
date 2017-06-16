@@ -18,57 +18,42 @@
             
             <ui:define name="content">
                 <div class="background-login">
-                <h:form  >
-                <b:container fluid="true">
-                    <b:row>
-                        <b:column col-xs="12" col-md="4" offset="4">
-                            <h3 style="text-align: center">Empieza tu estudio!</h3>
-                            <p style="text-align: center">Cualquier persona puede aprender online de una manera facil y didactica</p>
-                             <hr class="hr-long"></hr>
-                        </b:column>
-                    </b:row>  
-                </b:container>
-                </h:form>
                 <h:form>
-                    <b:container fluid="true">
-                    <b:row>
-                        <b:column col-xs="6" col-md="1" offset-md="4">
-                            <h:outputText value="Nombre de usuario:"/> 
-                        </b:column>
-                        <b:column col-xs="12" col-md="3">
-                           <b:inputText id="usernameDiv" fieldId="j_username" name="j_username"
-                                        placeholder="Ingrese su nombre de usuario">
-                                <f:facet name="prepend">
-                                   <b:icon name="user" />
-                               </f:facet>
-                           </b:inputText>
-                        </b:column>
-                        <b:column col-md="2" style-class="message">
-                             <b:message for="usernameDiv" />
-                        </b:column>
-                    </b:row>
-                    <b:row>
-                            <b:column col-xs="6" col-md="1" offset-md="4">
-                            <h:outputText value="Contraseña:"/> 
-                        </b:column>
-                          <b:column col-xs="12" col-md="3">
-                           <b:inputText id="passwordDiv" fieldId="j_password" name="j_password"
-                                        placeholder="Ingrese su Contraseña">
-                                <f:facet name="prepend">
-                                   <b:iconAwesome name="key" />
-                               </f:facet>
-                           </b:inputText>
-                            <p style="text-align: left">Te olvdidaste tu <a href="Reset.xhtml">contraseña?</a></p>
-                        </b:column>
-                    </b:row>
-                    <b:row>
-                        <b:column span="2" offset="5">
-                            <b:commandButton value="Iniciar Session" onclick="ajax:loginBean.login()" update="@form" look="primary"
-                                style="width:100%" />
-                        </b:column>
-                    </b:row>
-                </b:container>
-            </h:form>
+                    <b:container>
+                        <b:row>
+                            <b:column class="Login-col" col-md="4" offset-md="4">
+                                <b:form id="Login" onsubmit="Home.html">
+                                    <b:formGroup>
+                                        <h3 style="text-align: center">Empieza tu estudio!</h3>
+                                        <p style="text-align: center">Cualquier persona puede aprender online de una manera facil y didactica</p>
+                                        <hr class="hr-long"></hr>                                        
+                                    </b:formGroup>
+                                    <b:formGroup>
+                                    <h:outputText value="Nombre de usuario:"/> 
+                                        <b:inputText id="usernameDiv" fieldId="j_username" name="j_username"
+                                                     placeholder="Ingrese su nombre de usuario">
+                                             <f:facet name="prepend">
+                                                <b:icon name="user" />
+                                            </f:facet>
+                                        </b:inputText>  
+                                    </b:formGroup> 
+                                    <b:formGroup>
+                                        <h:outputText value="Contraseña:"/>
+                                        <b:inputSecret id="passwordDiv" fieldId="j_password" name="j_password"
+                                                        placeholder="Ingrese su Contraseña">
+                                                <f:facet name="prepend">
+                                                   <b:iconAwesome name="key" />
+                                               </f:facet>
+                                        </b:inputSecret>
+                                           <p style="text-align: left">Te olvdidaste tu <a href="Reset.xhtml">contraseña?</a></p>
+                                    </b:formGroup>
+                                      <b:commandButton value="Iniciar Session" onclick="ajax:loginBean.login()" update="@form" look="primary"
+                                        style="width:100%" />
+                                </b:form>
+                            </b:column>
+                        </b:row>
+                    </b:container>
+                </h:form>
                 </div>
             </ui:define>
         </ui:composition>

@@ -54,7 +54,7 @@ top {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    background-position: center;
+    background-position: left top;
     background-image: url(https://imgh.us/jyhqe-jfqax.svg);
 }
 #background-content{

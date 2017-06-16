@@ -25,51 +25,6 @@ h1 {
     color: #D20005;
 }
 
-    #custom-navbar {
-        background-color: #1f3a93;
-        border-color: transparent;
-        border-radius: 0 !important;
-        position: relative;
-        min-height: 50px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        border: 1px solid transparent;
-        margin-bottom: 0px;
-    }
-    .navbar-brand img {
-        height: 72px;
-        width: 222px;
-        position: relative;
-        top: -27px;
-    }
-
-    #af-navar-text11 a{
-        color: #f9690e;
-    }
-    #af-navar-text11 a:hover{
-        color:#ecf0f1;
-    }    
-    
-    
-    #af-navar-text1 a,#af-navar-text2 a,#af-navar-text3 a,#af-navar-text4 a{
-        color: #ecf0f1
-  
-    }
-    #af-navar-text1 a:hover,#af-navar-text2 a:hover,#af-navar-text3 a:hover,#af-navar-text4 a:hover{
-        color:#f9690e;
-    }  
-    
-    #af-navar-text5 a{
-        color: #f9690e;
-    }
-    #af-navar-text5 a:hover{
-        color:#ecf0f1;
-    } 
-    
-    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    background-color: #f9690e !important;
-    }
-
     .cont-pos{
         padding-top: 10% !important;
     }
@@ -107,6 +62,12 @@ h1 {
     margin: 15px auto;
     
 }
+
+.Login-col{
+    background-color: rgba(236, 240, 241, 0.7);
+    padding-bottom: 20px;
+}
+    
 .hr-short{
     display: block;
     margin: 15px auto;

@@ -1,6 +1,30 @@
-C:\Users\jc23a\Dropbox\ProyectoFInalPrograIII\ProyectoFinal\src\main\java\com\uda\controller\UsuarioFacade.java
-C:\Users\jc23a\Dropbox\ProyectoFInalPrograIII\ProyectoFinal\src\main\java\com\uda\controller\AbstractFacade.java
-C:\Users\jc23a\Dropbox\ProyectoFInalPrograIII\ProyectoFinal\src\main\java\com\uda\proyectofinal\testServelet.java
-C:\Users\jc23a\Dropbox\ProyectoFInalPrograIII\ProyectoFinal\src\main\java\com\uda\model\Usuario.java
-C:\Users\jc23a\Dropbox\ProyectoFInalPrograIII\ProyectoFinal\src\main\java\com\uda\controller\UsuarioController.java
-C:\Users\jc23a\Dropbox\ProyectoFInalPrograIII\ProyectoFinal\src\main\java\com\uda\controller\util\JsfUtil.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\DocumentoFacade.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\model\Comentario.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\jsfclasses\MateriaController.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\ArchivoFacade.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\webservices\AbstractFacade.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\AbstractFacade.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\jsfclasses\DocumentoController.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\jsfclasses\UsuarioController.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\model\Universidad.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\UniversidadFacade.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\model\Carrera.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\MateriaFacade.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\UsuarioFacade.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\CarreraFacade.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\webservices\ApplicationConfig.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\model\Documento.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\FacultadFacade.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\jsfclasses\util\JsfUtil.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\model\Materia.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\jsfclasses\ComentarioController.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\ComentarioFacade.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\sessionbean\webservices\UsuarioFacadeREST.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\jsfclasses\ArchivoController.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\model\Archivo.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\model\Facultad.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\jsfclasses\UniversidadController.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\model\Usuario.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\jsfclasses\CarreraController.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\proyectofinal\testServelet.java
+C:\Users\jc23a\Documents\Proyecto Final\Source Code Backend\ProyectoFinal\src\main\java\com\uda\jsfclasses\FacultadController.java

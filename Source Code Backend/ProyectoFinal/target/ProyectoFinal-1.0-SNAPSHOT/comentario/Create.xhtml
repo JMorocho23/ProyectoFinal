@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ComentarioCreateDlg" widgetVar="ComentarioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateComentarioTitle}">
+            <h:form id="ComentarioCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{comentarioController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateComentarioLabel_comentarioId}" for="comentarioId" />
+                        <p:inputText id="comentarioId" value="#{comentarioController.selected.comentarioId}" title="#{bundle.CreateComentarioTitle_comentarioId}" />
+                        <p:outputLabel value="#{bundle.CreateComentarioLabel_rating_comentario}" for="rating_comentario" />
+                        <p:inputText id="rating_comentario" value="#{comentarioController.selected.rating_comentario}" title="#{bundle.CreateComentarioTitle_rating_comentario}" />
+                        <p:outputLabel value="#{bundle.CreateComentarioLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{comentarioController.selected.descripcion}" title="#{bundle.CreateComentarioTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.CreateComentarioLabel_nhoras}" for="nhoras" />
+                        <p:inputText id="nhoras" value="#{comentarioController.selected.nhoras}" title="#{bundle.CreateComentarioTitle_nhoras}" />
+                        <p:outputLabel value="#{bundle.CreateComentarioLabel_fecha}" for="fecha" />
+                        <p:inputText id="fecha" value="#{comentarioController.selected.fecha}" title="#{bundle.CreateComentarioTitle_fecha}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{comentarioController.create}" value="#{bundle.Save}" update="display,:ComentarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'ComentarioCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ComentarioCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

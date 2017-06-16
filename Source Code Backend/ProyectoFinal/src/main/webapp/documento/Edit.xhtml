@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DocumentoEditDlg" widgetVar="DocumentoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditDocumentoTitle}">
+            <h:form id="DocumentoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{documentoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditDocumentoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{documentoController.selected.id}" title="#{bundle.EditDocumentoTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditDocumentoLabel_id_usuario}" for="id_usuario" />
+                        <p:inputText id="id_usuario" value="#{documentoController.selected.id_usuario}" title="#{bundle.EditDocumentoTitle_id_usuario}" />
+                        <p:outputLabel value="#{bundle.EditDocumentoLabel_id_materia}" for="id_materia" />
+                        <p:inputText id="id_materia" value="#{documentoController.selected.id_materia}" title="#{bundle.EditDocumentoTitle_id_materia}" />
+                        <p:outputLabel value="#{bundle.EditDocumentoLabel_nombre_doc}" for="nombre_doc" />
+                        <p:inputText id="nombre_doc" value="#{documentoController.selected.nombre_doc}" title="#{bundle.EditDocumentoTitle_nombre_doc}" />
+                        <p:outputLabel value="#{bundle.EditDocumentoLabel_tipo_doc}" for="tipo_doc" />
+                        <p:inputText id="tipo_doc" value="#{documentoController.selected.tipo_doc}" title="#{bundle.EditDocumentoTitle_tipo_doc}" />
+                        <p:outputLabel value="#{bundle.EditDocumentoLabel_numero_pagina}" for="numero_pagina" />
+                        <p:inputText id="numero_pagina" value="#{documentoController.selected.numero_pagina}" title="#{bundle.EditDocumentoTitle_numero_pagina}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{documentoController.update}" value="#{bundle.Save}" update="display,:DocumentoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DocumentoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="DocumentoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

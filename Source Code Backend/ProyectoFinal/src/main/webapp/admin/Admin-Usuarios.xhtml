@@ -25,7 +25,10 @@
                 <h:form id="bredcrumb">
                     <b:container>
                         <ol class="breadcrumb">
-                            <li class="active">Panel de Control</li>
+                            <li><a href="Admin.xhtml">Panel de Control</a>
+                                <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
+                            </li>
+                            <li class="active">Usuarios</li>
                         </ol>
                     </b:container>
                 </h:form>
@@ -39,11 +42,11 @@
                                        <b:navCommandLink class="cmd-link" href="Admin.xhtml" active="" icon-awesome="cog"
                                                          value="Panel de Control"/>
                                        <b:navCommandLink class="cmd-link" icon-awesome="user"
-                                            value="Usuarios">
+                                                         value="Usuarios" href="Admin-Usuarios.xhtml">
                                            <b:badge class="badge-align" value="115" />
                                        </b:navCommandLink>
                                        <b:navCommandLink class="cmd-link" icon-awesome="university"
-                                       value="Universidades">
+                                       value="Universidades" href="Admin-Universidades.xhtml">
                                             <b:badge class="badge-align" value="4" />
                                        </b:navCommandLink>
                                        <b:navCommandLink class="cmd-link" icon-awesome="users"
@@ -78,9 +81,9 @@
                                 </b:well>                                                               
                             </b:column>
                              <b:column col-md="9">
-                                 <h:form>
-                                    <b:panel class="resumen-panel" look="primary" title="Listado Usuarios" collapsible="false">
-                                        <b:dataTable   
+                                 <h:form id="UsuarioListForm">
+                                    <b:panel class="resumen-panel" look="primary" title="Listado Usuarios" collapsible="false" >
+                                        <b:dataTable id="datalist" 
                                                      value="#{usuarioController.items}" 
                                                      onselect="#{usuarioController.selected}"
                                                      select="true"
@@ -94,28 +97,87 @@
                                                     searching="true" >
 
 
-                                           <b:dataTableColumn label="Nombre de Usuario" value="#{item.nombre_usuario}" />
-                                           <b:dataTableColumn label="Contraseña" value="#{item.password}" />
-                                           <b:dataTableColumn label="Nombre y Apellido" value="#{item.nombre_ape}" />
-                                           <b:dataTableColumn label="Correo Electronico" value="#{item.email}" />
-                                           <b:dataTableColumn label="Telefono" value="#{item.telefono}" />
-                                           <b:dataTableColumn label="Tipo Usuario" value="#{item.tipo_usuario}" />                                          
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_nombre_usuario}" value="#{item.nombre_usuario}" />
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_password}" value="#{item.password}" />
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_nombre_ape}" value="#{item.nombre_ape}" />
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_email}" value="#{item.email}" />
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_telefono}" value="#{item.telefono}" />
+                                           <b:dataTableColumn label="#{bundle.ListUsuarioTitle_tipo_usuario}" value="#{item.tipo_usuario}" />                                          
                                        </b:dataTable> 
+                                        <b:button id="createButton" 
+                                        look="primary" 
+                                        icon-awesome="user-plus" 
+                                        onclick="$('.modalPseudoClass').modal()"    
+                                        value="#{bundle.Create}" /> 
+                                        
                                         <b:commandButton id="editButton" 
-                                                         look="warning" 
-                                                         icon-awesome="pencil"  
-                                                         value="#{bundle.Edit}" />
+                                             look="warning" 
+                                             icon-awesome="pencil"  
+                                             value="#{bundle.Edit}"
+                                             style="margin-left: 10px;"/>
+                                        
                                         <b:commandButton id="deleteButton" 
-                                                        look="danger" 
-                                                        icon-awesome="trash"  
-                                                        value="#{bundle.Delete}" 
-                                                        style="margin-left: 10px;"/>                                        
+                                            look="danger" 
+                                            icon-awesome="trash"  
+                                            value="#{bundle.Delete}" 
+                                            style="margin-left: 10px;"/>                                        
                                      </b:panel>
-                                </h:form>
+                                </h:form>                                 
                             </b:column>
-                        </b:row>
+                        </b:row>              
                     </b:container>
                 </h:form>
+                <h:form id="myFormID">
+                    <b:modal class="modal-head" id="amodal" title="Crear Usuario" styleClass="modalPseudoClass">
+                       <b:inputText id="id" fieldId="j_id" name="j_id" label="Id:"
+                                    value="#{usuarioController.selected.id}" placeholder="Ingrese su nombre de usuario">
+                            <f:facet name="prepend">
+                               <b:icon name="user" />
+                           </f:facet>   
+                       </b:inputText>
+                       <b:inputText id="nombre_usuario" fieldId="j_username" name="j_username" label="Nombre de usuario:"
+                                    value="#{usuarioController.selected.nombre_usuario}" placeholder="Ingrese su nombre de usuario">
+                            <f:facet name="prepend">
+                               <b:icon name="user" />
+                           </f:facet>
+                       </b:inputText>
+                         <b:inputSecret id="password" fieldId="j_password" name="j_password" required="true"
+                                        value="#{usuarioController.selected.password}" label="Contraseña:" placeholder="Ingrese su contraseña">
+                              <f:facet name="prepend">
+                                 <b:iconAwesome name="key" />
+                             </f:facet>
+                         </b:inputSecret>                                                  
+                           <b:inputText id="nombre_ape" fieldId="j_name" name="j_name"
+                                         value="#{usuarioController.selected.nombre_ape}" label="Nombre y apellido" placeholder="Ingrese su nombre y apellido">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="male" />
+                               </f:facet>
+                           </b:inputText>
+                           <b:inputText id="email" fieldId="j_correoelec" name="j_correoelec" label="Email:"
+                                        value="#{usuarioController.selected.email}" placeholder="Ingrese su correo electronico">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="envelope" />
+                               </f:facet>
+                           </b:inputText>
+                            <b:inputText id="telefono" field-id="j_phone" name="j_phone" label="Numero de telefono:"
+                                         value="#{usuarioController.selected.telefono}" placeholder="Ingrese su numero de telefono">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="mobile" />
+                               </f:facet>
+                           </b:inputText>
+                            <br></br>  
+                            <p:outputLabel value="Actualmente soy un:" />
+                            <p:selectOneButton id="tipo_usuario" value="#{usuarioController.selected.tipo_usuario}">
+                                <f:selectItem itemLabel="Estudiante" itemValue="Estudiante" />
+                                <f:selectItem itemLabel="Egresado" itemValue="Egresado" />
+                               <f:selectItem itemLabel="Profesor" itemValue="Profesor" />
+                            </p:selectOneButton>                      
+                        <f:facet name="footer">
+                            <b:button value="#{bundle.Cancel}" dismiss="modal" />
+                            <b:commandButton value="#{bundle.Save}" look="primary" actionListener="#{usuarioController.create}"/>
+                        </f:facet>
+                    </b:modal>
+                </h:form>                         
             </ui:define>
         </ui:composition>
 

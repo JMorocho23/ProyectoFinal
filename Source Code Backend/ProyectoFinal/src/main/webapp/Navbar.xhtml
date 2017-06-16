@@ -11,7 +11,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/default.css"/>
         <h:outputStylesheet name="/css/cssLayout.css"/>
-        <title>Aprende Facil</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <title>Aprende Facil | Home</title>
         
     </h:head>
 
@@ -22,21 +23,21 @@
                <b:navLink id="af-navar-text2" value="Nosotros" href="About.xhtml"></b:navLink>
                <b:navLink id="af-navar-text3" value="Contactanos" href="Contact.xhtml"></b:navLink>      
                <b:dropMenu id="af-navar-text6" value="Busca "  style="color: #ecf0f1">
-                   <b:navLink value="Por Universidad" href="University.xhtml"></b:navLink>
+                   <b:navLink value="Por Universidad" href="University-Search.xhtml"></b:navLink>
                    <b:navLink value="Por Facultad" href="#"></b:navLink>
                    <b:navLink value="Por Carrera" href="#"></b:navLink>
                </b:dropMenu>
             </b:navbarLinks>
-            <b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
-                <b:navbarLinks pull="right" styleClass="hidden-xs">
-                <b:navLink id="af-navar-text4" value="Iniciar Session" href="Login.xhtml"></b:navLink>
+             <b:navbarLinks pull="right">
+                <b:navLink id="af-navar-text4" value="Iniciar Session" href="Login.xhtml"  ></b:navLink>
                 <b:navLink id="af-navar-text5" value="Registrate" href="Signup.xhtml"></b:navLink>    
             </b:navbarLinks>
         </b:navBar>
         
-        <div id="content" class="center_content">
+        <div id="content" class="center_content custom-content">
             <ui:insert name="content">Content</ui:insert>
         </div>
+        
     </h:body>
 
 </html>

@@ -12,8 +12,8 @@
             <h:form id="UsuarioEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditUsuarioLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{usuarioController.selected.id}" title="#{bundle.EditUsuarioTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditUsuarioLabel_usuarioId}" for="usuarioId" />
+                        <p:inputText id="usuarioId" value="#{usuarioController.selected.usuarioId}" title="#{bundle.EditUsuarioTitle_usuarioId}" />
                         <p:outputLabel value="#{bundle.EditUsuarioLabel_nombre_usuario}" for="nombre_usuario" />
                         <p:inputText id="nombre_usuario" value="#{usuarioController.selected.nombre_usuario}" title="#{bundle.EditUsuarioTitle_nombre_usuario}" />
                         <p:outputLabel value="#{bundle.EditUsuarioLabel_password}" for="password" />
@@ -22,10 +22,10 @@
                         <p:inputText id="nombre_ape" value="#{usuarioController.selected.nombre_ape}" title="#{bundle.EditUsuarioTitle_nombre_ape}" />
                         <p:outputLabel value="#{bundle.EditUsuarioLabel_email}" for="email" />
                         <p:inputText id="email" value="#{usuarioController.selected.email}" title="#{bundle.EditUsuarioTitle_email}" />
-                        <p:outputLabel value="#{bundle.EditUsuarioLabel_telefono}" for="telefono" />
-                        <p:inputText id="telefono" value="#{usuarioController.selected.telefono}" title="#{bundle.EditUsuarioTitle_telefono}" />
                         <p:outputLabel value="#{bundle.EditUsuarioLabel_tipo_usuario}" for="tipo_usuario" />
                         <p:inputText id="tipo_usuario" value="#{usuarioController.selected.tipo_usuario}" title="#{bundle.EditUsuarioTitle_tipo_usuario}" />
+                        <p:outputLabel value="#{bundle.EditUsuarioLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{usuarioController.selected.telefono}" title="#{bundle.EditUsuarioTitle_telefono}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{usuarioController.update}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UsuarioEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UsuarioEditDialog.hide()"/>

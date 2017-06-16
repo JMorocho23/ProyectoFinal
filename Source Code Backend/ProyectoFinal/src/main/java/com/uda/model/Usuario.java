@@ -6,42 +6,55 @@
 package com.uda.model;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Anticlutch
  */
 @Entity
+@XmlRootElement
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "USUARIO_ID")
+    private Long usuarioId;
+    @Size(max = 30)
     private String nombre_usuario;
+    @Size(max = 30)
     private String password;
+    @Size(max = 30)
     private String nombre_ape;
-    private String email;
+    @Size(max = 30)
     private String telefono;
+    @Size(max = 30)
+    private String email;
+    @Size(max = 30)
     private String tipo_usuario;
-    
 
-    public Long getId() {
-        return id;
+    public Long getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (usuarioId != null ? usuarioId.hashCode() : 0);
         return hash;
     }
 
@@ -52,7 +65,7 @@ public class Usuario implements Serializable {
             return false;
         }
         Usuario other = (Usuario) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.usuarioId == null && other.usuarioId != null) || (this.usuarioId != null && !this.usuarioId.equals(other.usuarioId))) {
             return false;
         }
         return true;
@@ -60,7 +73,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "java.proyectofinal.model.Usuario[ id=" + id + " ]";
+        return "java.proyectofinal.model.Usuario[ id=" + usuarioId + " ]";
     }
 
     /**
@@ -118,6 +131,20 @@ public class Usuario implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    /**
+     * @return the tipo_usuario
+     */
+    public String getTipo_usuario() {
+        return tipo_usuario;
+    }
+
+    /**
+     * @param tipo_usuario the tipo_usuario to set
+     */
+    public void setTipo_usuario(String tipo_usuario) {
+        this.tipo_usuario = tipo_usuario;
+    }
 
     /**
      * @return the telefono
@@ -131,20 +158,6 @@ public class Usuario implements Serializable {
      */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    /**
-     * @return the tipo_usuario
-     */
-    public String getTipo_usuario() {
-        return tipo_usuario;
-    }
-
-    /**
-     * @param tipo_usuario the tipo_usuario to set
-     */
-    public void setTipo_usuario(String tipo_usuario) {
-        this.tipo_usuario = tipo_usuario;
     }
     
 }

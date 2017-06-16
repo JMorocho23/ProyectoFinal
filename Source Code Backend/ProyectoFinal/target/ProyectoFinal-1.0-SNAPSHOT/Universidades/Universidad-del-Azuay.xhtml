@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./Navbar.xhtml">
+
+            <ui:define name="content">
+                <h:form id="breadcrumb">
+                    <b:container>
+                        <ol id="breadcrumb-main">
+                            <li><a href="../Home.xhtml">Inicio</a>
+                                <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
+                            </li>
+                             <li><a href="../University-Search.xhtml">Universidades</a>
+                                <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
+                            </li>                           
+                            <li class="active">Universidad del Azuay</li>
+                        </ol>
+                    </b:container>
+                </h:form>
+                <h:form id="header-uni">
+                    <b:container>
+                        <b:row>
+                            <b:column col-md="2">
+                                <b:thumbnail>
+                                    <img class="uni-logo" src="https://pbs.twimg.com/profile_images/858479763819831296/6p8wT66b.jpg" alt="Universidad del Azuay"/>
+                                </b:thumbnail>      
+                            </b:column>
+                            <b:column col-md="10">
+                                <h2>Universidad del Azuay<small> Informacion</small></h2>  
+                                <ol id="info-uni">
+                                    <li>Cuenca,Ecuador</li>
+                                    <span>|</span>
+                                    <li><a class="uni-links" href="http://uazuay.edu.ec">http://uazuay.edu.ec/</a></li>
+                                    <span>|</span>
+                                    <li><a class="uni-links" href="http://www.uazuay.edu.ec/?q=aspirantes#admisiones-grado">Admisión</a></li>
+                                 </ol>  
+                                <br></br>
+                                <br></br>
+                                 <ol id="info-uni2" >
+                                     <li class="uni-info">
+                                      <strong>Ranking en el País:</strong>
+                                      <span>13  </span>
+                                     </li>   
+                                     <li class="uni-info">
+                                         <strong>Categoría:</strong>  
+                                         <span>B    </span>
+                                     </li>   
+                                     <li class="uni-info">
+                                       <strong>Porcentaje de Aceptacion:</strong>
+                                       <span>60-70% </span>
+                                     </li>    
+                                      
+                                     <li>
+                                         <a href="http://www.4icu.org/reviews/1236.htm"><small>Fuente</small></a>
+                                     </li>                                      
+                                 </ol>  
+                            </b:column>
+                        </b:row>
+                    </b:container>             
+                </h:form>
+                <h:form>
+                    <b:tabView contentStyle="border-right: 1px solid #ddd;border-left: 1px solid #ddd;border-bottom: 1px solid #ddd;padding:10px">
+                      <b:tab title="Facultades">
+                        <b:container>
+                            <b:row >
+                                <b:column class="background-about" col-xs="12" col-md="12">
+                                    <h2 style="text-align: left">Todas las Facultades(6)</h2>
+                                    <br></br>
+                                    <b:dataTable value="#" 
+                                        var="facultades"
+                                        lang="es"> 
+                                        <b:dataTableColumn order-by="dom-text" data-type="text" searchable="#{dataTableSettingsBean.searchable}">
+                                            <f:facet name="header">
+                                              <h:outputText value="Nombre"/>
+                                            </f:facet>
+                                            <b:button look="link" value="Facultad de  Ciencias de la Administracion" href="Facultad-Administracion.xhtml"/>
+                                        </b:dataTableColumn>                                               
+                                    </b:dataTable>                                                                                             
+                                </b:column>
+                            </b:row>
+                        </b:container>
+                      </b:tab>
+                      <b:tab title="Informacion">
+                          <b:container>
+                              <b:row>
+                                <b:column col-sm="6" col-md="4">
+                                   <b:thumbnail>
+                                       <img src="http://www.uazuay.edu.ec/sites/default/files/public/ofertaAcademica_0.jpg" alt="Campus Universidad del Azuay" style="width:300px; height:200px;"/>
+                                       <f:facet name="caption">
+                                           <h3>Informacion General</h3>
+                                            <ul style="list-style-type:none">
+                                               <li>
+                                                   <h5><strong>Nombre:</strong></h5>
+                                                   <p>Universidad del Azuay</p>
+                                               </li>   
+                                               <li>
+                                                   <h5><strong>Fundado:</strong></h5>
+                                                   <p>1968</p>
+                                               </li>   
+                                               <li>
+                                                    <h5><strong>Ubicación:</strong></h5>
+                                                    <p>Av. 24 de Mayo 7-77 y Hernán Malo.</p>                                        
+                                               </li> 
+                                               <li>
+                                                    <h5><strong>Teléfono:</strong></h5>
+                                                    <p>(593)7409-1000</p>                                        
+                                               </li>                                                                         
+                                            </ul> 
+                                       </f:facet>
+                                   </b:thumbnail>
+                                </b:column> 
+                                <b:column col-sm="6" col-md="4">
+                                   <b:thumbnail>
+                                       <img src="https://tinyurl.com/y7pmmwns" alt="Libro" style="width:300px; height:200px;" />
+                                       <f:facet name="caption">
+                                           <h3>Admisión</h3>
+                                            <ul style="list-style-type:none">
+                                                <li>
+                                                    <h5><strong>Admisión de Sexo:</strong></h5>
+                                                    <p>Hombres y Mujeres (mixto)</p>
+                                                </li>   
+                                                <li>
+                                                   <h5><strong>Estudiantes internacionales:</strong></h5>
+                                                   <p>Sí, los solicitantes internacionales son bienvenidos</p>
+                                                </li>   
+                                                <li>
+                                                    <h5><strong>Selección de Admisión:</strong></h5>
+                                                    <p>Basado en exámenes de ingreso.</p>                                        
+                                                </li> 
+                                                <li>
+                                                    <h5><strong>Tasa de admisión:</strong></h5>
+                                                    <p>60-70%</p>                                        
+                                                </li>                                                                         
+                                            </ul>
+                                       </f:facet>
+                                   </b:thumbnail> 
+                                </b:column>
+                                <b:column col-sm="6" col-md="4">
+                                   <b:thumbnail>
+                                       <img src="https://tinyurl.com/yaw8pl8n" alt="Studio" style="width:300px; height:200px;" />
+                                       <f:facet name="caption">
+                                           <h3>Tamaño y Perfil</h3>
+                                            <ul style="list-style-type:none">
+                                                <li>
+                                                    <h5><strong>Inscripción de estudiantes:</strong></h5>
+                                                    <p>5,000-5,999</p>
+                                                </li>   
+                                               <li>
+                                                   <h5><strong>Personal académico:</strong></h5>
+                                                   <p>300-399</p>
+                                                </li>   
+                                               <li>
+                                                    <h5><strong>Calendario Académico:</strong></h5>
+                                                    <p>Semestres</p>                                        
+                                               </li> 
+                                               <li>
+                                                    <h5><strong>Instalaciones y Servicios:</strong></h5>
+                                                    <ul id="info-uni">
+                                                        <li>Biblioteca: Sí</li>
+                                                        <span>|</span>
+                                                        <li>Instalaciones Deportivas: Sí</li>
+                                                        <span>|</span>
+                                                        <li>Ayuda Financiera:   Sí</li>
+                                                    </ul>  
+                                               </li>                                                                         
+                                            </ul>
+                                       </f:facet>
+                                   </b:thumbnail> 
+                                </b:column>                                                                   
+                              </b:row>
+                          </b:container>
+                      </b:tab>                 
+                      <b:tab title="Documentos">
+                          No existe contenido
+                      </b:tab>               
+                      <b:tab title="Comentarios">
+                          No existe contenido
+                      </b:tab>                        
+                     </b:tabView>
+                 </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

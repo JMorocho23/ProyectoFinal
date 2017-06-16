@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ComentarioEditDlg" widgetVar="ComentarioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditComentarioTitle}">
+            <h:form id="ComentarioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{comentarioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_comentarioId}" for="comentarioId" />
+                        <p:inputText id="comentarioId" value="#{comentarioController.selected.comentarioId}" title="#{bundle.EditComentarioTitle_comentarioId}" />
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_rating_comentario}" for="rating_comentario" />
+                        <p:inputText id="rating_comentario" value="#{comentarioController.selected.rating_comentario}" title="#{bundle.EditComentarioTitle_rating_comentario}" />
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{comentarioController.selected.descripcion}" title="#{bundle.EditComentarioTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_nhoras}" for="nhoras" />
+                        <p:inputText id="nhoras" value="#{comentarioController.selected.nhoras}" title="#{bundle.EditComentarioTitle_nhoras}" />
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_fecha}" for="fecha" />
+                        <p:inputText id="fecha" value="#{comentarioController.selected.fecha}" title="#{bundle.EditComentarioTitle_fecha}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{comentarioController.update}" value="#{bundle.Save}" update="display,:ComentarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ComentarioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ComentarioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
