@@ -15,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 /**
@@ -22,6 +24,10 @@ import javax.validation.constraints.Size;
  * @author Diego
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name="Carrera.findByFacultyId", query ="Select c FROM Carrera c WHERE c.facultadId = :facultadId")
+}
+)
 public class Carrera implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -29,11 +35,11 @@ public class Carrera implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CARRERA_ID")
     private Long carreraId;
-    @Size(max = 30)
+    @Size(max = 75)
     private String nombre_carrera;
-    @Size(max = 50)
+    @Size(max = 200)
     private String descripcion_carrera;
-    @Size(max = 30)
+    @Size(max = 50)
     private String duracion_carrera;
     @Size(max = 30)
     private String horario_carrera;

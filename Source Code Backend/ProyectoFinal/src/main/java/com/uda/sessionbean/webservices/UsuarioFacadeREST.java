@@ -67,7 +67,7 @@ public class UsuarioFacadeREST extends AbstractFacade<Usuario> {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public List<Usuario> findAll() {
         return super.findAll();
-    }
+    }       
 
     @GET
     @Path("{from}/{to}")

@@ -6,85 +6,75 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:b="http://bootsfaces.net/ui">
+    
+    <f:metadata>
+        <f:event
+            type="preRenderView" listener="#{usuarioController.prepareCreate}"/>
+    </f:metadata>
 
     <body>
 
         <ui:composition template="./Navbar.xhtml">
         <title>Aprende Facil- Crea una cuenta</title>
-            <ui:define name="content">
-             <h:form class="background-signup">
-                <h:form>
-                    <b:container>
-                        <b:row>
-                            <b:column class="Login-col" col-md="4" offset-md="6">
-                                <b:form id="Login" >
-                                    <b:formGroup>
-                                        <h3 style="text-align: center">Crea tu cuenta en Aprende Facil!</h3>
-                                        <p style="text-align: center">Ya tienes una cuenta? <a href="Login.xhtml">ingresa aquí</a></p>
-                                        <hr class="hr-long"></hr>
-                                    </b:formGroup>
-                                    <b:formGroup>
-                                        <h:outputText value="Nombre y Apellido:"/>
-                                        <b:inputText id="nameDiv" fieldId="j_name" name="j_name"
-                                                     value="#{usuarioController.selected.nombre_ape}" placeholder="Ingrese su nombre y apellido">
-                                             <f:facet name="prepend">
-                                                <b:iconAwesome name="male" />
-                                            </f:facet>
-                                        </b:inputText>
-                                    </b:formGroup>
-                                    <b:formGroup>
-                                        <h:outputText value="Correo electronico:"/>
-                                       <b:inputText id="CorreoDiv" fieldId="j_correoelec" name="j_correoelec"
-                                                    value="#{usuarioController.selected.email}" placeholder="Ingrese su correo electronico">
-                                            <f:facet name="prepend">
-                                               <b:iconAwesome name="envelope" />
-                                           </f:facet>
-                                       </b:inputText>
-                                    </b:formGroup> 
-                                    <b:formGroup>
-                                        <h:outputText value="Teléfono:"/>
-                                        <b:inputText id="PhoneDiv" field-id="j_phone" name="j_phone"
-                                                     value="#{usuarioController.selected.telefono}" placeholder="Ingrese su numero de telefono">
-                                            <f:facet name="prepend">
-                                               <b:iconAwesome name="mobile" />
-                                           </f:facet>
-                                       </b:inputText>
-                                    </b:formGroup> 
-                                    <b:formGroup>
-                                        <h:outputText value="Nombre de usuario:"/>
-                                       <b:inputText id="usernameDiv" fieldId="j_username" name="j_username"
-                                                    value="#{usuarioController.selected.nombre_usuario}" placeholder="Ingrese su nombre de usuario">
-                                            <f:facet name="prepend">
-                                               <b:icon name="user" />
-                                           </f:facet>
-                                       </b:inputText>
-                                    </b:formGroup>                                       
-                                    <b:formGroup>
-                                        <h:outputText value="Contraseña:"/>
-                                         <b:inputSecret id="passwordDiv" fieldId="j_password" name="j_password" required="true"
-                                                        value="#{usuarioController.selected.password}" placeholder="Ingrese su contraseña">
-                                              <f:facet name="prepend">
-                                                 <b:iconAwesome name="key" />
-                                             </f:facet>
-                                         </b:inputSecret>
-                                    </b:formGroup>
-                                    <b:formGroup>
-                                        <h:outputText value="Actualmente soy un:"/>
-                                        <p:selectOneButton value="#{usuarioController.selected.tipo_usuario}">
-                                            <f:selectItem itemLabel="Estudiante" itemValue="Estudiante" />
-                                            <f:selectItem itemLabel="Egresado" itemValue="Egresado" />
-                                            <f:selectItem itemLabel="Profesor" itemValue="Profesor" />
-                                        </p:selectOneButton>
-                                    </b:formGroup>                                    
-                                    <b:commandButton actionListener="#{usuarioController.create()}"  value="Crear cuenta" action="home?faces-redirect=true" look="primary"
-                                        style="width:100%"/>
-                                </b:form>
-                            </b:column>
-                        </b:row>
-                    </b:container>
-                </h:form>
-            </h:form>
-
+            <ui:define name="content" >
+            <div class="header-blue">
+                <div id="af-signup" class="register-photo">
+                    <div class="form-container">
+                        <div class="image-holder" style="background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
+                        <b:form  id="af-form" class="text-center">
+                            <h2 class="text-center"><strong>Crea</strong> tu cuenta.</h2>
+                            <b:formGroup class="form-group">
+                                <b:inputText id="email" fieldId="email" name="email" class="form-control" type="email" required="true"
+                                            value="#{usuarioController.selected.email}" placeholder="Email">
+                               </b:inputText>   
+                                <b:message for="@previous" />
+                            </b:formGroup>
+                            <b:formGroup class="form-group">
+                                 <b:inputText id="nombre_usuario" fieldId="nombre_usuario" name="nombre_usuario" required="true"
+                                              value="#{usuarioController.selected.nombre_usuario}" class="form-control" placeholder="Nombre de Usuario" maxlength="25">
+                                 </b:inputText>
+                                <b:message for="@previous" />
+                            </b:formGroup>
+                            <b:formGroup class="form-group">
+                                <b:inputText id="nombre_ape" fieldId="nombre_ape" name="nombre_ape" class="form-control" required="true"
+                                             value="#{usuarioController.selected.nombre_ape}" placeholder="Nombre y Apellido">
+                                </b:inputText>               
+                                <b:message for="@previous" />
+                            </b:formGroup>
+                            <b:formGroup class="form-group">
+                                <b:inputText id="telefono" field-id="telefono" name="telefono" class="form-control"
+                                             value="#{usuarioController.selected.telefono}" placeholder="Telefono">
+                               </b:inputText>                                
+                            </b:formGroup>                            
+                            <b:formGroup class="form-group">
+                                 <b:inputSecret id="password" fieldId="password" name="password" required="true"
+                                                value="#{usuarioController.selected.password}" placeholder="Contraseña">
+                                 </b:inputSecret>     
+                                <b:message for="@previous" />
+                            </b:formGroup>
+                            <b:formGroup class="form-group">
+                            <b:selectOneMenu class="form-control" id="tipo_usuario" value="#{usuarioController.selected.tipo_usuario}" required="true">
+                                <f:selectItem itemLabel="Actualmente soy un:" noSelectionOption="true"></f:selectItem>
+                                <f:selectItem itemLabel="Estudiante"></f:selectItem>
+                                <f:selectItem itemLabel="Egresado"></f:selectItem>
+                                <f:selectItem itemLabel="Profesor"></f:selectItem>
+                            </b:selectOneMenu>
+                            <b:message for="@previous" />
+                            </b:formGroup>
+                            <b:formGroup class="form-group">
+                                <b:selectBooleanCheckbox class="checkbox" caption="Acepto los términos de la licencia">
+                                </b:selectBooleanCheckbox>
+                                
+                            </b:formGroup>
+                            <b:formGroup>
+                                <b:commandButton class="btn btn-primary btn-block" type="submit" actionListener="#{usuarioController.create()}"  value="Crear cuenta" update="messages"   ></b:commandButton>
+                                <b:messages info-class="INFO" redisplay="true" for="@previous" recursive="true" id="messages"/>
+                            </b:formGroup>
+                            <a href="Login.xhtml" class="already">Ya tienes una cuenta? Ingresa aquí</a>
+                        </b:form>
+                    </div>
+                </div>
+            </div>             
             </ui:define>
 
         </ui:composition>

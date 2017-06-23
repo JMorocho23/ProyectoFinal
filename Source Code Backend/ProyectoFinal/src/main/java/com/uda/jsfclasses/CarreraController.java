@@ -3,6 +3,7 @@ package com.uda.jsfclasses;
 import com.uda.model.Carrera;
 import com.uda.jsfclasses.util.JsfUtil;
 import com.uda.jsfclasses.util.JsfUtil.PersistAction;
+import com.uda.model.Facultad;
 import com.uda.sessionbean.CarreraFacade;
 
 import java.io.Serializable;
@@ -79,6 +80,10 @@ public class CarreraController implements Serializable {
             items = getFacade().findAll();
         }
         return items;
+    }
+    
+    public List<Carrera> getItemsByFacultad(Facultad f) {
+        return getFacade().findByFacultyId(f);
     }
 
     private void persist(PersistAction persistAction, String successMessage) {
@@ -161,5 +166,9 @@ public class CarreraController implements Serializable {
         }
 
     }
-
+    
+    public String showCarrera(Carrera c){
+           setSelected(c);
+           return "Materias.xhtml";
+       }
 }

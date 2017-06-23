@@ -61,6 +61,14 @@ public class UsuarioController implements Serializable {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
+    public void crear(){
+        selected = new Usuario();
+        initializeEmbeddableKey();
+        persist(PersistAction.CREATE,ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
+         if (!JsfUtil.isValidationFailed()) {
+            items = null;    // Invalidate list of items to trigger re-query.
+        }     
+    }
 
     public void update() {
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UsuarioUpdated"));

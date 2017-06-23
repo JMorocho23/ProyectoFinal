@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.Size;
 
 /**
@@ -20,14 +22,19 @@ import javax.validation.constraints.Size;
  * @author Diego
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(name="Materia.findByCarreraId", query ="Select c FROM Materia c WHERE c.carreraId = :carreraId")
+}
+)
 public class Materia implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MATERIA_ID")
-    private Long materiaId;
     @Size(max = 30)
+    private String materiaId;
+    @Size(max = 50)
     private String nombre_materia;
     @Size(max = 50)
     private String descripcion_materia;
@@ -41,11 +48,11 @@ public class Materia implements Serializable {
     @ManyToOne
     private Carrera carreraId;
 
-    public Long getMateriaId() {
+    public String getMateriaId() {
         return materiaId;
     }
 
-    public void setMateriaId(Long materiaId) {
+    public void setMateriaId(String materiaId) {
         this.materiaId = materiaId;
     }
 

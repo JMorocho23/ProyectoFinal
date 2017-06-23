@@ -104,10 +104,12 @@
                                            <b:dataTableColumn label="#{bundle.ListUsuarioTitle_telefono}" value="#{item.telefono}" />
                                            <b:dataTableColumn label="#{bundle.ListUsuarioTitle_tipo_usuario}" value="#{item.tipo_usuario}" />                                          
                                        </b:dataTable> 
-                                        <b:button id="createButton" 
+                                        <b:commandButton id="createButton" 
                                         look="primary" 
                                         icon-awesome="user-plus" 
-                                        onclick="$('.modalPseudoClass').modal()"    
+                                        onclick="$('.modalPseudoClass').modal();return false; " 
+                                        actionListener="#{usuarioController.prepareCreate}" 
+                                        update="myFormID"                                        
                                         value="#{bundle.Create}" /> 
                                         
                                         <b:commandButton id="editButton" 
@@ -128,13 +130,7 @@
                     </b:container>
                 </h:form>
                 <h:form id="myFormID">
-                    <b:modal class="modal-head" id="amodal" title="Crear Usuario" styleClass="modalPseudoClass">
-                       <b:inputText id="id" fieldId="j_id" name="j_id" label="Id:"
-                                    value="#{usuarioController.selected.id}" placeholder="Ingrese su nombre de usuario">
-                            <f:facet name="prepend">
-                               <b:icon name="user" />
-                           </f:facet>   
-                       </b:inputText>
+                    <b:modal class="modal-head" id="amodal" title="Crear Usuario" styleClass="modalPseudoClass" rendered="#{usuarioController.selected != null}">
                        <b:inputText id="nombre_usuario" fieldId="j_username" name="j_username" label="Nombre de usuario:"
                                     value="#{usuarioController.selected.nombre_usuario}" placeholder="Ingrese su nombre de usuario">
                             <f:facet name="prepend">

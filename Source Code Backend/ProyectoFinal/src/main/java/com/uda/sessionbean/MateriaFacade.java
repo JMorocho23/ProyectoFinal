@@ -5,10 +5,13 @@
  */
 package com.uda.sessionbean;
 
+import com.uda.model.Carrera;
 import com.uda.model.Materia;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,4 +32,9 @@ public class MateriaFacade extends AbstractFacade<Materia> {
         super(Materia.class);
     }
     
+    public List<Materia> findByCarreraId(Carrera carreraId){
+        Query query=em.createNamedQuery("Materia.findByCarreraId");
+        query.setParameter("carreraId", carreraId);
+        return query.getResultList();
+    }    
 }

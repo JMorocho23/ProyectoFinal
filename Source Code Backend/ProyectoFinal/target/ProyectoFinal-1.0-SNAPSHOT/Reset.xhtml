@@ -12,33 +12,24 @@
         <ui:composition template="./Navbar.xhtml">
 
             <ui:define name="content">
-                <h:form class="background-login">
-                    <b:container>
-                        <b:row>
-                            <b:column class="Login-col" col-md="4" offset-md="4">
-                                <b:form id="Reset" onsubmit="Home.html">
-                                    <b:formGroup>
-                                        <h3 style="text-align: center">Recupera tu contraseña</h3>
-                                        <p style="text-align: center">Ya tienes cuenta? <a href="Login.xhtml">ingresa aquí</a></p>
-                                        <p style="text-align: center">Olvidaste tu contraseña? Escribe el correo electrónico de la cuenta y te mandaremos un correo.</p>
-                                        <hr class="hr-long"></hr>                                       
-                                    </b:formGroup>
-                                    <b:formGroup>
-                                    <h:outputText value="Correo electronico:"/>
-                                        <b:inputText id="CorreoDiv" fieldId="j_correoelec" name="j_correoelec"
-                                             value="#{loginBean.correo}" placeholder="Ingrese su correo electronico">
-                                             <f:facet name="prepend">
-                                                <b:iconAwesome name="envelope" />
-                                            </f:facet>
-                                        </b:inputText>
-                                    </b:formGroup> 
-                                        <b:commandButton value="Recuperar contraseña" onclick="ajax:loginBean.login()" update="@form" look="primary"
-                                        style="width:100%" />
-                                </b:form>
-                            </b:column>
-                        </b:row>
-                    </b:container>                
-                </h:form>   
+                <div class="header-blue">
+                    <div id="af-reset" class="register-photo">
+                        <div class="form-container">
+                            <div class="image-holder"></div>
+                            <b:form id="af-form">
+                                <h2 class="text-center" style="margin-bottom:10px !important;"><strong>Recupera tu contraseña</strong> </h2>
+                                <p class="text-center">Olvidaste tu contraseña? Escribe el correo electrónico de la cuenta y te mandaremos un correo. </p>
+                                <b:formGroup class="form-group">
+                                    <input class="form-control" type="email" name="email" placeholder="Email" inputmode="email" />
+                                </b:formGroup>
+                               <b:formGroup class="form-group">
+                                   <b:commandButton class="btn btn-primary btn-block" type="submit">Recuperar contraseña </b:commandButton>
+                               </b:formGroup>
+                                <a href="Login.xhtml" class="already">Ya tienes una cuenta? Ingresa aquí </a>
+                            </b:form>
+                        </div>
+                    </div>
+                </div>                
             </ui:define>
         </ui:composition>
 

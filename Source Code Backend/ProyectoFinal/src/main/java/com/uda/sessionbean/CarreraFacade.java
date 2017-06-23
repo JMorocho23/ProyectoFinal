@@ -6,9 +6,12 @@
 package com.uda.sessionbean;
 
 import com.uda.model.Carrera;
+import com.uda.model.Facultad;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -23,10 +26,15 @@ public class CarreraFacade extends AbstractFacade<Carrera> {
     @Override
     protected EntityManager getEntityManager() {
         return em;
-    }
+    } 
 
     public CarreraFacade() {
         super(Carrera.class);
     }
     
+    public List<Carrera> findByFacultyId(Facultad facultadId){
+        Query query=em.createNamedQuery("Carrera.findByFacultyId");
+        query.setParameter("facultadId", facultadId);
+        return query.getResultList();
+    }
 }

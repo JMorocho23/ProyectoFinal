@@ -32,7 +32,7 @@ public class Universidad implements Serializable {
     private String nombre_universidad;
     @Size(max = 100)
     private String descripccion_universidad;
-    @Size(max = 100)
+    @Size(max = 300)
     private String direccion_universidad;
     @Size(max = 30)
     private String telefono_universidad;

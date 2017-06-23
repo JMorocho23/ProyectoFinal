@@ -159,7 +159,11 @@ public class FacultadController implements Serializable {
                 return null;
             }
         }
-
+        
     }
+    public String showFacultades(Facultad f){
+           setSelected(f);
+           return "Carreras.xhtml";
+       }
 
 }

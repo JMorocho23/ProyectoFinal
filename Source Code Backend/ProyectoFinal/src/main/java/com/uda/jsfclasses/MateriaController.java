@@ -3,6 +3,7 @@ package com.uda.jsfclasses;
 import com.uda.model.Materia;
 import com.uda.jsfclasses.util.JsfUtil;
 import com.uda.jsfclasses.util.JsfUtil.PersistAction;
+import com.uda.model.Carrera;
 import com.uda.sessionbean.MateriaFacade;
 
 import java.io.Serializable;
@@ -81,6 +82,9 @@ public class MateriaController implements Serializable {
         return items;
     }
 
+    public List<Materia> getItemsByCarrera(Carrera c) {
+        return getFacade().findByCarreraId(c);
+    }    
     private void persist(PersistAction persistAction, String successMessage) {
         if (selected != null) {
             setEmbeddableKeys();
@@ -109,18 +113,14 @@ public class MateriaController implements Serializable {
         }
     }
 
-    public Materia getMateria(java.lang.Long id) {
+    public Materia getMateria(java.lang.String id) {
         return getFacade().find(id);
     }
 
     public List<Materia> getItemsAvailableSelectMany() {
         return getFacade().findAll();
     }
-
-    public List<Materia> getItemsAvailableSelectOne() {
-        return getFacade().findAll();
-    }
-
+    
     @FacesConverter(forClass = Materia.class)
     public static class MateriaControllerConverter implements Converter {
 
@@ -134,13 +134,13 @@ public class MateriaController implements Serializable {
             return controller.getMateria(getKey(value));
         }
 
-        java.lang.Long getKey(String value) {
-            java.lang.Long key;
-            key = Long.valueOf(value);
+        java.lang.String getKey(String value) {
+            java.lang.String key;
+            key = value;
             return key;
         }
 
-        String getStringKey(java.lang.Long value) {
+        String getStringKey(java.lang.String value) {
             StringBuilder sb = new StringBuilder();
             sb.append(value);
             return sb.toString();
@@ -161,5 +161,9 @@ public class MateriaController implements Serializable {
         }
 
     }
-
+    
+	    public String showMateria(Materia m){
+           setSelected(m);
+           return "Materia.xhtml";
+       }  
 }

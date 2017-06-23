@@ -13,24 +13,23 @@
         <h:outputStylesheet name="/css/cssLayout.css"/>
         <h:outputStylesheet library="css" name="style.css"/>
         <title>Aprende Facil | Home</title>
-        
     </h:head>
 
     <h:body>    
-        <b:navBar id="custom-navbar" brand-href="Home.xhtml" brand-img="http://imgh.us/logov1.svg">
+        <b:navBar id="custom-navbar" brand-href="../Home.xhtml" brand-img="http://imgh.us/logov1.svg">
             <b:navbarLinks>
                <b:navLink id="af-navar-text1" value="Inicio" href="../Home.xhtml"></b:navLink>
                <b:navLink id="af-navar-text2" value="Nosotros" href="../About.xhtml"></b:navLink>
                <b:navLink id="af-navar-text3" value="Contactanos" href="../Contact.xhtml"></b:navLink>      
                <b:dropMenu id="af-navar-text6" value="Busca "  style="color: #ecf0f1">
                    <b:navLink value="Por Universidad" href="../University-Search.xhtml"></b:navLink>
-                   <b:navLink value="Por Facultad" href="#"></b:navLink>
-                   <b:navLink value="Por Carrera" href="#"></b:navLink>
+                   <b:navLink value="Por Facultad" href="../Faculty-Search.xhtml"></b:navLink>
+                   <b:navLink value="Por Carrera" href="../Career-Search.xhtml"></b:navLink>
                </b:dropMenu>
             </b:navbarLinks>
              <b:navbarLinks pull="right">
-                <b:navLink id="af-navar-text4" value="Iniciar Session" href="Login.xhtml"  ></b:navLink>
-                <b:navLink id="af-navar-text5" value="Registrate" href="Signup.xhtml"></b:navLink>    
+                <b:navLink id="af-navar-text4" value="Iniciar Session" href="../Login.xhtml"  ></b:navLink>
+                <b:navLink id="af-navar-text5" value="Registrate" href="../Signup.xhtml"></b:navLink>    
             </b:navbarLinks>
         </b:navBar>
         
@@ -38,6 +37,44 @@
             <ui:insert name="content">Content</ui:insert>
         </div>
         
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <div class="footer-dark">
+                    <footer>
+                        <b:container>
+                            <b:row>
+                                <b:column class="item" col-md="3" col-sm="4">
+                                    <h3>Ayuda </h3>
+                                    <ul>
+                                        <li><a href="#">Contáctanos </a></li>
+                                        <li><a href="#">Preguntas frecuentes </a></li>
+                                        <li><a href="#">Ubicación </a></li>
+                                    </ul>
+                                </b:column>
+                                <b:column class="item" col-md="3" col-sm="4">
+                                    <h3>Nosotros </h3>
+                                    <ul>
+                                        <li><a href="#">Empresa </a></li>
+                                        <li><a href="#">Equipo </a></li>
+                                        <li><a href="#">Carreras </a></li>
+                                    </ul>
+                                </b:column>
+                                <b:column class="item text" col-md="6" col-sm="4">
+                                    <h3>Aprende Facil</h3>
+                                    <p>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel in justo.</p>
+                                </b:column>                                
+                                <b:column class="item social text-center" col-md="12" col-sm="4">
+					<a href="#" target="_blank"><i class="fa fa-facebook-official"></i></a>
+					<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                                        <a href="#" target="blank"><i class="fa fa-instagram"></i></a>
+                                </b:column>
+                            </b:row>
+                            <p class="copyright">Aprende Facil © 2017</p>
+                        </b:container>
+                    </footer>
+                </div>
+            </ui:insert>
+        </div>        
+        
     </h:body>
-
 </html>

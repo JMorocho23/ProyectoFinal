@@ -6,3 +6,4 @@ function handleSubmit(args, dialog) {
         PF(dialog).hide();
     }
 }
+

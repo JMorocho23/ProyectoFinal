@@ -11,32 +11,45 @@
         <ui:composition template="./Navbar.xhtml">
 
             <ui:define name="content">
-                <div id="background-search-uni">
-                    <h:form>
-                        <b:container fluid="true">
+                    <h:form id="breadcrumb">
+                        <b:container>
+                            <ol id="breadcrumb-main">
+                                <li><a href="../Home.xhtml">Inicio</a>
+                                    <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
+                                </li>
+                                <li class="active">Universidades</li>                           
+                            </ol>
+                        </b:container>
+                    </h:form>                
+                    <b:form>
+                        <b:jumbotron class="text-center search-jumbo">
+                            <h1 class="search-title">Encuentra tu Universidad</h1>
+                            <p class="search-sub">Elije de nuestra lista de universidades para encontrar los recursos de estudio que necesitas.</p>
+                        </b:jumbotron>
+                    </b:form> 
+                    <b:form id="UniversidadListForm">
+                        <b:container>
                             <b:row >
-                                <b:column class="background-about" col-xs="12" col-md="10" offset="1">
-                                    <h2 style="text-align: center">Encuentra tu Universidad</h2>
-                                    <p style="text-align: center">Elije de nuestra lista de universidades para encontrar los recursos de estudio que necesitas.</p> 
-                                    <hr class="hr-short-uni"></hr>
-                                    <br></br>            
-                                    <b:dataTable value="#" 
-                                        var="universidad"
-                                        lang="es"> 
+                                <b:column class="background-about" col-xs="12" col-md="10" offset="1">       
+                                    <b:dataTable id="datalist"
+                                                 value="#{universidadController.items}" 
+                                                 ondeselect="#{universidadController.selected}"  
+                                                 selectionMode="single" 
+                                                 var="item"
+                                                 lang="es"> 
                                         <b:dataTableColumn order-by="dom-text" data-type="text" searchable="#{dataTableSettingsBean.searchable}">
                                             <f:facet name="header">
                                               <h:outputText value="Nombre"/>
                                             </f:facet>
-                                            <b:button look="link" value="Universidad del Azuay" href="Universidades/Universidad-del-Azuay.xhtml"/>
+                                            <b:button look="link" value="#{item.nombre_universidad}" href="Universidades/Facultades.xhtml"/>
                                         </b:dataTableColumn>  
-                                        <b:dataTableColumn label="Provincia" value="Azuay" />
-                                             
+                                        <b:dataTableColumn label="Direccion" value="#{item.direccion_universidad}" />  
+                                        <b:dataTableColumn label="Telefono" value="#{item.telefono_universidad}" />  
                                     </b:dataTable>                                                                                             
                                 </b:column>
                             </b:row>
                         </b:container>
-                    </h:form>                    
-                </div>
+                    </b:form>                    
             </ui:define>
             
         </ui:composition>

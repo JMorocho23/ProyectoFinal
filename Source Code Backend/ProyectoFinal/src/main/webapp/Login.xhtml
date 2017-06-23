@@ -11,50 +11,31 @@
         
       <ui:composition template="./Navbar.xhtml">
       <title>Aprende Facil- Empieza tu estudio</title>
-            <ui:define name="top">
-                
-            </ui:define>
-            
-            
-            <ui:define name="content">
-                <div class="background-login">
-                <h:form>
-                    <b:container>
-                        <b:row>
-                            <b:column class="Login-col" col-md="4" offset-md="4">
-                                <b:form id="Login" onsubmit="Home.html">
-                                    <b:formGroup>
-                                        <h3 style="text-align: center">Empieza tu estudio!</h3>
-                                        <p style="text-align: center">Cualquier persona puede aprender online de una manera facil y didactica</p>
-                                        <hr class="hr-long"></hr>                                        
-                                    </b:formGroup>
-                                    <b:formGroup>
-                                    <h:outputText value="Nombre de usuario:"/> 
-                                        <b:inputText id="usernameDiv" fieldId="j_username" name="j_username"
-                                                     placeholder="Ingrese su nombre de usuario">
-                                             <f:facet name="prepend">
-                                                <b:icon name="user" />
-                                            </f:facet>
-                                        </b:inputText>  
-                                    </b:formGroup> 
-                                    <b:formGroup>
-                                        <h:outputText value="Contraseña:"/>
-                                        <b:inputSecret id="passwordDiv" fieldId="j_password" name="j_password"
-                                                        placeholder="Ingrese su Contraseña">
-                                                <f:facet name="prepend">
-                                                   <b:iconAwesome name="key" />
-                                               </f:facet>
-                                        </b:inputSecret>
-                                           <p style="text-align: left">Te olvdidaste tu <a href="Reset.xhtml">contraseña?</a></p>
-                                    </b:formGroup>
-                                      <b:commandButton value="Iniciar Session" onclick="ajax:loginBean.login()" update="@form" look="primary"
-                                        style="width:100%" />
-                                </b:form>
-                            </b:column>
-                        </b:row>
-                    </b:container>
-                </h:form>
+           <ui:define name="content">
+            <div class="header-blue">
+                <div id="af-login" class="register-photo">
+                    <div class="form-container">
+                        <div class="image-holder"></div>
+                        <b:form id="af-form">
+                            <h2 class="text-center" style="margin-bottom:10px !important;"><strong>Empieza tu estudio</strong></h2>
+                            <p class="text-center">Cualquier persona puede aprender online de una manera facil y didactica </p>
+                            <b:formGroup class="form-group">
+                                <input class="form-control" type="email" name="email" placeholder="Email" inputmode="email" />
+                            </b:formGroup>
+                            <b:formGroup class="form-group">
+                                <input class="form-control" type="password" name="password" placeholder="Contraseña" minlength="6" pattern="^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))" />
+                            </b:formGroup>
+                            <b:formGroup class="form-group">
+                                    <b:selectBooleanCheckbox class="checkbox" caption="Recordarme"></b:selectBooleanCheckbox>
+                            </b:formGroup>
+                            <b:formGroup class="form-group">
+                                <b:commandButton class="btn btn-primary btn-block" type="submit">Iniciar Session</b:commandButton>
+                            </b:formGroup>
+                            <a href="Reset.xhtml" class="already">Te olvdidaste tu contraseña? </a>
+                        </b:form>
+                    </div>
                 </div>
+            </div>            
             </ui:define>
         </ui:composition>
 

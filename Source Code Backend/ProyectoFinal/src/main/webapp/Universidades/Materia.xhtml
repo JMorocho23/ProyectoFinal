@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="Navbar.xhtml">
+
+            <ui:define name="content">
+               <h:form id="breadcrumb">
+                    <b:container>
+                        <ol id="breadcrumb-main">
+                            <li><a href="../Home.xhtml">Inicio</a>
+                                <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
+                            </li>
+                             <li><a href="../University-Search.xhtml">Universidades</a>
+                                <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
+                            </li>
+                            <li><a href="./Facultades.xhtml">Universidad del Azuay</a>
+                                <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
+                            </li>
+                            <li><a href="./Carreras.xhtml">#{facultadController.selected.nombre_facultad}</a>
+                                <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
+                            </li>
+                            <li><a href="./Materias.xhtml">#{carreraController.selected.nombre_carrera}</a>
+                                <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
+                            </li>                            
+                            <li class="active">#{materiaController.selected.nombre_materia}</li>
+                        </ol>
+                    </b:container>
+                </h:form>
+                <h:form>
+                    <b:container>
+                        <div class="photo-card">
+                            <div id="photo-cour" class="photo-background"></div>
+                            <div class="photo-details">
+                                <h1>#{materiaController.selected.nombre_materia}</h1>
+                                <br></br>
+                                <ul class="list-unstyled uni-info">
+                                    <li><strong>Universidad: </strong><a href=" http://uazuay.edu.ec/ " target="_blank"><span style="text-decoration: underline;">Universidad del Azuay</span></a></li>
+                                    <li><strong>Numero de creditos:</strong> #{materiaController.selected.numero_creditos}</li>
+                                    <li><strong>Prequisitos:</strong> #{materiaController.selected.descripcion_materia}</li>
+                                    <li><strong>Ciclo:</strong> #{materiaController.selected.nivel}</li>
+                                    <li><strong>Rating de la matereria:</strong><p:rating value="#{materiaController.selected.rating_materia}" readonly="true" /></li>
+                                </ul> 
+                                <br></br>
+                                <div class="photo-buttons">
+                                     <ul class="list-inline text-right">
+                                         <li>
+                                            <b:commandButton look="warning" icon-awesome="upload" value="Subir Documento" onclick="$('.dmodalPseudoClass').modal();return false; " update="DocumentForm"/> 
+                                         </li>
+                                         <li>
+                                             <b:commandButton look="info" icon-awesome="comment" value="Commentar"/> 
+                                         </li>                                     
+                                    </ul>
+                                </div>                                
+                            </div>    
+                        </div>
+                    </b:container>
+                </h:form>
+
+                <h:form id="MateriaListForm">
+                    <b:tabView contentStyle="border-right: 1px solid #ddd;border-left: 1px solid #ddd;border-bottom: 1px solid #ddd;padding:10px">
+                      <b:tab title="Documentos">
+                          <h3>#{materiaController.selected.nombre_materia}<small> Documentos</small></h3>
+                          <h4>Mostrando 1 a 1 de 1</h4>
+                          <b:container>
+                            <b:row class="row product-list">
+                                <b:column col-md="4" col-sm="6" class="product-item">
+                                    <b:container class="product-container">
+                                        <b:row>
+                                            <b:column col-md="12">
+                                             <a href="#" class="product-image"><img src="../resources/Imagenes/sample_pdf.png" /></a>					
+                                            </b:column>
+                                        </b:row>
+                                        <b:row>
+                                            <b:column col-xs="8">
+                                                <h2>Documento 1</h2>				
+                                            </b:column>
+                                        </b:row>
+                                        <div class="product-rating"><a href="#" class="small-text">5 paginas</a></div>
+                                        <b:row>
+                                            <b:column col-xs="12">
+                                                <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
+                                                <b:row>
+                                                    <b:column col-xs="6" offset-xs="3"> 
+                                                        <b:commandButton look="primary" value="Descargar" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon-awesome="download">
+                                                            <p:fileDownload value="#{fileDownloadView.file}" />
+                                                        </b:commandButton>
+                                                    </b:column>
+                                                </b:row>				
+                                            </b:column>
+                                        </b:row>			
+                                    </b:container>
+                                </b:column>
+                            </b:row>                              
+                          </b:container>
+                      </b:tab>               
+                      <b:tab title="Comentarios">
+                          <h3>#{materiaController.selected.nombre_materia}<small> Comentarios</small></h3>
+                          <h4>Mostrando 1 a 1 de 1</h4>                          
+                          <b:container>
+                              <b:row class="comment-cont">
+                                  <b:column col-lg="2" col-md="2" col-sm="2" class="text-center" >
+                                    <b:iconAwesome name="user" size="3x"></b:iconAwesome>
+                                    <h5>Usuario 1</h5>
+                                </b:column>
+                                <b:column col-lg="7" col-md="7" col-sm="6"> 
+                                    <ul class="list-inline">
+                                        <li><p:rating value="3" readonly="true"/></li>
+                                        <li><h4><small>| 3 de 5 estrellas</small></h4></li>
+                                    </ul>
+                                    <h5><small>Junio 26,206</small></h5>
+                                    <hr class="comment-hr"></hr>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis mauris accumsan, aliquet dui vel, rutrum dolor. Nunc vitae auctor metus. Quisque posuere nibh ut sem tincidunt, quis feugiat elit lobortis. Sed ut fringilla purus. Suspendisse
+                                        volutpat ex non sem vehicula venenatis ut sed purus. Nunc eget fermentum metus, non consectetur velit. Donec semper leo a tellus posuere mollis. Duis a eleifend metus. Sed viverra enim sit amet mattis viverra. Ut euismod viverra lectus
+                                        id aliquam. Cras eget odio mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ipsum nulla, vestibulum id diam eu, malesuada malesuada ex. Vestibulum et volutpat mauris. Donec sagittis
+                                        sem vitae lacinia pellentesque. Ut mattis viverra aliquam. 
+                                    </p>
+                                    <hr class="comment-hr"></hr>
+                                </b:column>
+                                <b:column col-lg="3" col-md="3" col-sm="4">    
+                                    <ul class="list-unstyled">
+                                        <li><strong>Semestre:</strong> Abril 2017</li>
+                                        <li><strong>Profesor:</strong> Ing...</li>
+                                        <li><strong>Horas Semanales:</strong> 6</li>
+                                    </ul>
+                                </b:column>
+                              </b:row>
+                          </b:container>
+                      </b:tab>                        
+                     </b:tabView>
+                 </h:form>  
+               <h:form id="DocumentForm">
+                    <b:modal class="modal-head" id="amodal" title="Subir Documento" styleClass="dmodalPseudoClass">
+                            <b:form enctype="multipart/form-data">
+                                <b:growl id="messages" showDetail="true" />
+                                <p:fileUpload value="Escoger"  mode="simple" fileLimit="1" />
+                            </b:form> 
+                            <br></br>
+                            <b:formGroup class="form-group" >
+                                 <b:inputText id="nombre_doc" fieldId="nombre_doc" name="nombre_doc" required="true"
+                                              value="#{documentoController.selected.nombre_doc}" class="form-control" placeholder="Nombre del Documento">
+                                 </b:inputText>
+                                <b:message for="@previous" />
+                            </b:formGroup>  
+                            <b:formGroup class="form-group">
+                            <b:selectOneMenu class="form-control" id="tipo_doc" value="#{documentoController.selected.tipo_doc}" required="true">
+                                <f:selectItem itemLabel="Tipo de Documento:" noSelectionOption="true"></f:selectItem>
+                                <f:selectItem itemLabel="Libro"></f:selectItem>
+                                <f:selectItem itemLabel="Sílabo"></f:selectItem>
+                                <f:selectItem itemLabel="Materia"></f:selectItem>
+                                <f:selectItem itemLabel="Apuntes"></f:selectItem>
+                                <f:selectItem itemLabel="Deber"></f:selectItem>
+                                <f:selectItem itemLabel="Informe"></f:selectItem>
+                                <f:selectItem itemLabel="Prueba"></f:selectItem>
+                                <f:selectItem itemLabel="Examen"></f:selectItem>
+                            </b:selectOneMenu>
+                            <b:message for="@previous" />
+                            </b:formGroup>  
+                            <b:formGroup class="form-group">
+                                <b:touchSpin id="numero_pagina" booster="true" value="#{documentoController.selected.numero_pagina}" min="0" max="3000" step="1" prefix="Numero de Paginas:" />
+                                <b:message for="@previous" />
+                            </b:formGroup>  
+                        <f:facet name="footer">
+                            <b:button value="Cancelar" dismiss="modal" />
+                            <b:commandButton value="Subir" look="primary" actionListener="#{usuarioController.create}"/>
+                        </f:facet>
+                    </b:modal>
+                </h:form>                      
+                 <h:form id="CommentForm">
+                    <b:modal class="modal-head" id="amodal" title="Dejar Comentario" styleClass="modalPseudoClass">
+                       <b:inputText id="nombre_usuario" fieldId="j_username" name="j_username" label="Nombre de usuario:"
+                                    value="#{usuarioController.selected.nombre_usuario}" placeholder="Ingrese su nombre de usuario">
+                            <f:facet name="prepend">
+                               <b:icon name="user" />
+                           </f:facet>
+                       </b:inputText>
+                         <b:inputSecret id="password" fieldId="j_password" name="j_password" required="true"
+                                        value="#{usuarioController.selected.password}" label="Contraseña:" placeholder="Ingrese su contraseña">
+                              <f:facet name="prepend">
+                                 <b:iconAwesome name="key" />
+                             </f:facet>
+                         </b:inputSecret>                                                  
+                           <b:inputText id="nombre_ape" fieldId="j_name" name="j_name"
+                                         value="#{usuarioController.selected.nombre_ape}" label="Nombre y apellido" placeholder="Ingrese su nombre y apellido">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="male" />
+                               </f:facet>
+                           </b:inputText>
+                           <b:inputText id="email" fieldId="j_correoelec" name="j_correoelec" label="Email:"
+                                        value="#{usuarioController.selected.email}" placeholder="Ingrese su correo electronico">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="envelope" />
+                               </f:facet>
+                           </b:inputText>
+                            <b:inputText id="telefono" field-id="j_phone" name="j_phone" label="Numero de telefono:"
+                                         value="#{usuarioController.selected.telefono}" placeholder="Ingrese su numero de telefono">
+                                <f:facet name="prepend">
+                                   <b:iconAwesome name="mobile" />
+                               </f:facet>
+                           </b:inputText>
+                            <br></br>  
+                            <p:outputLabel value="Actualmente soy un:" />
+                            <p:selectOneButton id="tipo_usuario" value="#{usuarioController.selected.tipo_usuario}">
+                                <f:selectItem itemLabel="Estudiante" itemValue="Estudiante" />
+                                <f:selectItem itemLabel="Egresado" itemValue="Egresado" />
+                               <f:selectItem itemLabel="Profesor" itemValue="Profesor" />
+                            </p:selectOneButton>                      
+                        <f:facet name="footer">
+                            <b:button value="#{bundle.Cancel}" dismiss="modal" />
+                            <b:commandButton value="#{bundle.Save}" look="primary" actionListener="#{usuarioController.create}"/>
+                        </f:facet>
+                    </b:modal>
+                </h:form>      
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
