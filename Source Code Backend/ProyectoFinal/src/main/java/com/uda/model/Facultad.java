@@ -6,39 +6,62 @@
 package com.uda.model;
 
 import java.io.Serializable;
-import java.util.List;
+import java.math.BigInteger;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Diego
+ * @author Anticlutch
  */
 @Entity
+@Table(name = "facultad")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Facultad.findAll", query = "SELECT f FROM Facultad f")
+    , @NamedQuery(name = "Facultad.findByFacultadId", query = "SELECT f FROM Facultad f WHERE f.facultadId = :facultadId")
+    , @NamedQuery(name = "Facultad.findByDescripcionFacultad", query = "SELECT f FROM Facultad f WHERE f.descripcionFacultad = :descripcionFacultad")
+    , @NamedQuery(name = "Facultad.findByNombreFacultad", query = "SELECT f FROM Facultad f WHERE f.nombreFacultad = :nombreFacultad")
+    , @NamedQuery(name = "Facultad.findByTelefonoFacultad", query = "SELECT f FROM Facultad f WHERE f.telefonoFacultad = :telefonoFacultad")
+    , @NamedQuery(name = "Facultad.findByUniversidadId", query = "SELECT f FROM Facultad f WHERE f.universidadId = :universidadId")})
 public class Facultad implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "FACULTAD_ID")
     private Long facultadId;
-    @Size(max = 30)
-    private String nombre_facultad;
     @Size(max = 50)
-    private String descripcion_facultad;
+    @Column(name = "descripcion_facultad")
+    private String descripcionFacultad;
+    @Size(max = 100)
+    @Column(name = "nombre_facultad")
+    private String nombreFacultad;
     @Size(max = 30)
-    private String telefono_facultad;
+    @Column(name = "telefono_facultad")
+    private String telefonoFacultad;
     @JoinColumn(name = "UNIVERSIDAD_ID", referencedColumnName = "UNIVERSIDAD_ID")
     @ManyToOne
     private Universidad universidadId;
+
+    public Facultad() {
+    }
+
+    public Facultad(Long facultadId) {
+        this.facultadId = facultadId;
+    }
 
     public Long getFacultadId() {
         return facultadId;
@@ -48,7 +71,29 @@ public class Facultad implements Serializable {
         this.facultadId = facultadId;
     }
 
+    public String getDescripcionFacultad() {
+        return descripcionFacultad;
+    }
 
+    public void setDescripcionFacultad(String descripcionFacultad) {
+        this.descripcionFacultad = descripcionFacultad;
+    }
+
+    public String getNombreFacultad() {
+        return nombreFacultad;
+    }
+
+    public void setNombreFacultad(String nombreFacultad) {
+        this.nombreFacultad = nombreFacultad;
+    }
+
+    public String getTelefonoFacultad() {
+        return telefonoFacultad;
+    }
+
+    public void setTelefonoFacultad(String telefonoFacultad) {
+        this.telefonoFacultad = telefonoFacultad;
+    }
 
     @Override
     public int hashCode() {
@@ -72,63 +117,7 @@ public class Facultad implements Serializable {
 
     @Override
     public String toString() {
-        return "com.uda.model.Facultad[ id=" + facultadId + " ]";
-    }
-
-    /**
-     * @return the nombre_facultad
-     */
-    public String getNombre_facultad() {
-        return nombre_facultad;
-    }
-
-    /**
-     * @param nombre_facultad the nombre_facultad to set
-     */
-    public void setNombre_facultad(String nombre_facultad) {
-        this.nombre_facultad = nombre_facultad;
-    }
-
-    /**
-     * @return the descripcion_facultad
-     */
-    public String getDescripcion_facultad() {
-        return descripcion_facultad;
-    }
-
-    /**
-     * @param descripcion_facultad the descripcion_facultad to set
-     */
-    public void setDescripcion_facultad(String descripcion_facultad) {
-        this.descripcion_facultad = descripcion_facultad;
-    }
-
-    /**
-     * @return the telefono_facultad
-     */
-    public String getTelefono_facultad() {
-        return telefono_facultad;
-    }
-
-    /**
-     * @param telefono_facultad the telefono_facultad to set
-     */
-    public void setTelefono_facultad(String telefono_facultad) {
-        this.telefono_facultad = telefono_facultad;
-    }
-
-    /**
-     * @return the universidadId
-     */
-    public Universidad getUniversidadId() {
-        return universidadId;
-    }
-
-    /**
-     * @param universidadId the universidadId to set
-     */
-    public void setUniversidadId(Universidad universidadId) {
-        this.universidadId = universidadId;
+        return "com.uda.model.Facultad[ facultadId=" + facultadId + " ]";
     }
     
 }

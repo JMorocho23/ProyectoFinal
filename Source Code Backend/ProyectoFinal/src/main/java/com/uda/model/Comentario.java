@@ -6,41 +6,87 @@
 package com.uda.model;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Date;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author Diego
+ * @author Anticlutch
  */
 @Entity
+@Table(name = "comentario")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Comentario.findAll", query = "SELECT c FROM Comentario c")
+    , @NamedQuery(name = "Comentario.findByComentarioId", query = "SELECT c FROM Comentario c WHERE c.comentarioId = :comentarioId")
+    , @NamedQuery(name = "Comentario.findByDescripcion", query = "SELECT c FROM Comentario c WHERE c.descripcion = :descripcion")
+    , @NamedQuery(name = "Comentario.findByConsejo", query = "SELECT c FROM Comentario c WHERE c.consejo = :consejo")
+    , @NamedQuery(name = "Comentario.findByFechaCommentario", query = "SELECT c FROM Comentario c WHERE c.fechaCommentario = :fechaCommentario")
+    , @NamedQuery(name = "Comentario.findByNhoras", query = "SELECT c FROM Comentario c WHERE c.nhoras = :nhoras")
+    , @NamedQuery(name = "Comentario.findByRatingComentario", query = "SELECT c FROM Comentario c WHERE c.ratingComentario = :ratingComentario")
+    , @NamedQuery(name = "Comentario.findBySemestreMes", query = "SELECT c FROM Comentario c WHERE c.semestreMes = :semestreMes")
+    , @NamedQuery(name = "Comentario.findBySemestreAnio", query = "SELECT c FROM Comentario c WHERE c.semestreAnio = :semestreAnio")
+    , @NamedQuery(name = "Comentario.findByMateriaId", query = "SELECT c FROM Comentario c WHERE c.materiaId = :materiaId")
+    , @NamedQuery(name = "Comentario.findByUsuarioId", query = "SELECT c FROM Comentario c WHERE c.usuarioId = :usuarioId")})
 public class Comentario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
     @Column(name = "COMENTARIO_ID")
     private Long comentarioId;
-    @Size(max = 5)
-    private Integer rating_comentario;
     @Size(max = 500)
+    @Column(name = "descripcion")
     private String descripcion;
-    @Size(max = 30)
+    @Size(max = 500)
+    @Column(name = "consejo")
+    private String consejo;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "fecha_commentario")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechaCommentario;
+    @Column(name = "nhoras")
     private Integer nhoras;
-    private Date fecha;
-    @JoinColumn(name = "USUARIO_ID", referencedColumnName = "USUARIO_ID")
-    @ManyToOne
-    private Usuario usuarioId;
-    @JoinColumn(name = "MATERIA_ID", referencedColumnName = "MATERIA_ID")
-    @ManyToOne
-    private Materia materiaId;
+    @Column(name = "rating_comentario")
+    private Integer ratingComentario;
+    @Size(max = 30)
+    @Column(name = "semestre_mes")
+    private String semestreMes;
+    @Column(name = "semestre_anio")
+    private Integer semestreAnio;
+    @Size(max = 255)
+    @Column(name = "MATERIA_ID")
+    private String materiaId;
+    @Column(name = "USUARIO_ID")
+    private BigInteger usuarioId;
+
+    public Comentario() {
+    }
+
+    public Comentario(Long comentarioId) {
+        this.comentarioId = comentarioId;
+    }
+
+    public Comentario(Long comentarioId, Date fechaCommentario) {
+        this.comentarioId = comentarioId;
+        this.fechaCommentario = fechaCommentario;
+    }
 
     public Long getComentarioId() {
         return comentarioId;
@@ -50,7 +96,77 @@ public class Comentario implements Serializable {
         this.comentarioId = comentarioId;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
 
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getConsejo() {
+        return consejo;
+    }
+
+    public void setConsejo(String consejo) {
+        this.consejo = consejo;
+    }
+
+    public Date getFechaCommentario() {
+        return fechaCommentario;
+    }
+
+    public void setFechaCommentario(Date fechaCommentario) {
+        this.fechaCommentario = fechaCommentario;
+    }
+
+    public Integer getNhoras() {
+        return nhoras;
+    }
+
+    public void setNhoras(Integer nhoras) {
+        this.nhoras = nhoras;
+    }
+
+    public Integer getRatingComentario() {
+        return ratingComentario;
+    }
+
+    public void setRatingComentario(Integer ratingComentario) {
+        this.ratingComentario = ratingComentario;
+    }
+
+    public String getSemestreMes() {
+        return semestreMes;
+    }
+
+    public void setSemestreMes(String semestreMes) {
+        this.semestreMes = semestreMes;
+    }
+
+    public Integer getSemestreAnio() {
+        return semestreAnio;
+    }
+
+    public void setSemestreAnio(Integer semestreAnio) {
+        this.semestreAnio = semestreAnio;
+    }
+
+    public String getMateriaId() {
+        return materiaId;
+    }
+
+    public void setMateriaId(String materiaId) {
+        this.materiaId = materiaId;
+    }
+
+    public BigInteger getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(BigInteger usuarioId) {
+        this.usuarioId = usuarioId;
+    }
 
     @Override
     public int hashCode() {
@@ -74,63 +190,7 @@ public class Comentario implements Serializable {
 
     @Override
     public String toString() {
-        return "com.uda.model.Comentarios[ id=" + comentarioId + " ]";
-    }
-    
-    /**
-     * @return the rating_comentario
-     */
-    public Integer getRating_comentario() {
-        return rating_comentario;
-    }
-
-    /**
-     * @param rating_comentario the rating_comentario to set
-     */
-    public void setRating_comentario(Integer rating_comentario) {
-        this.rating_comentario = rating_comentario;
-    }
-
-    /**
-     * @return the descripcion
-     */
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    /**
-     * @param descripcion the descripcion to set
-     */
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    /**
-     * @return the nhoras
-     */
-    public Integer getNhoras() {
-        return nhoras;
-    }
-
-    /**
-     * @param nhoras the nhoras to set
-     */
-    public void setNhoras(Integer nhoras) {
-        this.nhoras = nhoras;
-    }
-
-    /**
-     * @return the fecha
-     */
-    public Date getFecha() {
-        return fecha;
-    }
-
-    /**
-     * @param fecha the fecha to set
-     */
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+        return "com.uda.model.Comentario[ comentarioId=" + comentarioId + " ]";
     }
     
 }
