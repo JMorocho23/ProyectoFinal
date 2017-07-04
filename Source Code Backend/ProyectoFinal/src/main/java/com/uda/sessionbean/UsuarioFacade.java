@@ -9,6 +9,7 @@ import com.uda.model.Usuario;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,4 +30,23 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         super(Usuario.class);
     }
     
+  public boolean loginControl(String nombreUsuario, String password){
+        
+      try{           
+           // Usuario L = em.createNamedQuery("Usuario.control",Usuario.class).setParameter("nombreUsuario", nombreUsuario).setParameter("password", password).getSingleResult();
+            Query query = em.createNamedQuery("Usuario.loginControl");
+            query.setParameter("nombreUsuario", nombreUsuario).setParameter("password", password);
+            
+            //System.out.println(query.getSingleResult());
+            
+            if(query.getSingleResult() != null){
+                return true;
+            }else{
+                return false;
+            }
+
+        }catch(Exception e){
+            return false;
+        }
+    }
 }

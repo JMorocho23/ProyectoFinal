@@ -26,15 +26,15 @@ public class CarreraFacade extends AbstractFacade<Carrera> {
     @Override
     protected EntityManager getEntityManager() {
         return em;
-    } 
+    }
 
     public CarreraFacade() {
         super(Carrera.class);
     }
     
-    public List<Carrera> findByFacultyId(Facultad facultadId){
-        Query query=em.createNamedQuery("Carrera.findByFacultyId");
+    public List<Carrera> findByFacultadId(Facultad facultadId){
+        Query query=em.createNamedQuery("Carrera.findByFacultadId");
         query.setParameter("facultadId", facultadId);
         return query.getResultList();
-    }
+    }    
 }
