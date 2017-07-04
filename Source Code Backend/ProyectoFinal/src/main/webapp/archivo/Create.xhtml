@@ -12,14 +12,22 @@
             <h:form id="ArchivoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{archivoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateArchivoLabel_archivoId}" for="archivoId" />
-                        <p:inputText id="archivoId" value="#{archivoController.selected.archivoId}" title="#{bundle.CreateArchivoTitle_archivoId}" />
+                        <p:outputLabel value="#{bundle.CreateArchivoLabel_archivoID}" for="archivoID" />
+                        <p:inputText id="archivoID" value="#{archivoController.selected.archivoID}" title="#{bundle.CreateArchivoTitle_archivoID}" required="true" requiredMessage="#{bundle.CreateArchivoRequiredMessage_archivoID}"/>
                         <p:outputLabel value="#{bundle.CreateArchivoLabel_descripcion}" for="descripcion" />
                         <p:inputText id="descripcion" value="#{archivoController.selected.descripcion}" title="#{bundle.CreateArchivoTitle_descripcion}" />
-                        <p:outputLabel value="#{bundle.CreateArchivoLabel_path}" for="path" />
-                        <p:inputText id="path" value="#{archivoController.selected.path}" title="#{bundle.CreateArchivoTitle_path}" />
+                        <p:outputLabel value="#{bundle.CreateArchivoLabel_tipo}" for="tipo" />
+                        <p:inputText id="tipo" value="#{archivoController.selected.tipo}" title="#{bundle.CreateArchivoTitle_tipo}" />
+                        <p:outputLabel value="#{bundle.CreateArchivoLabel_tamanio}" for="tamanio" />
+                        <p:inputText id="tamanio" value="#{archivoController.selected.tamanio}" title="#{bundle.CreateArchivoTitle_tamanio}" />
                         <p:outputLabel value="#{bundle.CreateArchivoLabel_fecha}" for="fecha" />
-                        <p:inputText id="fecha" value="#{archivoController.selected.fecha}" title="#{bundle.CreateArchivoTitle_fecha}" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{archivoController.selected.fecha}" title="#{bundle.EditArchivoTitle_fecha}" required="true" requiredMessage="#{bundle.EditArchivoRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateArchivoLabel_documento}" for="documento" />
+                        <p:inputTextarea rows="4" cols="30" id="documento" value="#{archivoController.selected.documento}" title="#{bundle.CreateArchivoTitle_documento}" />
+                        <p:outputLabel value="#{bundle.CreateArchivoLabel_materiaId}" for="materiaId" />
+                        <p:inputText id="materiaId" value="#{archivoController.selected.materiaId}" title="#{bundle.CreateArchivoTitle_materiaId}" />
+                        <p:outputLabel value="#{bundle.CreateArchivoLabel_usuarioId}" for="usuarioId" />
+                        <p:inputText id="usuarioId" value="#{archivoController.selected.usuarioId}" title="#{bundle.CreateArchivoTitle_usuarioId}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{archivoController.create}" value="#{bundle.Save}" update="display,:ArchivoListForm:datalist,:growl" oncomplete="handleSubmit(args,'ArchivoCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ArchivoCreateDialog.hide()"/>

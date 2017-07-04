@@ -13,15 +13,17 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{carreraController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateCarreraLabel_carreraId}" for="carreraId" />
-                        <p:inputText id="carreraId" value="#{carreraController.selected.carreraId}" title="#{bundle.CreateCarreraTitle_carreraId}" />
-                        <p:outputLabel value="#{bundle.CreateCarreraLabel_nombre_carrera}" for="nombre_carrera" />
-                        <p:inputText id="nombre_carrera" value="#{carreraController.selected.nombre_carrera}" title="#{bundle.CreateCarreraTitle_nombre_carrera}" />
-                        <p:outputLabel value="#{bundle.CreateCarreraLabel_descripcion_carrera}" for="descripcion_carrera" />
-                        <p:inputText id="descripcion_carrera" value="#{carreraController.selected.descripcion_carrera}" title="#{bundle.CreateCarreraTitle_descripcion_carrera}" />
-                        <p:outputLabel value="#{bundle.CreateCarreraLabel_duracion_carrera}" for="duracion_carrera" />
-                        <p:inputText id="duracion_carrera" value="#{carreraController.selected.duracion_carrera}" title="#{bundle.CreateCarreraTitle_duracion_carrera}" />
-                        <p:outputLabel value="#{bundle.CreateCarreraLabel_horario_carrera}" for="horario_carrera" />
-                        <p:inputText id="horario_carrera" value="#{carreraController.selected.horario_carrera}" title="#{bundle.CreateCarreraTitle_horario_carrera}" />
+                        <p:inputText id="carreraId" value="#{carreraController.selected.carreraId}" title="#{bundle.CreateCarreraTitle_carreraId}" required="true" requiredMessage="#{bundle.CreateCarreraRequiredMessage_carreraId}"/>
+                        <p:outputLabel value="#{bundle.CreateCarreraLabel_descripcionCarrera}" for="descripcionCarrera" />
+                        <p:inputText id="descripcionCarrera" value="#{carreraController.selected.descripcionCarrera}" title="#{bundle.CreateCarreraTitle_descripcionCarrera}" />
+                        <p:outputLabel value="#{bundle.CreateCarreraLabel_duracionCarrera}" for="duracionCarrera" />
+                        <p:inputText id="duracionCarrera" value="#{carreraController.selected.duracionCarrera}" title="#{bundle.CreateCarreraTitle_duracionCarrera}" />
+                        <p:outputLabel value="#{bundle.CreateCarreraLabel_horarioCarrera}" for="horarioCarrera" />
+                        <p:inputText id="horarioCarrera" value="#{carreraController.selected.horarioCarrera}" title="#{bundle.CreateCarreraTitle_horarioCarrera}" />
+                        <p:outputLabel value="#{bundle.CreateCarreraLabel_nombreCarrera}" for="nombreCarrera" />
+                        <p:inputText id="nombreCarrera" value="#{carreraController.selected.nombreCarrera}" title="#{bundle.CreateCarreraTitle_nombreCarrera}" />
+                        <p:outputLabel value="#{bundle.CreateCarreraLabel_facultadId}" for="facultadId" />
+                        <p:inputText id="facultadId" value="#{carreraController.selected.facultadId}" title="#{bundle.CreateCarreraTitle_facultadId}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{carreraController.create}" value="#{bundle.Save}" update="display,:CarreraListForm:datalist,:growl" oncomplete="handleSubmit(args,'CarreraCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CarreraCreateDialog.hide()"/>

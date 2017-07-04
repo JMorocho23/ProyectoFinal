@@ -13,15 +13,25 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{comentarioController.selected != null}">
                         <p:outputLabel value="#{bundle.EditComentarioLabel_comentarioId}" for="comentarioId" />
-                        <p:inputText id="comentarioId" value="#{comentarioController.selected.comentarioId}" title="#{bundle.EditComentarioTitle_comentarioId}" />
-                        <p:outputLabel value="#{bundle.EditComentarioLabel_rating_comentario}" for="rating_comentario" />
-                        <p:inputText id="rating_comentario" value="#{comentarioController.selected.rating_comentario}" title="#{bundle.EditComentarioTitle_rating_comentario}" />
+                        <p:inputText id="comentarioId" value="#{comentarioController.selected.comentarioId}" title="#{bundle.EditComentarioTitle_comentarioId}" required="true" requiredMessage="#{bundle.EditComentarioRequiredMessage_comentarioId}"/>
                         <p:outputLabel value="#{bundle.EditComentarioLabel_descripcion}" for="descripcion" />
                         <p:inputText id="descripcion" value="#{comentarioController.selected.descripcion}" title="#{bundle.EditComentarioTitle_descripcion}" />
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_consejo}" for="consejo" />
+                        <p:inputText id="consejo" value="#{comentarioController.selected.consejo}" title="#{bundle.EditComentarioTitle_consejo}" />
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_fechaCommentario}" for="fechaCommentario" />
+                        <p:calendar id="fechaCommentario" pattern="MM/dd/yyyy HH:mm:ss" value="#{comentarioController.selected.fechaCommentario}" title="#{bundle.EditComentarioTitle_fechaCommentario}" required="true" requiredMessage="#{bundle.EditComentarioRequiredMessage_fechaCommentario}" showOn="button"/>
                         <p:outputLabel value="#{bundle.EditComentarioLabel_nhoras}" for="nhoras" />
                         <p:inputText id="nhoras" value="#{comentarioController.selected.nhoras}" title="#{bundle.EditComentarioTitle_nhoras}" />
-                        <p:outputLabel value="#{bundle.EditComentarioLabel_fecha}" for="fecha" />
-                        <p:inputText id="fecha" value="#{comentarioController.selected.fecha}" title="#{bundle.EditComentarioTitle_fecha}" />
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_ratingComentario}" for="ratingComentario" />
+                        <p:inputText id="ratingComentario" value="#{comentarioController.selected.ratingComentario}" title="#{bundle.EditComentarioTitle_ratingComentario}" />
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_semestreMes}" for="semestreMes" />
+                        <p:inputText id="semestreMes" value="#{comentarioController.selected.semestreMes}" title="#{bundle.EditComentarioTitle_semestreMes}" />
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_semestreAnio}" for="semestreAnio" />
+                        <p:inputText id="semestreAnio" value="#{comentarioController.selected.semestreAnio}" title="#{bundle.EditComentarioTitle_semestreAnio}" />
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_materiaId}" for="materiaId" />
+                        <p:inputText id="materiaId" value="#{comentarioController.selected.materiaId}" title="#{bundle.EditComentarioTitle_materiaId}" />
+                        <p:outputLabel value="#{bundle.EditComentarioLabel_usuarioId}" for="usuarioId" />
+                        <p:inputText id="usuarioId" value="#{comentarioController.selected.usuarioId}" title="#{bundle.EditComentarioTitle_usuarioId}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{comentarioController.update}" value="#{bundle.Save}" update="display,:ComentarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ComentarioEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ComentarioEditDialog.hide()"/>

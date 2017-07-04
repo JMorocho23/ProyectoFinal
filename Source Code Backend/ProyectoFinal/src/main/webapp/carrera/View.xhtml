@@ -14,14 +14,16 @@
                     <p:panelGrid columns="2" rendered="#{carreraController.selected != null}">
                         <h:outputText value="#{bundle.ViewCarreraLabel_carreraId}"/>
                         <h:outputText value="#{carreraController.selected.carreraId}" title="#{bundle.ViewCarreraTitle_carreraId}"/>
-                        <h:outputText value="#{bundle.ViewCarreraLabel_nombre_carrera}"/>
-                        <h:outputText value="#{carreraController.selected.nombre_carrera}" title="#{bundle.ViewCarreraTitle_nombre_carrera}"/>
-                        <h:outputText value="#{bundle.ViewCarreraLabel_descripcion_carrera}"/>
-                        <h:outputText value="#{carreraController.selected.descripcion_carrera}" title="#{bundle.ViewCarreraTitle_descripcion_carrera}"/>
-                        <h:outputText value="#{bundle.ViewCarreraLabel_duracion_carrera}"/>
-                        <h:outputText value="#{carreraController.selected.duracion_carrera}" title="#{bundle.ViewCarreraTitle_duracion_carrera}"/>
-                        <h:outputText value="#{bundle.ViewCarreraLabel_horario_carrera}"/>
-                        <h:outputText value="#{carreraController.selected.horario_carrera}" title="#{bundle.ViewCarreraTitle_horario_carrera}"/>
+                        <h:outputText value="#{bundle.ViewCarreraLabel_descripcionCarrera}"/>
+                        <h:outputText value="#{carreraController.selected.descripcionCarrera}" title="#{bundle.ViewCarreraTitle_descripcionCarrera}"/>
+                        <h:outputText value="#{bundle.ViewCarreraLabel_duracionCarrera}"/>
+                        <h:outputText value="#{carreraController.selected.duracionCarrera}" title="#{bundle.ViewCarreraTitle_duracionCarrera}"/>
+                        <h:outputText value="#{bundle.ViewCarreraLabel_horarioCarrera}"/>
+                        <h:outputText value="#{carreraController.selected.horarioCarrera}" title="#{bundle.ViewCarreraTitle_horarioCarrera}"/>
+                        <h:outputText value="#{bundle.ViewCarreraLabel_nombreCarrera}"/>
+                        <h:outputText value="#{carreraController.selected.nombreCarrera}" title="#{bundle.ViewCarreraTitle_nombreCarrera}"/>
+                        <h:outputText value="#{bundle.ViewCarreraLabel_facultadId}"/>
+                        <h:outputText value="#{carreraController.selected.facultadId}" title="#{bundle.ViewCarreraTitle_facultadId}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="CarreraViewDialog.hide()"/>
                 </h:panelGroup>

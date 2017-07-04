@@ -12,18 +12,20 @@
             <h:form id="MateriaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{materiaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewMateriaLabel_materiaId}"/>
-                        <h:outputText value="#{materiaController.selected.materiaId}" title="#{bundle.ViewMateriaTitle_materiaId}"/>
-                        <h:outputText value="#{bundle.ViewMateriaLabel_nombre_materia}"/>
-                        <h:outputText value="#{materiaController.selected.nombre_materia}" title="#{bundle.ViewMateriaTitle_nombre_materia}"/>
-                        <h:outputText value="#{bundle.ViewMateriaLabel_descripcion_materia}"/>
-                        <h:outputText value="#{materiaController.selected.descripcion_materia}" title="#{bundle.ViewMateriaTitle_descripcion_materia}"/>
-                        <h:outputText value="#{bundle.ViewMateriaLabel_numero_creditos}"/>
-                        <h:outputText value="#{materiaController.selected.numero_creditos}" title="#{bundle.ViewMateriaTitle_numero_creditos}"/>
-                        <h:outputText value="#{bundle.ViewMateriaLabel_rating_materia}"/>
-                        <h:outputText value="#{materiaController.selected.rating_materia}" title="#{bundle.ViewMateriaTitle_rating_materia}"/>
+                        <h:outputText value="#{bundle.ViewMateriaLabel_materiaPK_carreraId}"/>
+                        <h:outputText value="#{materiaController.selected.materiaPK.carreraId}" title="#{bundle.ViewMateriaTitle_materiaPK_carreraId}"/>
+                        <h:outputText value="#{bundle.ViewMateriaLabel_materiaPK_materiaId}"/>
+                        <h:outputText value="#{materiaController.selected.materiaPK.materiaId}" title="#{bundle.ViewMateriaTitle_materiaPK_materiaId}"/>
+                        <h:outputText value="#{bundle.ViewMateriaLabel_descripcionMateria}"/>
+                        <h:outputText value="#{materiaController.selected.descripcionMateria}" title="#{bundle.ViewMateriaTitle_descripcionMateria}"/>
                         <h:outputText value="#{bundle.ViewMateriaLabel_nivel}"/>
                         <h:outputText value="#{materiaController.selected.nivel}" title="#{bundle.ViewMateriaTitle_nivel}"/>
+                        <h:outputText value="#{bundle.ViewMateriaLabel_nombreMateria}"/>
+                        <h:outputText value="#{materiaController.selected.nombreMateria}" title="#{bundle.ViewMateriaTitle_nombreMateria}"/>
+                        <h:outputText value="#{bundle.ViewMateriaLabel_numeroCreditos}"/>
+                        <h:outputText value="#{materiaController.selected.numeroCreditos}" title="#{bundle.ViewMateriaTitle_numeroCreditos}"/>
+                        <h:outputText value="#{bundle.ViewMateriaLabel_ratingMateria}"/>
+                        <h:outputText value="#{materiaController.selected.ratingMateria}" title="#{bundle.ViewMateriaTitle_ratingMateria}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="MateriaViewDialog.hide()"/>
                 </h:panelGroup>

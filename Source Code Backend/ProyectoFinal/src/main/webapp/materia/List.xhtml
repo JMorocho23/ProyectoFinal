@@ -19,7 +19,7 @@
                     <p:dataTable id="datalist" value="#{materiaController.items}" var="item"
                                  selectionMode="single" selection="#{materiaController.selected}"
                                  paginator="true"
-                                 rowKey="#{item.materiaId}"
+                                 rowKey="#{item.materiaPK}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
@@ -29,39 +29,45 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMateriaTitle_materiaId}"/>
+                                <h:outputText value="#{bundle.ListMateriaTitle_materiaPK_materiaId}"/>
                             </f:facet>
-                            <h:outputText value="#{item.materiaId}"/>
+                            <h:outputText value="#{item.materiaPK.materiaId}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMateriaTitle_nombre_materia}"/>
+                                <h:outputText value="#{bundle.ListMateriaTitle_materiaPK_carreraId}"/>
                             </f:facet>
-                            <h:outputText value="#{item.nombre_materia}"/>
+                            <h:outputText value="#{item.materiaPK.carreraId}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMateriaTitle_descripcion_materia}"/>
+                                <h:outputText value="#{bundle.ListMateriaTitle_descripcionMateria}"/>
                             </f:facet>
-                            <h:outputText value="#{item.descripcion_materia}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMateriaTitle_numero_creditos}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.numero_creditos}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListMateriaTitle_rating_materia}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.rating_materia}"/>
+                            <h:outputText value="#{item.descripcionMateria}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListMateriaTitle_nivel}"/>
                             </f:facet>
                             <h:outputText value="#{item.nivel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMateriaTitle_nombreMateria}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreMateria}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMateriaTitle_numeroCreditos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroCreditos}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListMateriaTitle_ratingMateria}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ratingMateria}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{materiaController.prepareCreate}" update=":MateriaCreateForm" oncomplete="PF('MateriaCreateDialog').show()"/>

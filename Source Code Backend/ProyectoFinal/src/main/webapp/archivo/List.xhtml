@@ -19,7 +19,7 @@
                     <p:dataTable id="datalist" value="#{archivoController.items}" var="item"
                                  selectionMode="single" selection="#{archivoController.selected}"
                                  paginator="true"
-                                 rowKey="#{item.archivoId}"
+                                 rowKey="#{item.archivoID}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
@@ -29,9 +29,9 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListArchivoTitle_archivoId}"/>
+                                <h:outputText value="#{bundle.ListArchivoTitle_archivoID}"/>
                             </f:facet>
-                            <h:outputText value="#{item.archivoId}"/>
+                            <h:outputText value="#{item.archivoID}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -41,15 +41,41 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListArchivoTitle_path}"/>
+                                <h:outputText value="#{bundle.ListArchivoTitle_tipo}"/>
                             </f:facet>
-                            <h:outputText value="#{item.path}"/>
+                            <h:outputText value="#{item.tipo}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArchivoTitle_tamanio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tamanio}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListArchivoTitle_fecha}"/>
                             </f:facet>
-                            <h:outputText value="#{item.fecha}"/>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArchivoTitle_documento}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.documento}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArchivoTitle_materiaId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.materiaId}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArchivoTitle_usuarioId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.usuarioId}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{archivoController.prepareCreate}" update=":ArchivoCreateForm" oncomplete="PF('ArchivoCreateDialog').show()"/>

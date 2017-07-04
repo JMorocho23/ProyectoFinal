@@ -14,18 +14,18 @@
                     <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}">
                         <h:outputText value="#{bundle.ViewUsuarioLabel_usuarioId}"/>
                         <h:outputText value="#{usuarioController.selected.usuarioId}" title="#{bundle.ViewUsuarioTitle_usuarioId}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_nombre_usuario}"/>
-                        <h:outputText value="#{usuarioController.selected.nombre_usuario}" title="#{bundle.ViewUsuarioTitle_nombre_usuario}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_password}"/>
-                        <h:outputText value="#{usuarioController.selected.password}" title="#{bundle.ViewUsuarioTitle_password}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_nombre_ape}"/>
-                        <h:outputText value="#{usuarioController.selected.nombre_ape}" title="#{bundle.ViewUsuarioTitle_nombre_ape}"/>
                         <h:outputText value="#{bundle.ViewUsuarioLabel_email}"/>
                         <h:outputText value="#{usuarioController.selected.email}" title="#{bundle.ViewUsuarioTitle_email}"/>
-                        <h:outputText value="#{bundle.ViewUsuarioLabel_tipo_usuario}"/>
-                        <h:outputText value="#{usuarioController.selected.tipo_usuario}" title="#{bundle.ViewUsuarioTitle_tipo_usuario}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_nombreApe}"/>
+                        <h:outputText value="#{usuarioController.selected.nombreApe}" title="#{bundle.ViewUsuarioTitle_nombreApe}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_nombreUsuario}"/>
+                        <h:outputText value="#{usuarioController.selected.nombreUsuario}" title="#{bundle.ViewUsuarioTitle_nombreUsuario}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_password}"/>
+                        <h:outputText value="#{usuarioController.selected.password}" title="#{bundle.ViewUsuarioTitle_password}"/>
                         <h:outputText value="#{bundle.ViewUsuarioLabel_telefono}"/>
                         <h:outputText value="#{usuarioController.selected.telefono}" title="#{bundle.ViewUsuarioTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewUsuarioLabel_tipoUsuario}"/>
+                        <h:outputText value="#{usuarioController.selected.tipoUsuario}" title="#{bundle.ViewUsuarioTitle_tipoUsuario}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="UsuarioViewDialog.hide()"/>
                 </h:panelGroup>
