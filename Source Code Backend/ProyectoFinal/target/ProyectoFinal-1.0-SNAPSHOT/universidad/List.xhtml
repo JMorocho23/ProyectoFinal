@@ -35,27 +35,27 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUniversidadTitle_nombre_universidad}"/>
+                                <h:outputText value="#{bundle.ListUniversidadTitle_descripccionUniversidad}"/>
                             </f:facet>
-                            <h:outputText value="#{item.nombre_universidad}"/>
+                            <h:outputText value="#{item.descripccionUniversidad}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUniversidadTitle_descripccion_universidad}"/>
+                                <h:outputText value="#{bundle.ListUniversidadTitle_direccionUniversidad}"/>
                             </f:facet>
-                            <h:outputText value="#{item.descripccion_universidad}"/>
+                            <h:outputText value="#{item.direccionUniversidad}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUniversidadTitle_direccion_universidad}"/>
+                                <h:outputText value="#{bundle.ListUniversidadTitle_nombreUniversidad}"/>
                             </f:facet>
-                            <h:outputText value="#{item.direccion_universidad}"/>
+                            <h:outputText value="#{item.nombreUniversidad}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUniversidadTitle_telefono_universidad}"/>
+                                <h:outputText value="#{bundle.ListUniversidadTitle_telefonoUniversidad}"/>
                             </f:facet>
-                            <h:outputText value="#{item.telefono_universidad}"/>
+                            <h:outputText value="#{item.telefonoUniversidad}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{universidadController.prepareCreate}" update=":UniversidadCreateForm" oncomplete="PF('UniversidadCreateDialog').show()"/>

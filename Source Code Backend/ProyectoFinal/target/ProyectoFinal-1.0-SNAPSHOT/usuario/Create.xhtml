@@ -13,19 +13,19 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{usuarioController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_usuarioId}" for="usuarioId" />
-                        <p:inputText id="usuarioId" value="#{usuarioController.selected.usuarioId}" title="#{bundle.CreateUsuarioTitle_usuarioId}" />
-                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_nombre_usuario}" for="nombre_usuario" />
-                        <p:inputText id="nombre_usuario" value="#{usuarioController.selected.nombre_usuario}" title="#{bundle.CreateUsuarioTitle_nombre_usuario}" />
-                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_password}" for="password" />
-                        <p:inputText id="password" value="#{usuarioController.selected.password}" title="#{bundle.CreateUsuarioTitle_password}" />
-                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_nombre_ape}" for="nombre_ape" />
-                        <p:inputText id="nombre_ape" value="#{usuarioController.selected.nombre_ape}" title="#{bundle.CreateUsuarioTitle_nombre_ape}" />
+                        <p:inputText id="usuarioId" value="#{usuarioController.selected.usuarioId}" title="#{bundle.CreateUsuarioTitle_usuarioId}" required="true" requiredMessage="#{bundle.CreateUsuarioRequiredMessage_usuarioId}"/>
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_email}" for="email" />
                         <p:inputText id="email" value="#{usuarioController.selected.email}" title="#{bundle.CreateUsuarioTitle_email}" />
-                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_tipo_usuario}" for="tipo_usuario" />
-                        <p:inputText id="tipo_usuario"  value="#{usuarioController.selected.tipo_usuario}" title="#{bundle.CreateUsuarioTitle_tipo_usuario}" />
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_nombreApe}" for="nombreApe" />
+                        <p:inputText id="nombreApe" value="#{usuarioController.selected.nombreApe}" title="#{bundle.CreateUsuarioTitle_nombreApe}" />
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_nombreUsuario}" for="nombreUsuario" />
+                        <p:inputText id="nombreUsuario" value="#{usuarioController.selected.nombreUsuario}" title="#{bundle.CreateUsuarioTitle_nombreUsuario}" />
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_password}" for="password" />
+                        <p:inputText id="password" value="#{usuarioController.selected.password}" title="#{bundle.CreateUsuarioTitle_password}" />
                         <p:outputLabel value="#{bundle.CreateUsuarioLabel_telefono}" for="telefono" />
                         <p:inputText id="telefono" value="#{usuarioController.selected.telefono}" title="#{bundle.CreateUsuarioTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.CreateUsuarioLabel_tipoUsuario}" for="tipoUsuario" />
+                        <p:inputText id="tipoUsuario" value="#{usuarioController.selected.tipoUsuario}" title="#{bundle.CreateUsuarioTitle_tipoUsuario}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{usuarioController.create}" value="#{bundle.Save}" update="display,:UsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'UsuarioCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UsuarioCreateDialog.hide()"/>

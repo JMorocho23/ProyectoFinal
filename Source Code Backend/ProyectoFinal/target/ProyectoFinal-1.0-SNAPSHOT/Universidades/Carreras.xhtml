@@ -22,7 +22,7 @@
                             <li><a href="./Facultades.xhtml">Universidad del Azuay</a>
                                 <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
                             </li>
-                            <li class="active">#{facultadController.selected.nombre_facultad}</li>
+                            <li class="active">#{facultadController.selected.nombreFacultad}</li>
                         </ol>
                     </b:container>
                 </h:form>
@@ -31,7 +31,7 @@
                         <div class="photo-card">
                             <div id="photo-mate" class="photo-background"></div>
                             <div class="photo-details">
-                                <h1>#{facultadController.selected.nombre_facultad}</h1>
+                                <h1>#{facultadController.selected.nombreFacultad}</h1>
                                 <ul class="list-inline uni-info">
                                     <li>Cuenca, Ecuador |</li>
                                     <li><a href=" http://uazuay.edu.ec/ " target="_blank"><span style="text-decoration: underline;">http://uazuay.edu.ec/</span> </a> |</li>
@@ -65,11 +65,11 @@
                                             <f:facet name="header">
                                               <h:outputText value="Nombre"/>
                                             </f:facet>
-                                            <b:commandButton  look="link"  value="#{item.nombre_carrera}" action="#{carreraController.showCarrera(item)}"/>
+                                            <b:commandButton  look="link"  value="#{item.nombreCarrera}" action="#{carreraController.showCarrera(item)}"/>
                                         </b:dataTableColumn>                                             
-                                        <b:dataTableColumn label="Descripcion" value="#{item.descripcion_carrera}"/>
-                                        <b:dataTableColumn label="Duracion" value="#{item.duracion_carrera}"/>
-                                        <b:dataTableColumn label="Horario" value="#{item.horario_carrera}"/>
+                                        <b:dataTableColumn label="Descripcion" value="#{item.descripcionCarrera}"/>
+                                        <b:dataTableColumn label="Duracion" value="#{item.duracionCarrera}"/>
+                                        <b:dataTableColumn label="Horario" value="#{item.horarioCarrera}"/>
                                     </b:dataTable>                                                                                             
                                 </b:column>
                             </b:row>

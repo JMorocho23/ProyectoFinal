@@ -14,14 +14,14 @@
                     <p:panelGrid columns="2" rendered="#{universidadController.selected != null}">
                         <h:outputText value="#{bundle.ViewUniversidadLabel_universidadId}"/>
                         <h:outputText value="#{universidadController.selected.universidadId}" title="#{bundle.ViewUniversidadTitle_universidadId}"/>
-                        <h:outputText value="#{bundle.ViewUniversidadLabel_nombre_universidad}"/>
-                        <h:outputText value="#{universidadController.selected.nombre_universidad}" title="#{bundle.ViewUniversidadTitle_nombre_universidad}"/>
-                        <h:outputText value="#{bundle.ViewUniversidadLabel_descripccion_universidad}"/>
-                        <h:outputText value="#{universidadController.selected.descripccion_universidad}" title="#{bundle.ViewUniversidadTitle_descripccion_universidad}"/>
-                        <h:outputText value="#{bundle.ViewUniversidadLabel_direccion_universidad}"/>
-                        <h:outputText value="#{universidadController.selected.direccion_universidad}" title="#{bundle.ViewUniversidadTitle_direccion_universidad}"/>
-                        <h:outputText value="#{bundle.ViewUniversidadLabel_telefono_universidad}"/>
-                        <h:outputText value="#{universidadController.selected.telefono_universidad}" title="#{bundle.ViewUniversidadTitle_telefono_universidad}"/>
+                        <h:outputText value="#{bundle.ViewUniversidadLabel_descripccionUniversidad}"/>
+                        <h:outputText value="#{universidadController.selected.descripccionUniversidad}" title="#{bundle.ViewUniversidadTitle_descripccionUniversidad}"/>
+                        <h:outputText value="#{bundle.ViewUniversidadLabel_direccionUniversidad}"/>
+                        <h:outputText value="#{universidadController.selected.direccionUniversidad}" title="#{bundle.ViewUniversidadTitle_direccionUniversidad}"/>
+                        <h:outputText value="#{bundle.ViewUniversidadLabel_nombreUniversidad}"/>
+                        <h:outputText value="#{universidadController.selected.nombreUniversidad}" title="#{bundle.ViewUniversidadTitle_nombreUniversidad}"/>
+                        <h:outputText value="#{bundle.ViewUniversidadLabel_telefonoUniversidad}"/>
+                        <h:outputText value="#{universidadController.selected.telefonoUniversidad}" title="#{bundle.ViewUniversidadTitle_telefonoUniversidad}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="UniversidadViewDialog.hide()"/>
                 </h:panelGroup>

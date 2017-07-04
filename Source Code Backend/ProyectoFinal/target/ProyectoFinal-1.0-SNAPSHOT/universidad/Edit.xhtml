@@ -13,15 +13,15 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{universidadController.selected != null}">
                         <p:outputLabel value="#{bundle.EditUniversidadLabel_universidadId}" for="universidadId" />
-                        <p:inputText id="universidadId" value="#{universidadController.selected.universidadId}" title="#{bundle.EditUniversidadTitle_universidadId}" />
-                        <p:outputLabel value="#{bundle.EditUniversidadLabel_nombre_universidad}" for="nombre_universidad" />
-                        <p:inputText id="nombre_universidad" value="#{universidadController.selected.nombre_universidad}" title="#{bundle.EditUniversidadTitle_nombre_universidad}" />
-                        <p:outputLabel value="#{bundle.EditUniversidadLabel_descripccion_universidad}" for="descripccion_universidad" />
-                        <p:inputText id="descripccion_universidad" value="#{universidadController.selected.descripccion_universidad}" title="#{bundle.EditUniversidadTitle_descripccion_universidad}" />
-                        <p:outputLabel value="#{bundle.EditUniversidadLabel_direccion_universidad}" for="direccion_universidad" />
-                        <p:inputText id="direccion_universidad" value="#{universidadController.selected.direccion_universidad}" title="#{bundle.EditUniversidadTitle_direccion_universidad}" />
-                        <p:outputLabel value="#{bundle.EditUniversidadLabel_telefono_universidad}" for="telefono_universidad" />
-                        <p:inputText id="telefono_universidad" value="#{universidadController.selected.telefono_universidad}" title="#{bundle.EditUniversidadTitle_telefono_universidad}" />
+                        <p:inputText id="universidadId" value="#{universidadController.selected.universidadId}" title="#{bundle.EditUniversidadTitle_universidadId}" required="true" requiredMessage="#{bundle.EditUniversidadRequiredMessage_universidadId}"/>
+                        <p:outputLabel value="#{bundle.EditUniversidadLabel_descripccionUniversidad}" for="descripccionUniversidad" />
+                        <p:inputText id="descripccionUniversidad" value="#{universidadController.selected.descripccionUniversidad}" title="#{bundle.EditUniversidadTitle_descripccionUniversidad}" />
+                        <p:outputLabel value="#{bundle.EditUniversidadLabel_direccionUniversidad}" for="direccionUniversidad" />
+                        <p:inputText id="direccionUniversidad" value="#{universidadController.selected.direccionUniversidad}" title="#{bundle.EditUniversidadTitle_direccionUniversidad}" />
+                        <p:outputLabel value="#{bundle.EditUniversidadLabel_nombreUniversidad}" for="nombreUniversidad" />
+                        <p:inputText id="nombreUniversidad" value="#{universidadController.selected.nombreUniversidad}" title="#{bundle.EditUniversidadTitle_nombreUniversidad}" />
+                        <p:outputLabel value="#{bundle.EditUniversidadLabel_telefonoUniversidad}" for="telefonoUniversidad" />
+                        <p:inputText id="telefonoUniversidad" value="#{universidadController.selected.telefonoUniversidad}" title="#{bundle.EditUniversidadTitle_telefonoUniversidad}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{universidadController.update}" value="#{bundle.Save}" update="display,:UniversidadListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UniversidadEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UniversidadEditDialog.hide()"/>

@@ -13,15 +13,15 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{universidadController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateUniversidadLabel_universidadId}" for="universidadId" />
-                        <p:inputText id="universidadId" value="#{universidadController.selected.universidadId}" title="#{bundle.CreateUniversidadTitle_universidadId}" />
-                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_nombre_universidad}" for="nombre_universidad" />
-                        <p:inputText id="nombre_universidad" value="#{universidadController.selected.nombre_universidad}" title="#{bundle.CreateUniversidadTitle_nombre_universidad}" />
-                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_descripccion_universidad}" for="descripccion_universidad" />
-                        <p:inputText id="descripccion_universidad" value="#{universidadController.selected.descripccion_universidad}" title="#{bundle.CreateUniversidadTitle_descripccion_universidad}" />
-                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_direccion_universidad}" for="direccion_universidad" />
-                        <p:inputText id="direccion_universidad" value="#{universidadController.selected.direccion_universidad}" title="#{bundle.CreateUniversidadTitle_direccion_universidad}" />
-                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_telefono_universidad}" for="telefono_universidad" />
-                        <p:inputText id="telefono_universidad" value="#{universidadController.selected.telefono_universidad}" title="#{bundle.CreateUniversidadTitle_telefono_universidad}" />
+                        <p:inputText id="universidadId" value="#{universidadController.selected.universidadId}" title="#{bundle.CreateUniversidadTitle_universidadId}" required="true" requiredMessage="#{bundle.CreateUniversidadRequiredMessage_universidadId}"/>
+                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_descripccionUniversidad}" for="descripccionUniversidad" />
+                        <p:inputText id="descripccionUniversidad" value="#{universidadController.selected.descripccionUniversidad}" title="#{bundle.CreateUniversidadTitle_descripccionUniversidad}" />
+                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_direccionUniversidad}" for="direccionUniversidad" />
+                        <p:inputText id="direccionUniversidad" value="#{universidadController.selected.direccionUniversidad}" title="#{bundle.CreateUniversidadTitle_direccionUniversidad}" />
+                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_nombreUniversidad}" for="nombreUniversidad" />
+                        <p:inputText id="nombreUniversidad" value="#{universidadController.selected.nombreUniversidad}" title="#{bundle.CreateUniversidadTitle_nombreUniversidad}" />
+                        <p:outputLabel value="#{bundle.CreateUniversidadLabel_telefonoUniversidad}" for="telefonoUniversidad" />
+                        <p:inputText id="telefonoUniversidad" value="#{universidadController.selected.telefonoUniversidad}" title="#{bundle.CreateUniversidadTitle_telefonoUniversidad}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{universidadController.create}" value="#{bundle.Save}" update="display,:UniversidadListForm:datalist,:growl" oncomplete="handleSubmit(args,'UniversidadCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="UniversidadCreateDialog.hide()"/>

@@ -12,18 +12,20 @@
             <h:form id="MateriaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{materiaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateMateriaLabel_materiaId}" for="materiaId" />
-                        <p:inputText id="materiaId" value="#{materiaController.selected.materiaId}" title="#{bundle.CreateMateriaTitle_materiaId}" />
-                        <p:outputLabel value="#{bundle.CreateMateriaLabel_nombre_materia}" for="nombre_materia" />
-                        <p:inputText id="nombre_materia" value="#{materiaController.selected.nombre_materia}" title="#{bundle.CreateMateriaTitle_nombre_materia}" />
-                        <p:outputLabel value="#{bundle.CreateMateriaLabel_descripcion_materia}" for="descripcion_materia" />
-                        <p:inputText id="descripcion_materia" value="#{materiaController.selected.descripcion_materia}" title="#{bundle.CreateMateriaTitle_descripcion_materia}" />
-                        <p:outputLabel value="#{bundle.CreateMateriaLabel_numero_creditos}" for="numero_creditos" />
-                        <p:inputText id="numero_creditos" value="#{materiaController.selected.numero_creditos}" title="#{bundle.CreateMateriaTitle_numero_creditos}" />
-                        <p:outputLabel value="#{bundle.CreateMateriaLabel_rating_materia}" for="rating_materia" />
-                        <p:inputText id="rating_materia" value="#{materiaController.selected.rating_materia}" title="#{bundle.CreateMateriaTitle_rating_materia}" />
+                        <p:outputLabel value="#{bundle.CreateMateriaLabel_materiaPK_carreraId}" for="materiaPK_carreraId" />
+                        <p:inputText id="materiaPK_carreraId" value="#{materiaController.selected.materiaPK.carreraId}" title="#{bundle.CreateMateriaTitle_materiaPK_carreraId}" required="true" requiredMessage="#{bundle.CreateMateriaRequiredMessage_materiaPK_carreraId}"/>
+                        <p:outputLabel value="#{bundle.CreateMateriaLabel_materiaPK_materiaId}" for="materiaPK_materiaId" />
+                        <p:inputText id="materiaPK_materiaId" value="#{materiaController.selected.materiaPK.materiaId}" title="#{bundle.CreateMateriaTitle_materiaPK_materiaId}" required="true" requiredMessage="#{bundle.CreateMateriaRequiredMessage_materiaPK_materiaId}"/>
+                        <p:outputLabel value="#{bundle.CreateMateriaLabel_descripcionMateria}" for="descripcionMateria" />
+                        <p:inputText id="descripcionMateria" value="#{materiaController.selected.descripcionMateria}" title="#{bundle.CreateMateriaTitle_descripcionMateria}" />
                         <p:outputLabel value="#{bundle.CreateMateriaLabel_nivel}" for="nivel" />
                         <p:inputText id="nivel" value="#{materiaController.selected.nivel}" title="#{bundle.CreateMateriaTitle_nivel}" />
+                        <p:outputLabel value="#{bundle.CreateMateriaLabel_nombreMateria}" for="nombreMateria" />
+                        <p:inputText id="nombreMateria" value="#{materiaController.selected.nombreMateria}" title="#{bundle.CreateMateriaTitle_nombreMateria}" />
+                        <p:outputLabel value="#{bundle.CreateMateriaLabel_numeroCreditos}" for="numeroCreditos" />
+                        <p:inputText id="numeroCreditos" value="#{materiaController.selected.numeroCreditos}" title="#{bundle.CreateMateriaTitle_numeroCreditos}" />
+                        <p:outputLabel value="#{bundle.CreateMateriaLabel_ratingMateria}" for="ratingMateria" />
+                        <p:inputText id="ratingMateria" value="#{materiaController.selected.ratingMateria}" title="#{bundle.CreateMateriaTitle_ratingMateria}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{materiaController.create}" value="#{bundle.Save}" update="display,:MateriaListForm:datalist,:growl" oncomplete="handleSubmit(args,'MateriaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="MateriaCreateDialog.hide()"/>

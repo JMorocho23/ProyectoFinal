@@ -8,12 +8,12 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Carrera.class)
 public abstract class Carrera_ {
 
-	public static volatile SingularAttribute<Carrera, String> duracion_carrera;
+	public static volatile SingularAttribute<Carrera, String> descripcionCarrera;
+	public static volatile SingularAttribute<Carrera, String> nombreCarrera;
 	public static volatile SingularAttribute<Carrera, Facultad> facultadId;
-	public static volatile SingularAttribute<Carrera, String> nombre_carrera;
-	public static volatile SingularAttribute<Carrera, String> descripcion_carrera;
-	public static volatile SingularAttribute<Carrera, String> horario_carrera;
+	public static volatile SingularAttribute<Carrera, String> horarioCarrera;
 	public static volatile SingularAttribute<Carrera, Long> carreraId;
+	public static volatile SingularAttribute<Carrera, String> duracionCarrera;
 
 }
 

@@ -23,10 +23,10 @@
                             <li><a href="./Facultades.xhtml">Universidad del Azuay</a>
                                 <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
                             </li>
-                                <li><a href="./Carreras.xhtml">#{facultadController.selected.nombre_facultad}</a>
+                                <li><a href="./Carreras.xhtml">#{facultadController.selected.nombreFacultad}</a>
                                     <b:iconAwesome name="chevron-right" class="custom-chev"></b:iconAwesome>
                                 </li>
-                            <li class="active">#{carreraController.selected.nombre_carrera}</li>
+                            <li class="active">#{carreraController.selected.nombreCarrera}</li>
                         </ol>
                     </b:container>
                 </h:form>
@@ -35,7 +35,7 @@
                         <div class="photo-card">
                             <div id="photo-car" class="photo-background"></div>
                             <div class="photo-details">
-                                <h1>#{carreraController.selected.nombre_carrera}</h1>
+                                <h1>#{carreraController.selected.nombreCarrera}</h1>
                                 <ul class="list-inline uni-info">
                                     <li>Cuenca, Ecuador |</li>
                                     <li><a href=" http://uazuay.edu.ec/ " target="_blank"><span style="text-decoration: underline;">http://uazuay.edu.ec/</span> </a> |</li>
@@ -69,10 +69,10 @@
                                             <f:facet name="header">
                                               <h:outputText value="Nombre"/>
                                             </f:facet>
-                                            <b:commandButton  look="link"  value="#{item.nombre_materia}" action="#{materiaController.showMateria(item)}"/>
+                                            <b:commandButton  look="link"  value="#{item.nombreMateria}" action="#{materiaController.showMateria(item)}"/>
                                         </b:dataTableColumn>                                             
                                         <b:dataTableColumn label="Ciclo" value="#{item.nivel}"/>
-                                        <b:dataTableColumn label="Creditos" value="#{item.numero_creditos}"/>
+                                        <b:dataTableColumn label="Creditos" value="#{item.numeroCreditos}"/>
                                     </b:dataTable>                                                                                             
                                 </b:column>
                             </b:row>

@@ -3,20 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.uda.proyectofinal;
+package com.uda.testservelet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.jms.*;
+import javax.servlet.annotation.WebServlet;
 
 /**
  *
  * @author cintyaaguirre
  */
-public class testServelet extends HttpServlet {
+@WebServlet(name = "ServletHelloWorld", urlPatterns = {"/ServletHelloWorld"})
+public class ServletHelloWorld extends HttpServlet {
+    
+    
+        @Resource(lookup = "java:jboss/jms/ExampleQueueConnectionFactory")
+        ConnectionFactory connectionFactory;
+
+        @Resource(lookup = "java:jboss/jms/ExampleQueue")
+        Destination destination;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -56,6 +67,51 @@ public class testServelet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        PrintWriter writer = response.getWriter();
+
+        try {
+            //Authentication info can be omitted if we are using in-vm
+            QueueConnection connection = (QueueConnection)
+              connectionFactory.createConnection();
+
+            try {
+                QueueSession session =
+                  connection.createQueueSession(
+                    false,
+                    Session.AUTO_ACKNOWLEDGE
+                  );
+
+                try {
+                    MessageProducer producer =
+                      session.createProducer(destination);
+
+                    try {
+                        TextMessage message =
+                          session.createTextMessage(
+                            "Hello, world! ^__^"
+                          );
+
+                        producer.send(message);
+
+                        writer.println(
+                          "Message sent! ^__^"
+                        );
+                    } finally {
+                        producer.close();
+                    }
+                } finally {
+                    session.close();
+                }
+
+            } finally {
+                connection.close();
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace(writer);
+        }
+
 
         response.setContentType("text/plain");
         response.getWriter().println("Please use the form to POST to this url");
@@ -78,7 +134,7 @@ public class testServelet extends HttpServlet {
         if (name == null) {
             response.getWriter().println("Please enter a name");
         }
-        response.getWriter().println("Hello User Student " + name);
+        response.getWriter().println("Hello Leng III Student " + name);
 //        processRequest(request, response);
     }
 

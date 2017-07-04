@@ -13,20 +13,15 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{facultadController.selected != null}">
                         <p:outputLabel value="#{bundle.EditFacultadLabel_facultadId}" for="facultadId" />
-                        <p:inputText id="facultadId" value="#{facultadController.selected.facultadId}" title="#{bundle.EditFacultadTitle_facultadId}" />
-                        <p:outputLabel value="#{bundle.EditFacultadLabel_nombre_facultad}" for="nombre_facultad" />
-                        <p:inputText id="nombre_facultad" value="#{facultadController.selected.nombre_facultad}" title="#{bundle.EditFacultadTitle_nombre_facultad}" />
-                        <p:outputLabel value="#{bundle.EditFacultadLabel_descripcion_facultad}" for="descripcion_facultad" />
-                        <p:inputText id="descripcion_facultad" value="#{facultadController.selected.descripcion_facultad}" title="#{bundle.EditFacultadTitle_descripcion_facultad}" />
-                        <p:outputLabel value="#{bundle.EditFacultadLabel_telefono_facultad}" for="telefono_facultad" />
-                        <p:inputText id="telefono_facultad" value="#{facultadController.selected.telefono_facultad}" title="#{bundle.EditFacultadTitle_telefono_facultad}" />
+                        <p:inputText id="facultadId" value="#{facultadController.selected.facultadId}" title="#{bundle.EditFacultadTitle_facultadId}" required="true" requiredMessage="#{bundle.EditFacultadRequiredMessage_facultadId}"/>
+                        <p:outputLabel value="#{bundle.EditFacultadLabel_descripcionFacultad}" for="descripcionFacultad" />
+                        <p:inputText id="descripcionFacultad" value="#{facultadController.selected.descripcionFacultad}" title="#{bundle.EditFacultadTitle_descripcionFacultad}" />
+                        <p:outputLabel value="#{bundle.EditFacultadLabel_nombreFacultad}" for="nombreFacultad" />
+                        <p:inputText id="nombreFacultad" value="#{facultadController.selected.nombreFacultad}" title="#{bundle.EditFacultadTitle_nombreFacultad}" />
+                        <p:outputLabel value="#{bundle.EditFacultadLabel_telefonoFacultad}" for="telefonoFacultad" />
+                        <p:inputText id="telefonoFacultad" value="#{facultadController.selected.telefonoFacultad}" title="#{bundle.EditFacultadTitle_telefonoFacultad}" />
                         <p:outputLabel value="#{bundle.EditFacultadLabel_universidadId}" for="universidadId" />
-                        <p:selectOneMenu id="universidadId" value="#{facultadController.selected.universidadId}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{universidadController.itemsAvailableSelectOne}"
-                                           var="universidadIdItem"
-                                           itemValue="#{universidadIdItem}"/>
-                        </p:selectOneMenu>
+                        <p:inputText id="universidadId" value="#{facultadController.selected.universidadId}" title="#{bundle.EditFacultadTitle_universidadId}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{facultadController.update}" value="#{bundle.Save}" update="display,:FacultadListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FacultadEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="FacultadEditDialog.hide()"/>

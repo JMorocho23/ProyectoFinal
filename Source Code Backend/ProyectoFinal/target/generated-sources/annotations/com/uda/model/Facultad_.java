@@ -8,10 +8,10 @@ import javax.persistence.metamodel.StaticMetamodel;
 @StaticMetamodel(Facultad.class)
 public abstract class Facultad_ {
 
-	public static volatile SingularAttribute<Facultad, String> nombre_facultad;
+	public static volatile SingularAttribute<Facultad, String> descripcionFacultad;
+	public static volatile SingularAttribute<Facultad, String> nombreFacultad;
 	public static volatile SingularAttribute<Facultad, Universidad> universidadId;
-	public static volatile SingularAttribute<Facultad, String> descripcion_facultad;
-	public static volatile SingularAttribute<Facultad, String> telefono_facultad;
+	public static volatile SingularAttribute<Facultad, String> telefonoFacultad;
 	public static volatile SingularAttribute<Facultad, Long> facultadId;
 
 }

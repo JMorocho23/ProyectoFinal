@@ -35,27 +35,33 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCarreraTitle_nombre_carrera}"/>
+                                <h:outputText value="#{bundle.ListCarreraTitle_descripcionCarrera}"/>
                             </f:facet>
-                            <h:outputText value="#{item.nombre_carrera}"/>
+                            <h:outputText value="#{item.descripcionCarrera}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCarreraTitle_descripcion_carrera}"/>
+                                <h:outputText value="#{bundle.ListCarreraTitle_duracionCarrera}"/>
                             </f:facet>
-                            <h:outputText value="#{item.descripcion_carrera}"/>
+                            <h:outputText value="#{item.duracionCarrera}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCarreraTitle_duracion_carrera}"/>
+                                <h:outputText value="#{bundle.ListCarreraTitle_horarioCarrera}"/>
                             </f:facet>
-                            <h:outputText value="#{item.duracion_carrera}"/>
+                            <h:outputText value="#{item.horarioCarrera}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCarreraTitle_horario_carrera}"/>
+                                <h:outputText value="#{bundle.ListCarreraTitle_nombreCarrera}"/>
                             </f:facet>
-                            <h:outputText value="#{item.horario_carrera}"/>
+                            <h:outputText value="#{item.nombreCarrera}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListCarreraTitle_facultadId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.facultadId}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{carreraController.prepareCreate}" update=":CarreraCreateForm" oncomplete="PF('CarreraCreateDialog').show()"/>

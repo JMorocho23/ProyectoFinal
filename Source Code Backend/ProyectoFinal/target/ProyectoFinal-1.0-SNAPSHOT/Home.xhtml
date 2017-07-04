@@ -15,24 +15,108 @@
         <ui:composition template="./Navbar.xhtml">
             
             <ui:define name="content">
-             <h:form class="background-home">
-                <b:container class="cont-pos" fluid="true">
-                    <b:row>
-                        <b:column col-xs="12" col-md="8" offset="2">
-                                <h1 id="text-head">Facilita tu estudio</h1>                                         
-                        </b:column>
-                    </b:row>
-                    <b:row>
-                        <b:column col-xs="12" col-md="8" offset="2">
-                            <h:form>
-                            <b:inputText class="buscadaDiv" fieldId="j_buscar" name="j_buscar"
-                                value="#{loginBean.buscar}" placeholder="Encuentra recursos de estudio específicos a la materia como apuntes, materiales de preparación para pruebas y mucho mas"/>
-                            <b:button class="btn-busq" value="" iconAwesome="search" look="info"/>  
-                            </h:form>
-                        </b:column>
-                    </b:row>
-                   </b:container>
-            </h:form>                               
+       <div class="header-blue">
+            <b:container class="hero">
+                <b:row>
+                    <b:column col-lg="5" offset-lg="1" col-md="6" offset-md="0">
+                        <h1>Facilita tu estudio </h1>
+                        <p>Encuentra recursos de estudio específicos a la materia como apuntes, materiales de preparación para pruebas y mucho mas </p>
+                        <div class="input-group stylish-input-group">
+                            <b:inputText id="search" type="text" class="form-control" placeholder="Buscar" value="#{MateriaController.searchString}" valueChangeListener="#{MateriaController.searchStringChanged}">
+                                <f:ajax execute="search" render="output" event="blur"/>
+                            </b:inputText><span class="input-group-addon"><button type="submit"><i class="fa fa-search"></i></button></span>
+                             <h2><h:outputText id="output" value="#{MateriaController.Materia.nombre_materia}" /></h2>
+			</div>
+                    </b:column>
+                    <b:column class="phone-holder" col-lg="5" offset-lg="0" col-md="5" offset-md="1" hidden="xs,sm">
+                        <div class="iphone-mockup">
+                            <img src="../resources/Imagenes/iphone.svg" class="device" />
+                            <div class="screen"></div>
+                        </div>
+                    </b:column>
+                </b:row>
+            </b:container>
+        </div>
+
+    <div class="features-boxed">
+        <b:container>
+            <div class="intro">
+                <h2 class="text-center">Objectivos </h2>
+                <p class="text-center">Encuentra los materiales de aprendizaje que tu necesitas para tus materias universitarias.</p>
+            </div>
+            <b:row class="features">
+                <b:column class="item" col-md="4" col-sm="6">
+                    <div class="box"><i class="fa fa-search icon"></i>
+                        <h3 class="name">Busca </h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Ver mas»</a>
+                    </div>
+                </b:column>
+                <b:column class="item" col-md="4" col-sm="6">
+                    <div class="box"><i class="glyphicon glyphicon-pencil icon"></i>
+                        <h3 class="name">Aprende </h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Ver mas» </a>
+                    </div>
+                </b:column >
+                <b:column  class="item" col-md="4" col-sm="6">
+                    <div class="box"><i class="fa fa-graduation-cap icon"></i>
+                        <h3 class="name">Aprueba </h3>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Ver mas» </a>
+                    </div>
+                </b:column >
+            </b:row>
+        </b:container>
+    </div>
+    <div class="highlight-phone" style="background-color:#1485ee;">
+        <b:container>
+            <b:row>
+                <b:column col-sm="8">
+                    <div class="intro">
+                        <h2>Documentos de Estudio </h2>
+                        <p style="color: #ecf0f1;">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. Aliqua sed justo ligula.</p>
+                    </div>  
+                    <div class="buttons">
+                        <a class="btn btn-primary" role="button" href="About.xhtml">Ver mas >></a>
+                    </div>                    
+                </b:column>
+                <b:column col-sm="4" hidden="xs">
+                    <div class="iphone-mockup">
+                        <img src="../resources/Imagenes/calculation.svg" class="device" />
+                    </div>
+                </b:column >
+            </b:row>
+        </b:container>
+    </div>
+    <div class="highlight-phone">
+        <b:container>
+            <b:row>
+                <b:column  col-sm="4" hidden="xs">
+                    <div class="iphone-mockup">
+                        <img src="../resources/Imagenes/desktop.svg" class="device" />
+                    </div>
+                </b:column>
+                <b:column  col-sm="8">
+                    <div class="intro">
+                        <h2>Consejos para la Materia</h2>
+                        <p>Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. Aliqua sed justo ligula.</p>
+                    </div>
+                    <div class="buttons">
+                        <a class="btn btn-primary" role="button" href="University-Search.xhtml">Ver mas >></a>
+                    </div>
+                </b:column>
+            </b:row>
+        </b:container>
+    </div>
+    <div class="highlight-blue">
+        <b:container>
+            <div class="intro">
+                <h3 class="text-center">Únete a nuestra comunidad de aprendizaje nacional de estudiantes y educadores!</h3>
+            </div>
+            <div class="buttons">
+                <a class="btn btn-primary" role="button" href="Signup.xhtml">Regístrate ahora </a>
+            </div>
+        </b:container>
+    </div>
+                             
             </ui:define>
         </ui:composition>
 

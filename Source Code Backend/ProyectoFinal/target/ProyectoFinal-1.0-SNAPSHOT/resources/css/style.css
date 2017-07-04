@@ -226,8 +226,8 @@ ol,#info-uni2 > li {
 }
 .modal-header{
     color: #ecf0f1 !important;
-    background-color: #1f3a93 !important;
-    border-color: #1e3378 !important;
+    background-color: #282d32 !important;
+    border-color: #282d32 !important;
 }
 
 .close{
@@ -641,7 +641,7 @@ ol#breadcrumb-main > li {
 }
 
 .header-blue .hero {
-  margin-top:60px;
+  margin-top:0px;
 }
 
 @media (max-width:991px) {
@@ -665,6 +665,13 @@ ol#breadcrumb-main > li {
   font-size:20px;
   margin-bottom:30px;
   font-weight:300;
+}
+.stylish-input-group .form-control {
+    border-right: 0;
+    box-shadow: 0 0 0;
+    background-color: transparent;
+    border-color: #ccc;
+    color: #fff;
 }
 
 .stylish-input-group .input-group-addon {
@@ -775,10 +782,22 @@ ol#breadcrumb-main > li {
   margin-bottom:20px;
 }
 
+.highlight-phone {
+    color: #313437;
+    background-color: #eef4f7;
+    padding: 50px 0 55px;
+    overflow: hidden;
+}
+
 @media (max-width:767px) {
   .highlight-phone .intro {
-    max-width:none;
+    max-width:none !important;
   }
+}
+@media (max-width: 767px){
+    .highlight-phone {
+        text-align: center;
+    }
 }
 
 .highlight-phone .intro {
@@ -804,31 +823,39 @@ ol#breadcrumb-main > li {
   color:#7d8285;
 }
 
-.highlight-phone .intro .btn:active {
-  transform:translateY(1px) !important;
+
+.highlight-phone .buttons .btn-primary, .highlight-blue .buttons .btn-primary:active {
+  /*border:2px solid rgba(255,255,255,0.7);*/
+  border-radius:6px;
+  color:#ebeff1;
+  box-shadow:none;
+  text-shadow:none;
+  padding:14px 24px;
+  background:transparent;
+  transition:background-color 0.25s;
 }
 
-.highlight-phone .intro .btn:hover {
-  opacity:1 !important;
+.highlight-phone .buttons .btn:active {
+  transform:translateY(1px);
 }
 
-.highlight-phone .intro .btn-custom {
+.highlight-phone .buttons .btn:hover {
+  opacity:1;
+}
+
+.highlight-phone .buttons .btn {
+  padding:16px 32px;
+  border:none;
+  background:none;
+  box-shadow:none;
+  text-shadow:none;
+  opacity:0.9;
+  text-transform:uppercase;
+  font-weight:bold;
+  font-size:13px;
+  letter-spacing:0.4px;
+  line-height:1;
   background-color:#f9690e !important;
-  color:#fff !important;
-}
-
-.highlight-phone .intro .btn {
-  padding:16px 32px !important;
-  border:none !important;
-  background:none !important;
-  box-shadow:none !important;
-  text-shadow:none !important;
-  opacity:0.9 !important;
-  text-transform:uppercase !important;
-  font-weight:bold !important;
-  font-size:13px !important;
-  letter-spacing:0.4px !important;
-  line-height:1 !important;
 }
 
 .highlight-phone .iphone-mockup {

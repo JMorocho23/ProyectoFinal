@@ -13,12 +13,11 @@
     </f:metadata>
 
     <body>
-
         <ui:composition template="./Navbar.xhtml">
         <title>Aprende Facil- Crea una cuenta</title>
             <ui:define name="content" >
             <div class="header-blue">
-                <div id="af-signup" class="register-photo">
+                <div id="af-signup" class="register-photo"> 
                     <div class="form-container">
                         <div class="image-holder" style="background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
                         <b:form  id="af-form" class="text-center">
@@ -30,14 +29,14 @@
                                 <b:message for="@previous" />
                             </b:formGroup>
                             <b:formGroup class="form-group">
-                                 <b:inputText id="nombre_usuario" fieldId="nombre_usuario" name="nombre_usuario" required="true"
-                                              value="#{usuarioController.selected.nombre_usuario}" class="form-control" placeholder="Nombre de Usuario" maxlength="25">
+                                 <b:inputText id="nombreUsuario" fieldId="nombreUsuario" name="nombreUsuario" required="true"
+                                              value="#{usuarioController.selected.nombreUsuario}" class="form-control" placeholder="Nombre de Usuario" maxlength="25">
                                  </b:inputText>
                                 <b:message for="@previous" />
                             </b:formGroup>
                             <b:formGroup class="form-group">
-                                <b:inputText id="nombre_ape" fieldId="nombre_ape" name="nombre_ape" class="form-control" required="true"
-                                             value="#{usuarioController.selected.nombre_ape}" placeholder="Nombre y Apellido">
+                                <b:inputText id="nombreApe" fieldId="nombreApe" name="nombreApe" class="form-control" required="true"
+                                             value="#{usuarioController.selected.nombreApe}" placeholder="Nombre y Apellido">
                                 </b:inputText>               
                                 <b:message for="@previous" />
                             </b:formGroup>
@@ -53,7 +52,7 @@
                                 <b:message for="@previous" />
                             </b:formGroup>
                             <b:formGroup class="form-group">
-                            <b:selectOneMenu class="form-control" id="tipo_usuario" value="#{usuarioController.selected.tipo_usuario}" required="true">
+                            <b:selectOneMenu class="form-control" id="tipoUsuario" value="#{usuarioController.selected.tipoUsuario}" required="true">
                                 <f:selectItem itemLabel="Actualmente soy un:" noSelectionOption="true"></f:selectItem>
                                 <f:selectItem itemLabel="Estudiante"></f:selectItem>
                                 <f:selectItem itemLabel="Egresado"></f:selectItem>
@@ -64,11 +63,9 @@
                             <b:formGroup class="form-group">
                                 <b:selectBooleanCheckbox class="checkbox" caption="Acepto los términos de la licencia">
                                 </b:selectBooleanCheckbox>
-                                
                             </b:formGroup>
                             <b:formGroup>
-                                <b:commandButton class="btn btn-primary btn-block" type="submit" actionListener="#{usuarioController.create()}"  value="Crear cuenta" update="messages"   ></b:commandButton>
-                                <b:messages info-class="INFO" redisplay="true" for="@previous" recursive="true" id="messages"/>
+                                <b:commandButton class="btn btn-primary btn-block" type="submit" actionListener="#{usuarioController.create()}" value="Crear cuenta" ></b:commandButton>
                             </b:formGroup>
                             <a href="Login.xhtml" class="already">Ya tienes una cuenta? Ingresa aquí</a>
                         </b:form>
@@ -76,8 +73,6 @@
                 </div>
             </div>             
             </ui:define>
-
         </ui:composition>
-
     </body>
 </html>

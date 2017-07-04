@@ -1,4 +1,4 @@
-package com.uda.jsfclasses.util;
+package com.uda.jsf.util;
 
 import java.util.List;
 import javax.faces.application.FacesMessage;

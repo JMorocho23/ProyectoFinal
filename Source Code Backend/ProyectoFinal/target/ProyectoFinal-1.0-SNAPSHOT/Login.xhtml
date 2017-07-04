@@ -6,36 +6,41 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:b="http://bootsfaces.net/ui">
-    
+
+    <head>
+        <title>Aprende Facil | Inicia Session</title>
+    </head>
     <body >
-        
+   
       <ui:composition template="./Navbar.xhtml">
+                   
       <title>Aprende Facil- Empieza tu estudio</title>
            <ui:define name="content">
-            <div class="header-blue">
+           
+           <div class="header-blue">
                 <div id="af-login" class="register-photo">
-                    <div class="form-container">
+                    <div class="form-container" >
                         <div class="image-holder"></div>
-                        <b:form id="af-form">
+                        <b:form id="af-form">        
                             <h2 class="text-center" style="margin-bottom:10px !important;"><strong>Empieza tu estudio</strong></h2>
                             <p class="text-center">Cualquier persona puede aprender online de una manera facil y didactica </p>
                             <b:formGroup class="form-group">
-                                <input class="form-control" type="email" name="email" placeholder="Email" inputmode="email" />
+                                <b:inputText id="cnombreUsuario" class="form-control" value="#{usuarioController.cnombreUsuario}" placeholder="Nombre de usuario" />
                             </b:formGroup>
                             <b:formGroup class="form-group">
-                                <input class="form-control" type="password" name="password" placeholder="Contraseña" minlength="6" pattern="^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))" />
+                                <b:inputText id="password" class="form-control" value="#{usuarioController.cpassword}" type="password" placeholder="Contraseña" />
                             </b:formGroup>
                             <b:formGroup class="form-group">
                                     <b:selectBooleanCheckbox class="checkbox" caption="Recordarme"></b:selectBooleanCheckbox>
                             </b:formGroup>
                             <b:formGroup class="form-group">
-                                <b:commandButton class="btn btn-primary btn-block" type="submit">Iniciar Session</b:commandButton>
+                                <b:commandButton class="btn btn-primary btn-block" type="submit" action="#{usuarioController.login()}" value="Iniciar Session" />
                             </b:formGroup>
                             <a href="Reset.xhtml" class="already">Te olvdidaste tu contraseña? </a>
                         </b:form>
                     </div>
                 </div>
-            </div>            
+            </div>               
             </ui:define>
         </ui:composition>
 
