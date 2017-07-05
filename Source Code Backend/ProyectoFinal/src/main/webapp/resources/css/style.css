@@ -35,13 +35,14 @@ body {
     min-height: 100%;
     max-height: 100%;
 }
+.nav-form{
+    border-radius: 0 !important;
+    padding-top: 0px;
+    position: relative;
+    min-height: 33px;
+    margin-bottom: 0px !important;  
+}
 
-   #custom-navbar {
-        border-radius: 0 !important;
-        position: relative;
-        min-height: 33px;
-        margin-bottom: 0px;
-    }
     
     .navbar-nav {
     margin: 7.5px -15px !important;

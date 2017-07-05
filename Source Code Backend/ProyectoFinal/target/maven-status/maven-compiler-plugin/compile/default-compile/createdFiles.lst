@@ -3,8 +3,10 @@ com\uda\sessionbean\FacultadFacade.class
 com\uda\proyectofinal\testServelet.class
 com\uda\sessionbean\ArchivoFacade.class
 com\uda\jsf\ComentarioController.class
+com\uda\model\Usuario.class
 com\uda\jsf\UniversidadController.class
 com\uda\model\Carrera_.class
+com\uda\model\Usuario_.class
 com\uda\model\Archivo.class
 com\uda\jsf\ComentarioController$ComentarioControllerConverter.class
 com\uda\jsf\UniversidadController$UniversidadControllerConverter.class
@@ -25,11 +27,14 @@ com\uda\jsf\ArchivoController$ArchivoControllerConverter.class
 com\uda\sessionbean\ComentarioFacade.class
 com\uda\jsf\util\JsfUtil$PersistAction.class
 com\uda\sessionbean\CarreraFacade.class
+com\uda\jsf\UsuarioController.class
 com\uda\model\MateriaPK_.class
 com\uda\model\Materia_.class
 com\uda\model\Facultad_.class
 com\uda\jsf\FacultadController.class
+com\uda\jsf\util\SessionUtils.class
 com\uda\model\Comentario_.class
+com\uda\jsf\UsuarioController$UsuarioControllerConverter.class
 com\uda\jsf\ArchivoController.class
 com\uda\model\Comentario.class
 com\uda\jsf\CarreraController.class

@@ -18,8 +18,9 @@
         
     </h:head>
 
-    <h:body>    
-        <b:navBar id="custom-navbar" brand-href="Home.xhtml" brand-img="http://imgh.us/logov1.svg">
+    <h:body>   
+        <b:form class="nav-form">    
+            <b:navBar id="custom-navbar" class="nav-form" brand-href="Home.xhtml" brand-img="http://imgh.us/logov1.svg">
             <b:navbarLinks>
                <b:navLink id="af-navar-text1" value="Inicio" href="Home.xhtml"></b:navLink>
                <b:navLink id="af-navar-text2" value="Nosotros" href="About.xhtml"></b:navLink>
@@ -31,10 +32,14 @@
                </b:dropMenu>
             </b:navbarLinks>
              <b:navbarLinks pull="right">
-                <b:navLink id="af-navar-text4" value="Iniciar Session" href="Login.xhtml"  ></b:navLink>
-                <b:navLink id="af-navar-text5" value="Registrate" href="Signup.xhtml"></b:navLink>    
+                 
+                    <b:navCommandLink id="af-navar-text7" value="Cerrar Sesión" action="#{usuarioController.logout()}" rendered="#{usuarioController.loggedIn}" ></b:navCommandLink> 
+                 
+                 <b:navLink id="af-navar-text4" value="Iniciar Sesión" href="Login.xhtml" rendered="#{!usuarioController.loggedIn}" ></b:navLink>
+                <b:navLink id="af-navar-text5" value="Registrate" href="Signup.xhtml" rendered="#{!usuarioController.loggedIn}" ></b:navLink>    
             </b:navbarLinks>
         </b:navBar>
+    </b:form>    
         
         <div id="content" class="center_content custom-content">
             <ui:insert name="content">Content</ui:insert>
