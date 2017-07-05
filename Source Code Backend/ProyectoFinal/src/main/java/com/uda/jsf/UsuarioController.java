@@ -3,6 +3,7 @@ package com.uda.jsf;
 import com.uda.model.Usuario;
 import com.uda.jsf.util.JsfUtil;
 import com.uda.jsf.util.JsfUtil.PersistAction;
+import com.uda.jsf.util.SessionUtils;
 import com.uda.sessionbean.UsuarioFacade;
 
 import java.io.Serializable;
@@ -20,6 +21,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.servlet.http.HttpSession;
 import org.primefaces.context.RequestContext;
 
 @Named("usuarioController")
@@ -33,6 +35,12 @@ public class UsuarioController implements Serializable {
     private Usuario selected;
     private String cnombreUsuario;
     private String cpassword;
+    private String cusuario;
+
+    public String getCusuario() {
+        return cusuario;
+    }
+
     private UsuarioFacade query= new UsuarioFacade();
 
 
@@ -193,12 +201,17 @@ public class UsuarioController implements Serializable {
         boolean resu = getFacade().loginControl(cnombreUsuario, cpassword); 
         
         if(resu){
-            System.out.println("if resu");
+          //  System.out.println("if resu");
+            cusuario=cnombreUsuario;
+            
+            HttpSession session = SessionUtils.getSession();
+            session.setAttribute("nombreUsuario", cnombreUsuario);
+       
             context.execute("swal('Login exitoso!','Bienvenido! usted esta conectado','success')");
             return "Home.xhtml?faces-redirect=true";            
         }
         else{   
-            System.out.println("else resu");
+          //  System.out.println("else resu");
             context.execute("swal('Login fallido','El nombre de usuario y/o la contraseña que especificaste es incorrecto','error')");
         }
         
@@ -215,6 +228,28 @@ public class UsuarioController implements Serializable {
 //        System.out.println(cpassword);
 //        System.out.println("No paso");
         return "";            
-    }    
+    }
+    
+    public boolean isLoggedIn() {
+        //System.out.println(cusuario);
+        boolean is;
+
+        if(cusuario == null){
+            is=false;
+        }
+        else{
+            is=true;
+        }
+        
+        return is;
+    }
+    
+    public String logout() {    
+        HttpSession session = SessionUtils.getSession();
+        session.invalidate();        
+        //FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return "Home.xhtml?faces-redirect=true";
+    }
+    
     
 }
