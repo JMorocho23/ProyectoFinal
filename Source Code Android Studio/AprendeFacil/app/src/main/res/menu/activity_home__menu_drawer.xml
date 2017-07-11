@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:title="Busqueada" />
+        <item
+            android:id="@+id/nav_manage"
+            android:title="Commentar" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:title="Subir Documento" />
+
+    </group>
+
+    <item android:title="Mi Libreria">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="Mis Documentos" />
+            <item
+                android:id="@+id/nav_send"
+                android:title="Mis Commentarios" />
+        </menu>
+    </item>
+
+</menu>
