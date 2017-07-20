@@ -15,7 +15,6 @@ import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -223,7 +222,7 @@ public class UsuarioController implements Serializable {
             context.execute ("swal('Login fallido','Por favor ingrese un contraseña','warning')");
           }
         }
-         
+          
 //        System.out.println(cnombreUsuario);
 //        System.out.println(cpassword);
 //        System.out.println("No paso");

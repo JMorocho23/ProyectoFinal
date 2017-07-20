@@ -4,8 +4,14 @@ import com.uda.model.Archivo;
 import com.uda.jsf.util.JsfUtil;
 import com.uda.jsf.util.JsfUtil.PersistAction;
 import com.uda.sessionbean.ArchivoFacade;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -14,10 +20,14 @@ import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import org.apache.commons.io.IOUtils;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
 
 @Named("archivoController")
 @SessionScoped
@@ -27,6 +37,16 @@ public class ArchivoController implements Serializable {
     private com.uda.sessionbean.ArchivoFacade ejbFacade;
     private List<Archivo> items = null;
     private Archivo selected;
+    private UploadedFile uploadedFile;
+    private String destination="D:\\tmp\\";
+
+    public UploadedFile getUploadedFile() {
+        return uploadedFile;
+    }
+
+    public void setUploadedFile(UploadedFile uploadedFile) {
+        this.uploadedFile = uploadedFile;
+    }
 
     public ArchivoController() {
     }
@@ -158,8 +178,26 @@ public class ArchivoController implements Serializable {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Archivo.class.getName()});
                 return null;
             }
-        }
-
+        }    
+    }
+    
+        public void handleFileUpload(FileUploadEvent event) throws IOException {
+        FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
+        FacesContext.getCurrentInstance().addMessage(null, message);
+               
+        selected.setDocumento(IOUtils.toByteArray(event.getFile().getInputstream()));
+    }
+       
+    public void createArchivo(String id_materia, String id_usuario){
+        Date date = new Date();
+        selected.setFecha(date);
+        
+        System.out.println(id_materia);
+        System.out.println(id_usuario);
+             
+        selected.setMateriaId(id_materia);
+        selected.setNombreUsuario(id_usuario);
+        this.create();
     }
 
 }

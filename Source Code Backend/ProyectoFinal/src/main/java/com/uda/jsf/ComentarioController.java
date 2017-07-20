@@ -3,9 +3,13 @@ package com.uda.jsf;
 import com.uda.model.Comentario;
 import com.uda.jsf.util.JsfUtil;
 import com.uda.jsf.util.JsfUtil.PersistAction;
+import com.uda.model.Materia;
+import com.uda.model.Usuario;
 import com.uda.sessionbean.ComentarioFacade;
 
 import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -55,7 +59,7 @@ public class ComentarioController implements Serializable {
         return selected;
     }
 
-    public void create() {
+    public void create() {      
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("ComentarioCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
@@ -159,7 +163,19 @@ public class ComentarioController implements Serializable {
                 return null;
             }
         }
-
+       
+    }
+    
+    public void createCommentario(String id_materia, String id_usuario){
+        Date date = new Date();
+        selected.setFechaCommentario(date);
+        
+        System.out.println(id_materia);
+        System.out.println(id_usuario);
+       
+        selected.setMateriaId(id_materia);
+        selected.setNombreUsuario(id_usuario);
+        this.create();
     }
 
 }

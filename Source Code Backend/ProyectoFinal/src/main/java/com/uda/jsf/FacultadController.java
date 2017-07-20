@@ -3,6 +3,7 @@ package com.uda.jsf;
 import com.uda.model.Facultad;
 import com.uda.jsf.util.JsfUtil;
 import com.uda.jsf.util.JsfUtil.PersistAction;
+import com.uda.model.Universidad;
 import com.uda.sessionbean.FacultadFacade;
 
 import java.io.Serializable;
@@ -161,10 +162,17 @@ public class FacultadController implements Serializable {
         }
 
     }
+    
+        public List<Facultad> getItemsByUniversidad(Universidad u) {
+        return getFacade().findByUniversidadId(u);
+    }
 
     public String showFacultades(Facultad f){
            setSelected(f);
            return "Carreras.xhtml";
        }    
-
+    public String showFacultades2(Facultad f){
+           setSelected(f);
+           return "Universidades/Carreras.xhtml";
+       } 
 }

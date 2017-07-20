@@ -29,6 +29,7 @@ public class MateriaController implements Serializable {
     private List<Materia> items = null;
     private Materia selected;
 
+    
     public MateriaController() {
     }
 
@@ -174,11 +175,11 @@ public class MateriaController implements Serializable {
     
     public List<Materia> getItemsByCarrera(Carrera c) {
         return getFacade().findByCarreraId(c);
-    }   
-
+    }
+    
     public String showMateria(Materia m){
        setSelected(m);
        return "Materia.xhtml";
     }
-
+    
 }

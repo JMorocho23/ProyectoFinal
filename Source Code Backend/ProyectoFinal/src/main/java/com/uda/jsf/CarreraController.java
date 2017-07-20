@@ -172,4 +172,8 @@ public class CarreraController implements Serializable {
            return "Materias.xhtml";
        }    
 
+        public String showCarrera2(Carrera c){
+           setSelected(c);
+           return "Universidades/Materias.xhtml";
+       }    
 }
