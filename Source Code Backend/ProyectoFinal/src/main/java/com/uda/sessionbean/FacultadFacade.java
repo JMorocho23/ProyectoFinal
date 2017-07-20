@@ -5,10 +5,13 @@
  */
 package com.uda.sessionbean;
 
+import com.uda.model.Universidad;
 import com.uda.model.Facultad;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,5 +31,11 @@ public class FacultadFacade extends AbstractFacade<Facultad> {
     public FacultadFacade() {
         super(Facultad.class);
     }
+    
+        public List<Facultad> findByUniversidadId(Universidad UNIVERSIDAD_ID){
+        Query query=em.createNamedQuery("Universidad.findByUniversidadId");
+        query.setParameter("UNIVERSIDAD_ID", UNIVERSIDAD_ID);
+        return query.getResultList();
+    }  
     
 }

@@ -37,10 +37,5 @@ public class MateriaFacade extends AbstractFacade<Materia> {
         query.setParameter("carreraId", carreraId);
         return query.getResultList();
 }
-
-    public String searchByNombre(String nombre){
-        Query query=em.createNamedQuery("Materia.findByNombre");
-        query.setParameter("nombreMateria", em);
-        return query.toString();
-    }    
+  
 }
