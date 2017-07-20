@@ -34,12 +34,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Archivo.findAll", query = "SELECT a FROM Archivo a")
     , @NamedQuery(name = "Archivo.findByArchivoID", query = "SELECT a FROM Archivo a WHERE a.archivoID = :archivoID")
+    , @NamedQuery(name = "Archivo.findByNombre", query = "SELECT a FROM Archivo a WHERE a.nombre = :nombre")
     , @NamedQuery(name = "Archivo.findByDescripcion", query = "SELECT a FROM Archivo a WHERE a.descripcion = :descripcion")
     , @NamedQuery(name = "Archivo.findByTipo", query = "SELECT a FROM Archivo a WHERE a.tipo = :tipo")
-    , @NamedQuery(name = "Archivo.findByTamanio", query = "SELECT a FROM Archivo a WHERE a.tamanio = :tamanio")
+    , @NamedQuery(name = "Archivo.findByNumpaginas", query = "SELECT a FROM Archivo a WHERE a.numpaginas = :numpaginas")
     , @NamedQuery(name = "Archivo.findByFecha", query = "SELECT a FROM Archivo a WHERE a.fecha = :fecha")
     , @NamedQuery(name = "Archivo.findByMateriaId", query = "SELECT a FROM Archivo a WHERE a.materiaId = :materiaId")
-    , @NamedQuery(name = "Archivo.findByUsuarioId", query = "SELECT a FROM Archivo a WHERE a.usuarioId = :usuarioId")})
+    , @NamedQuery(name = "Archivo.findByNombreUsuario", query = "SELECT a FROM Archivo a WHERE a.nombreUsuario = :nombreUsuario")})
 public class Archivo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,15 +49,17 @@ public class Archivo implements Serializable {
     @Basic(optional = false)
     @Column(name = "Archivo_ID")
     private Long archivoID;
-    @Size(max = 50)
+    @Size(max = 100)
+    @Column(name = "nombre")
+    private String nombre;
+    @Size(max = 350)
     @Column(name = "descripcion")
     private String descripcion;
     @Size(max = 50)
     @Column(name = "tipo")
     private String tipo;
-    @Size(max = 50)
-    @Column(name = "tamanio")
-    private String tamanio;
+    @Column(name = "numpaginas")
+    private Integer numpaginas;
     @Basic(optional = false)
     @NotNull
     @Column(name = "fecha")
@@ -68,8 +71,17 @@ public class Archivo implements Serializable {
     @Size(max = 255)
     @Column(name = "MATERIA_ID")
     private String materiaId;
-    @Column(name = "USUARIO_ID")
-    private BigInteger usuarioId;
+    @Column(name = "nombre_usuario")
+    private String nombreUsuario;
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
 
     public Archivo() {
     }
@@ -91,6 +103,14 @@ public class Archivo implements Serializable {
         this.archivoID = archivoID;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -107,12 +127,12 @@ public class Archivo implements Serializable {
         this.tipo = tipo;
     }
 
-    public String getTamanio() {
-        return tamanio;
+    public Integer getNumpaginas() {
+        return numpaginas;
     }
 
-    public void setTamanio(String tamanio) {
-        this.tamanio = tamanio;
+    public void setNumpaginas(Integer numpaginas) {
+        this.numpaginas = numpaginas;
     }
 
     public Date getFecha() {
@@ -137,14 +157,6 @@ public class Archivo implements Serializable {
 
     public void setMateriaId(String materiaId) {
         this.materiaId = materiaId;
-    }
-
-    public BigInteger getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(BigInteger usuarioId) {
-        this.usuarioId = usuarioId;
     }
 
     @Override

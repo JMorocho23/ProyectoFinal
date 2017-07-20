@@ -19,7 +19,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -41,7 +40,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Comentario.findBySemestreMes", query = "SELECT c FROM Comentario c WHERE c.semestreMes = :semestreMes")
     , @NamedQuery(name = "Comentario.findBySemestreAnio", query = "SELECT c FROM Comentario c WHERE c.semestreAnio = :semestreAnio")
     , @NamedQuery(name = "Comentario.findByMateriaId", query = "SELECT c FROM Comentario c WHERE c.materiaId = :materiaId")
-    , @NamedQuery(name = "Comentario.findByUsuarioId", query = "SELECT c FROM Comentario c WHERE c.usuarioId = :usuarioId")})
+    , @NamedQuery(name = "Comentario.findByNombreUsuario", query = "SELECT c FROM Comentario c WHERE c.nombreUsuario = :nombreUsuario")})
 public class Comentario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,9 +55,9 @@ public class Comentario implements Serializable {
     @Size(max = 500)
     @Column(name = "consejo")
     private String consejo;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "fecha_commentario")
+   // @Basic(optional = false)
+   // @NotNull
+   @Column(name = "fecha_commentario")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaCommentario;
     @Column(name = "nhoras")
@@ -73,8 +72,16 @@ public class Comentario implements Serializable {
     @Size(max = 255)
     @Column(name = "MATERIA_ID")
     private String materiaId;
-    @Column(name = "USUARIO_ID")
-    private BigInteger usuarioId;
+    @Column(name = "nombre_usuario")
+    private String nombreUsuario;
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
 
     public Comentario() {
     }
@@ -85,7 +92,7 @@ public class Comentario implements Serializable {
 
     public Comentario(Long comentarioId, Date fechaCommentario) {
         this.comentarioId = comentarioId;
-        this.fechaCommentario = fechaCommentario;
+       this.fechaCommentario = fechaCommentario;
     }
 
     public Long getComentarioId() {
@@ -158,14 +165,6 @@ public class Comentario implements Serializable {
 
     public void setMateriaId(String materiaId) {
         this.materiaId = materiaId;
-    }
-
-    public BigInteger getUsuarioId() {
-        return usuarioId;
-    }
-
-    public void setUsuarioId(BigInteger usuarioId) {
-        this.usuarioId = usuarioId;
     }
 
     @Override
