@@ -52,13 +52,16 @@
                                 </ul> 
                                 <br></br>
                                 <div class="photo-buttons">
-                                     <ul class="list-inline text-right">
-                                         <li>
-                                             <b:commandButton look="warning" icon-awesome="upload"  value="Subir Documento" onclick="$('.dmodalPseudoClass').modal();return false; " update="DocumentForm"/> 
+                                    <ul class="list-inline text-left">
+                                        <li>
+                                            <b:commandButton look="primary" icon-awesome="user-plus" value="Regístrate Ahora" action="Signup.xhtml?faces-redirect=true" rendered="#{!usuarioController.loggedIn}"/> 
+                                        </li>
+                                        <li>
+                                             <b:commandButton look="warning" icon-awesome="upload"  value="Subir Documento" onclick="$('.dmodalPseudoClass').modal();return false; " update="DocumentForm" action="#{usuarioController.logout()}" rendered="#{usuarioController.loggedIn}" /> 
                                          </li>
                                          <li>
-                                             <b:commandButton look="info" icon-awesome="comment" value="Commentar"  onclick="$('.modalPseudoClass').modal();return false; " update="CommentForm" /> 
-                                         </li>                                     
+                                             <b:commandButton look="info" icon-awesome="comment" value="Commentar"  onclick="$('.modalPseudoClass').modal();return false; " update="CommentForm" action="#{usuarioController.logout()}" rendered="#{usuarioController.loggedIn}" /> 
+                                         </li>  
                                     </ul>
                                 </div>                                
                             </div>    
@@ -70,7 +73,8 @@
                     <b:tabView contentStyle="border-right: 1px solid #ddd;border-left: 1px solid #ddd;border-bottom: 1px solid #ddd;padding:10px">
                       <b:tab title="Documentos">
                           <h3>#{materiaController.selected.nombreMateria}<small> Documentos</small></h3>
-                          <h4>Mostrando 1 a 1 de 1</h4>
+                          <h4>Mostrando #{archivoController.items.size()} de #{archivoController.items.size()} </h4>
+                          <ui:repeat id="datalist-archivo" value="#{archivoController.items}" var="item" >
                           <b:container>
                             <b:row class="row product-list">
                                 <b:column col-md="4" col-sm="6" class="product-item">
@@ -82,17 +86,18 @@
                                         </b:row>
                                         <b:row>
                                             <b:column col-xs="8">
-                                                <h2>Documento 1</h2>				
+                                                <h2>#{item.nombre}</h2>				
                                             </b:column>
                                         </b:row>
-                                        <div class="product-rating"><a href="#" class="small-text">5 paginas</a></div>
+                                        <div class="product-rating"><a href="#" class="small-text">#{item.numpaginas} paginas</a></div>
                                         <b:row>
                                             <b:column col-xs="12">
-                                                <p class="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare sem sed nisl dignissim, facilisis dapibus lacus vulputate. Sed lacinia lacinia magna. </p>
+                                                <p class="product-description">#{item.descripcion}</p>
                                                 <b:row>
                                                     <b:column col-xs="6" offset-xs="3"> 
-                                                        <b:commandButton look="primary" value="Descargar" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon-awesome="download">
-                                                            <p:fileDownload value="#{fileDownloadView.file}" />
+                                                        <b:commandButton look="primary" icon-awesome="user-plus" value="Regístrate" action="../Signup.xhtml?faces-redirect=true" rendered="#{!usuarioController.loggedIn}"/>
+                                                        <b:commandButton look="primary" value="Descargar" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon-awesome="download" action="#{usuarioController.logout()}" rendered="#{usuarioController.loggedIn}" >
+                                                            <p:fileDownload value="#{item.documento}" />
                                                         </b:commandButton>
                                                     </b:column>
                                                 </b:row>				
@@ -102,53 +107,73 @@
                                 </b:column>
                             </b:row>                              
                           </b:container>
+                        </ui:repeat>
                       </b:tab>               
                       <b:tab title="Comentarios">
                           <h3>#{materiaController.selected.nombreMateria}<small> Comentarios</small></h3>
-                          <h4>Mostrando 1 a 1 de 1</h4>   
-                          <p:repeat var="Comentario" value="#{ComentarioController.items}">
+                          <h4>Mostrando #{comentarioController.items.size()} de #{comentarioController.items.size()} </h4>   
+                          <ui:repeat id="datalist" value="#{comentarioController.items}" var="item">
                               <b:container>
                                   <b:row class="comment-cont">
                                       <b:column col-lg="2" col-md="2" col-sm="2" class="text-center" >
                                         <b:iconAwesome name="user" size="3x"></b:iconAwesome>
-                                        <h5>Usuario 1</h5>
+                                        <h5>#{item.nombreUsuario}</h5>
                                     </b:column>
                                     <b:column col-lg="7" col-md="7" col-sm="6"> 
                                         <ul class="list-inline">
-                                            <li><p:rating value="#{Comentario.ratingMateria}" readonly="true"/></li>
-                                            <li><h4><small>| #{Comentario.ratingMateria}de 5 estrellas</small></h4></li>
+                                            <li><p:rating value="#{item.ratingComentario}" readonly="true"/></li>
+                                            <li><h4><small>| #{item.ratingComentario}de 5 estrellas</small></h4></li>
                                         </ul>
-                                        <h5><small>#{Comentario.fecha}</small></h5>
+                                        <h5><small>#{item.fechaCommentario}</small></h5>
                                         <hr class="comment-hr"></hr>
-                                        <h:outputText value="#{Comentario.descripcion}"/>
+                                        <h:outputLabel value="Resumen de la materia:"/>
+                                        <br></br>
+                                        <h:outputText value="#{item.descripcion}"/>
+                                        <br></br>
+                                        <h:outputLabel value="Consejos para estudiantes:" />
+                                        <br></br>
+                                        <h:outputText value="#{item.consejo}"/>
                                         <hr class="comment-hr"></hr>
                                     </b:column>
                                     <b:column col-lg="3" col-md="3" col-sm="4">    
                                         <ul class="list-unstyled">
-                                            <li><strong>Horas Semanales:</strong> #{Comentario.nhoras}</li>
+                                            <li><strong>Horas Semanales:</strong> #{item.nhoras}</li>
+                                            <li><strong>Ciclo Mes:</strong> #{item.semestreMes}</li>
+                                            <li><strong>Ciclo Año:</strong> #{item.semestreAnio}</li>
                                         </ul>
                                     </b:column>
                                   </b:row>
                               </b:container>
-                          </p:repeat>
+                          </ui:repeat>
                       </b:tab>                        
                      </b:tabView>
                  </h:form>  
                <h:form id="DocumentForm">
+                   
+                    <f:metadata>
+                        <f:event
+                            type="preRenderView" listener="#{archivoController.prepareCreate}"/>
+                    </f:metadata>
+                   
                     <b:modal class="modal-head" id="amodal" title="Subir Documento" styleClass="dmodalPseudoClass">
-                            <b:form enctype="multipart/form-data">
-                                <b:growl id="messages" showDetail="true" />
-                                <p:fileUpload value="Escoger"  mode="simple" fileLimit="1" />
-                            </b:form> 
+                            <h:form enctype="multipart/form-data">
+                                <p:fileUpload fileUploadListener="#{archivoController.handleFileUpload}" mode="advanced" update="messages" auto="true" sizeLimit="100000"/>
+                                
+                                <p:growl id="messages" showDetail="true" />
+                            </h:form>
                             <br></br>
                             <b:formGroup class="form-group" >
-                                 <b:inputText id="nombre_doc" fieldId="nombre_doc" name="nombre_doc" required="true"
-                                              value="#{archivoController.selected.nombre_doc}" class="form-control" placeholder="Nombre del Documento">
+                                 <b:inputText id="nombre" fieldId="nombre" name="nombre" required="true"
+                                              value="#{archivoController.selected.nombre}" class="form-control" placeholder="Nombre del Documento">
                                  </b:inputText>
-                                <b:message for="@previous" />
+                            </b:formGroup>  
+                            <b:formGroup class="form-group" >
+                                 <b:inputText id="descripcion" fieldId="descripcion" name="descripcion" required="true"
+                                              value="#{archivoController.selected.descripcion}" class="form-control" placeholder="Descripcion">
+                                 </b:inputText>
                             </b:formGroup>  
                             <b:formGroup class="form-group">
-                            <b:selectOneMenu class="form-control" id="tipo_doc" value="#{archivoController.selected.tipo_doc}" required="true">
+                                <b:selectOneMenu class="form-control" id="tipo" value="#{archivoController.selected.tipo}" required="true">
                                 <f:selectItem itemLabel="Tipo de Documento:" noSelectionOption="true"></f:selectItem>
                                 <f:selectItem itemLabel="Libro"></f:selectItem>
                                 <f:selectItem itemLabel="Sílabo"></f:selectItem>
@@ -159,15 +184,13 @@
                                 <f:selectItem itemLabel="Prueba"></f:selectItem>
                                 <f:selectItem itemLabel="Examen"></f:selectItem>
                             </b:selectOneMenu>
-                            <b:message for="@previous" />
                             </b:formGroup>  
                             <b:formGroup class="form-group">
-                                <b:touchSpin id="numero_pagina" booster="true" value="#{archivoController.selected.numero_pagina}" min="0" max="3000" step="1" prefix="Numero de Paginas:" />
-                                <b:message for="@previous" />
+                                <b:touchSpin id="numpaginas" booster="true" value="#{archivoController.selected.numpaginas}" min="0" max="3000" step="1" prefix="Numero de Paginas:" />
                             </b:formGroup>  
                         <f:facet name="footer">
                             <b:button value="Cancelar" dismiss="modal" />
-                            <b:commandButton value="Subir" look="primary" actionListener="#{archivoController.create()}"/>
+                            <b:commandButton value="Subir" look="primary" actionListener="#{archivoController.createArchivo(materiaController.selected.materiaPK.materiaId, usuarioController.cnombreUsuario)}"/>
                         </f:facet>
                     </b:modal>
                 </h:form>                      
@@ -180,12 +203,44 @@
                      
                     <b:modal class="modal-head" id="amodal" title="Dejar Comentario" styleClass="modalPseudoClass">    
                         <b:formGroup>
-                            <h:outputLabel value="#{materiaController.selected.nombreMateria}" title="Nombre de la materia:"/>
-                        </b:formGroup>                      
+                            <h:outputLabel value="#{materiaController.selected.nombreMateria}" title="Nombre de la materia:"/>                      
+                            <br></br>
+                            <h:outputLabel value="Ciclo:"/>
+                        </b:formGroup>
+                        
                         <b:formGroup>
+                            <b:selectOneMenu value="#{comentarioController.selected.semestreMes}" colMd="6" required="true">
+                                <f:selectItem itemLabel="(Seleccione)" itemValue="" noSelectionOption="true"/>
+                                <f:selectItem itemLabel="Septiembre-Enero" itemValue="Septiembre-Enero" />
+                                <f:selectItem itemLabel="Marzo-Julio" itemValue="Marzo-Julio" />
+                            </b:selectOneMenu>
+                        </b:formGroup>
+                        <b:formGroup>
+                            <b:selectOneMenu value="#{comentarioController.selected.semestreAnio}" colMd="6" required="true">
+                                <f:selectItem itemLabel="(Seleccione)" itemValue="" noSelectionOption="true"/>
+                                <f:selectItem itemLabel="2010" itemValue="2010" />
+                                <f:selectItem itemLabel="2011" itemValue="2011" />
+                                <f:selectItem itemLabel="2012" itemValue="2012" />
+                                <f:selectItem itemLabel="2013" itemValue="2013" />
+                                <f:selectItem itemLabel="2014" itemValue="2014" />
+                                <f:selectItem itemLabel="2015" itemValue="2015" />
+                                <f:selectItem itemLabel="2016" itemValue="2016" />
+                                <f:selectItem itemLabel="2017" itemValue="2017" />
+                                <f:selectItem itemLabel="2018" itemValue="2018" />
+                                <f:selectItem itemLabel="2019" itemValue="2019" />
+                                <f:selectItem itemLabel="2020" itemValue="2020" />
+                                <f:selectItem itemLabel="2021" itemValue="2021" />
+                                <f:selectItem itemLabel="2022" itemValue="2022" />
+                                <f:selectItem itemLabel="2023" itemValue="2023" />
+                            </b:selectOneMenu>
+                            
+                        </b:formGroup>
+                        
+                        <b:formGroup>
+                            <br></br>
                             <h:outputLabel value="En general, ¿recomendaría esta materia?"/>
                             <p:rating id="rating_comentario" value="#{comentarioController.selected.ratingComentario}" required="true"/>
-                        </b:formGroup>
+                        </b:formGroup>                        
                         <b:formGroup class="form-group">
                             <h:outputLabel value="Resumen breve de la materia:"/>
                             <b:inputText id="descripcion" fieldId="descripcion" name="descripcion" class="form-control" required="true"
@@ -193,13 +248,19 @@
                             </b:inputText>               
                         </b:formGroup>
                         <b:formGroup class="form-group">
-                            <h:outputLabel value="¿Cuántas horas de trabajo por semana puso udsted en esta materia?"/>
+                            <h:outputLabel value="¿Qué consejo le daría a futuros estudiantes sobre la materia?:"/>
+                            <b:inputText id="consejo" fieldId="consejo" name="consejo" class="form-control" required="true"
+                                         value="#{comentarioController.selected.consejo}" placeholder="Consejos para aprobar la materia y/o como estudiar?">
+                            </b:inputText>               
+                        </b:formGroup>                        
+                        <b:formGroup class="form-group">
+                            <h:outputLabel value="¿Cuántas horas de trabajo por semana dedico usted en esta materia?"/>
                             <b:touchSpin id="nhoras" booster="true" value="#{comentarioController.selected.nhoras}" min="0" max="12" step="1"/>
                             <b:message for="@previous" />
                         </b:formGroup>   
                         <f:facet name="footer">
-                            <b:button value="#{bundle.Cancel}" dismiss="modal" />
-                            <b:commandButton value="#{bundle.Save}" look="primary" actionListener="#{comentarioController.create}"/>
+                            <b:button value="Cancelar" dismiss="modal" />
+                            <b:commandButton value="Guardar" look="primary" actionListener="#{comentarioController.createCommentario(materiaController.selected.materiaPK.materiaId, usuarioController.cnombreUsuario)}"/>
                         </f:facet>
                     </b:modal>
                 </h:form>      

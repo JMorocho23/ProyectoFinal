@@ -14,12 +14,14 @@
                     <p:panelGrid columns="2" rendered="#{archivoController.selected != null}">
                         <h:outputText value="#{bundle.ViewArchivoLabel_archivoID}"/>
                         <h:outputText value="#{archivoController.selected.archivoID}" title="#{bundle.ViewArchivoTitle_archivoID}"/>
+                        <h:outputText value="#{bundle.ViewArchivoLabel_nombre}"/>
+                        <h:outputText value="#{archivoController.selected.nombre}" title="#{bundle.ViewArchivoTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewArchivoLabel_descripcion}"/>
                         <h:outputText value="#{archivoController.selected.descripcion}" title="#{bundle.ViewArchivoTitle_descripcion}"/>
                         <h:outputText value="#{bundle.ViewArchivoLabel_tipo}"/>
                         <h:outputText value="#{archivoController.selected.tipo}" title="#{bundle.ViewArchivoTitle_tipo}"/>
-                        <h:outputText value="#{bundle.ViewArchivoLabel_tamanio}"/>
-                        <h:outputText value="#{archivoController.selected.tamanio}" title="#{bundle.ViewArchivoTitle_tamanio}"/>
+                        <h:outputText value="#{bundle.ViewArchivoLabel_numpaginas}"/>
+                        <h:outputText value="#{archivoController.selected.numpaginas}" title="#{bundle.ViewArchivoTitle_numpaginas}"/>
                         <h:outputText value="#{bundle.ViewArchivoLabel_fecha}"/>
                         <h:outputText value="#{archivoController.selected.fecha}" title="#{bundle.ViewArchivoTitle_fecha}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />

@@ -38,11 +38,12 @@
                                             <f:facet name="header">
                                               <h:outputText value="Nombre"/>
                                             </f:facet>
-                                            <b:commandButton  look="link"  value="#{item.nombre_carrera}" action="#{carreraController.showCarrera(item)}"/>
+                                            <b:commandButton  look="link"  value="#{item.nombreCarrera}" action="#{carreraController.showCarrera2(item)}"/>
                                         </b:dataTableColumn>                                             
-                                        <b:dataTableColumn label="Descripcion" value="#{item.descripcion_carrera}"/>
-                                        <b:dataTableColumn label="Duracion" value="#{item.duracion_carrera}"/>
-                                        <b:dataTableColumn label="Horario" value="#{item.horario_carrera}"/>
+                                        <b:dataTableColumn label="Descripcion" value="#{item.descripcionCarrera}"/>
+                                        <b:dataTableColumn label="Duracion" value="#{item.duracionCarrera}"/>
+                                        <b:dataTableColumn label="Horario" value="#{item.horarioCarrera}"/>
+                                       
                                     </b:dataTable>                                                                                              
                                 </b:column>
                             </b:row>

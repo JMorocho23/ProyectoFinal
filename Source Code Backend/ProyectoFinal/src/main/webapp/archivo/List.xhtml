@@ -35,6 +35,12 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListArchivoTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListArchivoTitle_descripcion}"/>
                             </f:facet>
                             <h:outputText value="#{item.descripcion}"/>
@@ -47,9 +53,9 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListArchivoTitle_tamanio}"/>
+                                <h:outputText value="#{bundle.ListArchivoTitle_numpaginas}"/>
                             </f:facet>
-                            <h:outputText value="#{item.tamanio}"/>
+                            <h:outputText value="#{item.numpaginas}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">

@@ -14,12 +14,14 @@
                     <p:panelGrid columns="2" rendered="#{archivoController.selected != null}">
                         <p:outputLabel value="#{bundle.EditArchivoLabel_archivoID}" for="archivoID" />
                         <p:inputText id="archivoID" value="#{archivoController.selected.archivoID}" title="#{bundle.EditArchivoTitle_archivoID}" required="true" requiredMessage="#{bundle.EditArchivoRequiredMessage_archivoID}"/>
+                        <p:outputLabel value="#{bundle.EditArchivoLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{archivoController.selected.nombre}" title="#{bundle.EditArchivoTitle_nombre}" />
                         <p:outputLabel value="#{bundle.EditArchivoLabel_descripcion}" for="descripcion" />
                         <p:inputText id="descripcion" value="#{archivoController.selected.descripcion}" title="#{bundle.EditArchivoTitle_descripcion}" />
                         <p:outputLabel value="#{bundle.EditArchivoLabel_tipo}" for="tipo" />
                         <p:inputText id="tipo" value="#{archivoController.selected.tipo}" title="#{bundle.EditArchivoTitle_tipo}" />
-                        <p:outputLabel value="#{bundle.EditArchivoLabel_tamanio}" for="tamanio" />
-                        <p:inputText id="tamanio" value="#{archivoController.selected.tamanio}" title="#{bundle.EditArchivoTitle_tamanio}" />
+                        <p:outputLabel value="#{bundle.EditArchivoLabel_numpaginas}" for="numpaginas" />
+                        <p:inputText id="numpaginas" value="#{archivoController.selected.numpaginas}" title="#{bundle.EditArchivoTitle_numpaginas}" />
                         <p:outputLabel value="#{bundle.EditArchivoLabel_fecha}" for="fecha" />
                         <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{archivoController.selected.fecha}" title="#{bundle.EditArchivoTitle_fecha}" required="true" requiredMessage="#{bundle.EditArchivoRequiredMessage_fecha}" showOn="button"/>
                         <p:outputLabel value="#{bundle.EditArchivoLabel_documento}" for="documento" />

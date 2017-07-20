@@ -8,7 +8,7 @@
       xmlns:b="http://bootsfaces.net/ui">
 
       
-
+    
 
     <body>
 
@@ -21,12 +21,10 @@
                     <b:column col-lg="5" offset-lg="1" col-md="6" offset-md="0">
                         <h1>Facilita tu estudio </h1>
                         <p>Encuentra recursos de estudio específicos a la materia como apuntes, materiales de preparación para pruebas y mucho mas </p>
-                        <div class="input-group stylish-input-group">
-                            <b:inputText id="search" type="text" class="form-control" placeholder="Buscar" value="#{MateriaController.searchString}" valueChangeListener="#{MateriaController.searchStringChanged}">
-                                <f:ajax execute="search" render="output" event="blur"/>
-                            </b:inputText><span class="input-group-addon"><button type="submit"><i class="fa fa-search"></i></button></span>
-                             <h2><h:outputText id="output" value="#{MateriaController.Materia.nombre_materia}" /></h2>
-			</div>
+                                          
+                        <div class="buttons">
+                            <b:button size="lg" look="warning" value="Mas Informacion" href="#features" icon-awesome="chevron-down" iconAlign="right"></b:button>
+                        </div>     
                     </b:column>
                     <b:column class="phone-holder" col-lg="5" offset-lg="0" col-md="5" offset-md="1" hidden="xs,sm">
                         <div class="iphone-mockup">
@@ -38,7 +36,7 @@
             </b:container>
         </div>
 
-    <div class="features-boxed">
+    <div id="features" class="features-boxed">
         <b:container>
             <div class="intro">
                 <h2 class="text-center">Objectivos </h2>
@@ -75,7 +73,7 @@
                         <p style="color: #ecf0f1;">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. Aliqua sed justo ligula.</p>
                     </div>  
                     <div class="buttons">
-                        <a class="btn btn-primary" role="button" href="About.xhtml">Ver mas >></a>
+                        <b:button look="primary" href="About.xhtml" value="Ver mas" icon-awesome="angle-double-right" icon-align="right" />
                     </div>                    
                 </b:column>
                 <b:column col-sm="4" hidden="xs">
@@ -100,19 +98,19 @@
                         <p>Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. Aliqua sed justo ligula.</p>
                     </div>
                     <div class="buttons">
-                        <a class="btn btn-primary" role="button" href="University-Search.xhtml">Ver mas >></a>
+                        <b:button look="primary" href="University-Search.xhtml" value="Ver mas" icon-awesome="angle-double-right" icon-align="right" />
                     </div>
                 </b:column>
             </b:row>
         </b:container>
     </div>
-    <div class="highlight-blue">
-        <b:container>
+    <div class="highlight-blue"  >
+        <b:container >
             <div class="intro">
-                <h3 class="text-center">Únete a nuestra comunidad de aprendizaje nacional de estudiantes y educadores!</h3>
+                <h3 class="text-center" >Únete a nuestra comunidad de aprendizaje nacional de estudiantes y educadores!</h3>
             </div>
             <div class="buttons">
-                <a class="btn btn-primary" role="button" href="Signup.xhtml">Regístrate ahora </a>
+                <b:button look="primary" href="Signup.xhtml" value="Regístrate ahora!" icon-awesome="angle-double-right" icon-align="right" />
             </div>
         </b:container>
     </div>

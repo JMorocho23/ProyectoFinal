@@ -38,9 +38,10 @@
                                             <f:facet name="header">
                                               <h:outputText value="Nombre"/>
                                             </f:facet>
-                                            <b:commandButton look="link" value="#{item.nombre_facultad}" action="#{facultadController.showFacultades(item)}"/>
+                                            <b:commandButton look="link" value="#{item.nombreFacultad}" action="#{facultadController.showFacultades2(item)}"/>
                                         </b:dataTableColumn>
-                                        <b:dataTableColumn label="Descripcion" value="#{item.descripcion_facultad}"/>            
+                                        <b:dataTableColumn label="Descripcion" value="#{item.descripcionFacultad}"/>  
+                                        
                                     </b:dataTable>                                                                                                
                                 </b:column>
                             </b:row>

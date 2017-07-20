@@ -17,23 +17,23 @@
 
     <h:body>    
         <b:form class="nav-form">    
-            <b:navBar id="custom-navbar" class="nav-form" brand-href="Home.xhtml" brand-img="http://imgh.us/logov1.svg">
+            <b:navBar id="custom-navbar" class="nav-form" brand-href="../Home.xhtml" brand-img="http://imgh.us/logov1.svg">
             <b:navbarLinks>
-               <b:navLink id="af-navar-text1" value="Inicio" href="Home.xhtml"></b:navLink>
-               <b:navLink id="af-navar-text2" value="Nosotros" href="About.xhtml"></b:navLink>
-               <b:navLink id="af-navar-text3" value="Contactanos" href="Contact.xhtml"></b:navLink>      
+               <b:navLink id="af-navar-text1" value="Inicio" href="../Home.xhtml"></b:navLink>
+               <b:navLink id="af-navar-text2" value="Nosotros" href="../About.xhtml"></b:navLink>
+               <b:navLink id="af-navar-text3" value="Contactanos" href="../Contact.xhtml"></b:navLink>      
                <b:dropMenu id="af-navar-text6" value="Busca "  style="color: #ecf0f1">
-                   <b:navLink value="Por Universidad" href="University-Search.xhtml"></b:navLink>
-                   <b:navLink value="Por Facultad" href="Faculty-Search.xhtml"></b:navLink>
-                   <b:navLink value="Por Carrera" href="Career-Search.xhtml"></b:navLink>
+                   <b:navLink value="Por Universidad" href="../University-Search.xhtml"></b:navLink>
+                   <b:navLink value="Por Facultad" href="../Faculty-Search.xhtml"></b:navLink>
+                   <b:navLink value="Por Carrera" href="../Career-Search.xhtml"></b:navLink>
                </b:dropMenu>
             </b:navbarLinks>
              <b:navbarLinks pull="right">
                  
                     <b:navCommandLink id="af-navar-text7" value="Cerrar Sesión" action="#{usuarioController.logout()}" rendered="#{usuarioController.loggedIn}" ></b:navCommandLink> 
                  
-                 <b:navLink id="af-navar-text4" value="Iniciar Sesión" href="Login.xhtml" rendered="#{!usuarioController.loggedIn}" ></b:navLink>
-                <b:navLink id="af-navar-text5" value="Registrate" href="Signup.xhtml" rendered="#{!usuarioController.loggedIn}" ></b:navLink>    
+                 <b:navLink id="af-navar-text4" value="Iniciar Sesión" href="../Login.xhtml" rendered="#{!usuarioController.loggedIn}" ></b:navLink>
+                <b:navLink id="af-navar-text5" value="Registrate" href="../Signup.xhtml" rendered="#{!usuarioController.loggedIn}" ></b:navLink>    
             </b:navbarLinks>
         </b:navBar>
     </b:form>  
